@@ -1,0 +1,229 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useMemo, useState } from "react";
+import { useCourses, useTrainings } from "@/hooks/useData";
+import {
+  allCountries,
+  allTrainingLanguages,
+  filterTrainings,
+  getCourseForTraining,
+  allTopics,
+} from "@/lib/derive";
+import { FilterChip } from "@/components/site/FilterChip";
+import { AnimatedPageHero } from "@/components/site/AnimatedPageHero";
+import { AnimatedGrid } from "@/components/site/AnimatedGrid";
+import { CalendarDays, MapPin, Languages, Clock } from "lucide-react";
+import { formatDate } from "@/lib/format";
+
+export const Route = createFileRoute("/trainings")({
+  head: () => ({
+    meta: [
+      { title: "Trainings — CALP Training Hub" },
+      {
+        name: "description",
+        content:
+          "Browse and filter upcoming CALP trainings by topic, country, language and format. Apply directly to any session.",
+      },
+      { property: "og:title", content: "Trainings — CALP Training Hub" },
+      {
+        property: "og:description",
+        content:
+          "Filter upcoming CALP trainings by topic and apply for the session that fits you.",
+      },
+    ],
+  }),
+  component: TrainingsPage,
+});
+
+function TrainingsPage() {
+  const { data: courses = [] } = useCourses();
+  const { data: trainings = [], isLoading } = useTrainings();
+  const [topic, setTopic] = useState<string | null>(null);
+  const [country, setCountry] = useState<string | null>(null);
+  const [courseId, setCourseId] = useState<string | null>(null);
+  const [language, setLanguage] = useState<string | null>(null);
+  const [format, setFormat] = useState<string | null>(null);
+
+  const topics = useMemo(() => allTopics(courses), [courses]);
+
+  const results = useMemo(() => {
+    const list = filterTrainings(trainings, {
+      country: country ?? undefined,
+      courseId: courseId ?? undefined,
+      language: language ?? undefined,
+    });
+    return list
+      .filter((t) => (format ? t.format === format : true))
+      .filter((t) => {
+        if (!topic) return true;
+        const c = getCourseForTraining(courses, t);
+        return c?.topics.includes(topic) ?? false;
+      });
+  }, [trainings, courses, topic, country, courseId, language, format]);
+
+  const filterKey = `${topic}-${country}-${courseId}-${language}-${format}`;
+
+  return (
+    <>
+      <AnimatedPageHero
+        eyebrow="Upcoming sessions"
+        title="Find a training"
+        intro="Filter by topic to find the right CALP training, then apply in one click."
+      />
+
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <div className="mb-10 flex flex-col gap-4 rounded-2xl border border-calp-navy/5 bg-white p-6 shadow-sm">
+          <FilterGroup label="Topic">
+            <FilterChip active={topic === null} onClick={() => setTopic(null)}>
+              All
+            </FilterChip>
+            {topics.map((tp) => (
+              <FilterChip key={tp} active={topic === tp} onClick={() => setTopic(tp)}>
+                {tp}
+              </FilterChip>
+            ))}
+          </FilterGroup>
+          <FilterGroup label="Course">
+            <FilterChip active={courseId === null} onClick={() => setCourseId(null)}>
+              All
+            </FilterChip>
+            {courses.map((c) => (
+              <FilterChip
+                key={c.id}
+                active={courseId === c.id}
+                onClick={() => setCourseId(c.id)}
+              >
+                {c.title.length > 32 ? c.title.slice(0, 30) + "…" : c.title}
+              </FilterChip>
+            ))}
+          </FilterGroup>
+          <FilterGroup label="Country">
+            <FilterChip active={country === null} onClick={() => setCountry(null)}>
+              All
+            </FilterChip>
+            {allCountries(trainings).map((c) => (
+              <FilterChip key={c} active={country === c} onClick={() => setCountry(c)}>
+                {c}
+              </FilterChip>
+            ))}
+          </FilterGroup>
+          <FilterGroup label="Language">
+            <FilterChip active={language === null} onClick={() => setLanguage(null)}>
+              All
+            </FilterChip>
+            {allTrainingLanguages(trainings).map((l) => (
+              <FilterChip key={l} active={language === l} onClick={() => setLanguage(l)}>
+                {l}
+              </FilterChip>
+            ))}
+          </FilterGroup>
+          <FilterGroup label="Format">
+            <FilterChip active={format === null} onClick={() => setFormat(null)}>
+              All
+            </FilterChip>
+            {["Face-to-Face", "Online", "Hybrid"].map((f) => (
+              <FilterChip key={f} active={format === f} onClick={() => setFormat(f)}>
+                {f}
+              </FilterChip>
+            ))}
+          </FilterGroup>
+        </div>
+
+        <p className="mb-6 text-xs font-bold uppercase tracking-widest text-calp-slate">
+          {results.length} training{results.length === 1 ? "" : "s"} match
+        </p>
+
+        {isLoading ? (
+          <p className="py-16 text-center text-calp-slate">Loading trainings…</p>
+        ) : results.length === 0 ? (
+          <p className="py-16 text-center text-calp-slate">
+            No trainings match those filters. Try broadening your topic or country.
+          </p>
+        ) : (
+          <AnimatedGrid
+            key={filterKey}
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {results.map((t) => {
+              const course = getCourseForTraining(courses, t);
+              return (
+                <article
+                  key={t.id}
+                  className="group flex flex-col rounded-2xl border border-calp-navy/10 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-calp-red/40 hover:shadow-lg"
+                >
+                  <div className="mb-3 flex flex-wrap gap-2">
+                    <span className="rounded bg-calp-navy px-2 py-1 text-[10px] font-bold uppercase text-white">
+                      {t.format}
+                    </span>
+                    <span className="rounded bg-slate-100 px-2 py-1 text-[10px] font-bold uppercase">
+                      {t.language}
+                    </span>
+                    {course?.topics.slice(0, 1).map((tp) => (
+                      <span
+                        key={tp}
+                        className="rounded bg-calp-red/10 px-2 py-1 text-[10px] font-bold uppercase text-calp-red"
+                      >
+                        {tp}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="mb-3 font-display text-lg font-bold leading-snug text-calp-navy">
+                    {course?.title ?? "Training"}
+                  </h3>
+                  <ul className="mb-6 space-y-2 text-sm text-calp-slate">
+                    <li className="flex items-start gap-2">
+                      <CalendarDays className="mt-0.5 h-4 w-4 shrink-0 text-calp-red" />
+                      <span>
+                        {formatDate(t.startDate)} – {formatDate(t.endDate)}
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-calp-red" />
+                      <span>
+                        {t.city}, {t.country}
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Languages className="mt-0.5 h-4 w-4 shrink-0 text-calp-red" />
+                      <span>{t.trainer}</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Clock className="mt-0.5 h-4 w-4 shrink-0 text-calp-red" />
+                      <span>Apply by {formatDate(t.deadline)}</span>
+                    </li>
+                  </ul>
+                  <div className="mt-auto flex gap-2">
+                    <Link
+                      to="/trainings/$trainingId"
+                      params={{ trainingId: t.id }}
+                      className="flex-1 rounded-lg border border-calp-navy/15 px-4 py-2 text-center text-xs font-bold uppercase tracking-widest text-calp-navy transition-colors hover:border-calp-navy"
+                    >
+                      Details
+                    </Link>
+                    <Link
+                      to="/apply"
+                      search={{ training: t.id }}
+                      className="flex-1 rounded-lg bg-calp-navy px-4 py-2 text-center text-xs font-bold uppercase tracking-widest text-white transition-colors group-hover:bg-calp-red"
+                    >
+                      Apply
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
+          </AnimatedGrid>
+        )}
+      </section>
+    </>
+  );
+}
+
+function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="mr-2 w-20 shrink-0 text-[10px] font-bold uppercase tracking-widest text-calp-slate">
+        {label}
+      </span>
+      {children}
+    </div>
+  );
+}
