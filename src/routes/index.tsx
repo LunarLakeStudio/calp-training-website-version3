@@ -92,7 +92,7 @@ function Index() {
       </section>
 
       {/* Courses / trainings / trainers */}
-      <section className="mx-auto grid max-w-7xl gap-10 px-6 pb-16 lg:grid-cols-[1.35fr_1fr_0.95fr]">
+      <section className="mx-auto grid max-w-7xl gap-10 px-6 pb-16 lg:grid-cols-[1.7fr_1.1fr_1fr]">
         <div className="min-w-0">
           <SectionHead
             title="Explore our courses"
