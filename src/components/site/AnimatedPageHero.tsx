@@ -50,21 +50,21 @@ export function AnimatedPageHero({
       {eyebrow ? (
         <motion.div
           variants={itemVariants}
-          className="mb-6 inline-flex items-center gap-2 rounded-full bg-calp-red/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-calp-red"
+          className="mb-6 inline-flex items-center gap-2 rounded-full bg-calp-red/10 px-3 py-1 text-xs font-bold text-calp-red"
         >
           {eyebrow}
         </motion.div>
       ) : null}
       <motion.h1
         variants={itemVariants}
-        className="mb-6 max-w-3xl font-display text-5xl font-bold leading-[1.05] tracking-tight text-balance md:text-6xl"
+        className="mb-6 max-w-3xl font-display text-4xl font-bold leading-tight text-balance text-calp-red md:text-5xl"
       >
         {title}
       </motion.h1>
       {intro ? (
         <motion.p
           variants={itemVariants}
-          className="max-w-2xl text-lg leading-relaxed text-calp-slate"
+          className="max-w-2xl text-lg leading-relaxed text-calp-ink"
         >
           {intro}
         </motion.p>

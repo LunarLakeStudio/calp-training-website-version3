@@ -89,7 +89,7 @@ function CalendarPage() {
       />
 
       <section className="mx-auto max-w-7xl px-6 pb-24">
-        <div className="mb-10 flex flex-col gap-4 rounded-2xl border border-calp-navy/5 bg-white p-6 shadow-sm">
+        <div className="mb-10 flex flex-col gap-4 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
           <FilterGroup label="Country">
             <FilterChip active={country === null} onClick={() => setCountry(null)}>
               All
@@ -144,9 +144,9 @@ function CalendarPage() {
         </div>
 
         {isLoading ? (
-          <p className="py-16 text-center text-calp-slate">Loading calendar…</p>
+          <p className="py-16 text-center text-calp-ink">Loading calendar…</p>
         ) : results.length === 0 ? (
-          <p className="py-16 text-center text-calp-slate">
+          <p className="py-16 text-center text-calp-ink">
             No trainings match those filters.
           </p>
         ) : (
@@ -157,8 +157,8 @@ function CalendarPage() {
                 <div key={key}>
                   <h2 className="mb-6 flex items-baseline gap-3 font-display text-2xl font-bold">
                     <span>{MONTH_LABELS[parseInt(mm, 10) - 1]}</span>
-                    <span className="text-calp-slate">{y}</span>
-                    <span className="ml-auto text-xs font-medium uppercase tracking-widest text-calp-slate">
+                    <span className="text-calp-ink">{y}</span>
+                    <span className="ml-auto text-xs font-medium text-calp-ink">
                       {items.length} training{items.length > 1 ? "s" : ""}
                     </span>
                   </h2>
@@ -188,7 +188,7 @@ function CalendarPage() {
 function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="mr-2 w-20 shrink-0 text-[10px] font-bold uppercase tracking-widest text-calp-slate">
+      <span className="mr-2 w-20 shrink-0 text-[10px] font-bold text-calp-ink">
         {label}
       </span>
       {children}

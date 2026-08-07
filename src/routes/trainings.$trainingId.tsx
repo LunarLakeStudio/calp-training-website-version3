@@ -118,26 +118,26 @@ function TrainingDetail() {
 
   return (
     <>
-      <header className="border-b border-calp-navy/5 bg-white">
+      <header className="border-b border-calp-blue/5 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-16">
           <Link
             to="/calendar"
-            className="mb-6 inline-block text-xs font-bold uppercase tracking-widest text-calp-red"
+            className="mb-6 inline-block text-xs font-bold text-calp-red"
           >
             ← Calendar
           </Link>
           <div className="mb-4 flex flex-wrap gap-2">
-            <span className="rounded bg-calp-navy px-2 py-1 text-[10px] font-bold uppercase text-white">
+            <span className="rounded bg-calp-blue px-2 py-1 text-[10px] font-bold text-white">
               {training.format}
             </span>
-            <span className="rounded bg-slate-100 px-2 py-1 text-[10px] font-bold uppercase">
+            <span className="rounded bg-calp-pale-teal/40 px-2 py-1 text-[10px] font-bold">
               {training.language}
             </span>
           </div>
-          <h1 className="mb-4 max-w-3xl font-display text-4xl font-bold leading-[1.1] text-balance md:text-5xl">
+          <h1 className="mb-4 max-w-3xl font-display text-4xl font-bold leading-tight text-balance text-calp-red md:text-5xl">
             {course?.title ?? "Training"}
           </h1>
-          <p className="text-lg text-calp-slate">
+          <p className="text-lg text-calp-ink">
             {training.city}, {training.country} · {dateRange}
           </p>
         </div>
@@ -145,10 +145,10 @@ function TrainingDetail() {
 
       <section className="mx-auto grid max-w-7xl gap-16 px-6 py-20 lg:grid-cols-[1fr_1.2fr]">
         <aside className="space-y-6">
-          <h2 className="font-display text-sm font-bold uppercase tracking-widest text-calp-red">
+          <h2 className="font-display text-sm font-bold text-calp-red">
             Training details
           </h2>
-          <ul className="space-y-4 rounded-2xl border border-calp-navy/5 bg-white p-6 shadow-sm">
+          <ul className="space-y-4 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
             <DetailItem icon={CalendarDays} label="Dates" value={dateRange} />
             <DetailItem icon={MapPin} label="Venue" value={training.venue} />
             <DetailItem
@@ -167,13 +167,13 @@ function TrainingDetail() {
             <Link
               to="/courses/$courseId"
               params={{ courseId: course.slug }}
-              className="block rounded-xl border border-calp-navy/10 bg-white p-6 transition-colors hover:border-calp-red/40"
+              className="block rounded-xl border border-calp-blue/10 bg-white p-6 transition-colors hover:border-calp-red/40"
             >
-              <p className="mb-1 text-xs font-bold uppercase tracking-widest text-calp-slate">
+              <p className="mb-1 text-xs font-bold text-calp-ink">
                 About the course
               </p>
-              <p className="text-sm font-semibold text-calp-navy">{course.title}</p>
-              <p className="mt-2 line-clamp-3 text-sm text-calp-slate">
+              <p className="text-sm font-semibold text-calp-blue">{course.title}</p>
+              <p className="mt-2 line-clamp-3 text-sm text-calp-ink">
                 {course.summary}
               </p>
             </Link>
@@ -182,7 +182,7 @@ function TrainingDetail() {
 
         <div>
           <h2 className="mb-2 font-display text-3xl font-bold">Apply for this training</h2>
-          <p className="mb-8 text-calp-slate">
+          <p className="mb-8 text-calp-ink">
             Applications are reviewed on a rolling basis. You'll receive a confirmation
             by email within five working days.
           </p>
@@ -203,13 +203,13 @@ function TrainingDetail() {
               <Field label="Country" name="country" error={errors.country} />
             </div>
             <div>
-              <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-calp-slate">
+              <label className="mb-2 block text-xs font-bold text-calp-ink">
                 Language of application
               </label>
               <select
                 name="applicationLanguage"
                 defaultValue="en"
-                className="w-full rounded-lg border border-calp-navy/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
+                className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
               >
                 {LANGS.map((l) => (
                   <option key={l.code} value={l.code}>
@@ -222,7 +222,7 @@ function TrainingDetail() {
               ) : null}
             </div>
             <div>
-              <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-calp-slate">
+              <label className="mb-2 block text-xs font-bold text-calp-ink">
                 Motivation
               </label>
               <textarea
@@ -230,7 +230,7 @@ function TrainingDetail() {
                 rows={5}
                 maxLength={1500}
                 placeholder="Tell us about your current role and what you hope to gain from this training…"
-                className="w-full rounded-lg border border-calp-navy/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
+                className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
               />
               {errors.motivation ? (
                 <p className="mt-1 text-xs text-calp-red">{errors.motivation}</p>
@@ -239,7 +239,7 @@ function TrainingDetail() {
             <button
               type="submit"
               disabled={submitting}
-              className="rounded-lg bg-calp-navy px-8 py-4 font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-calp-red disabled:opacity-60"
+              className="rounded-lg bg-calp-red px-8 py-4 font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-60"
             >
               {submitting ? "Sending…" : "Submit application"}
             </button>
@@ -263,10 +263,10 @@ function DetailItem({
     <li className="flex items-start gap-3">
       <Icon className="mt-0.5 h-4 w-4 shrink-0 text-calp-red" />
       <div>
-        <p className="text-[10px] font-bold uppercase tracking-widest text-calp-slate">
+        <p className="text-[10px] font-bold text-calp-ink">
           {label}
         </p>
-        <p className="text-sm font-medium text-calp-navy">{value}</p>
+        <p className="text-sm font-medium text-calp-blue">{value}</p>
       </div>
     </li>
   );
@@ -285,13 +285,13 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-calp-slate">
+      <label className="mb-2 block text-xs font-bold text-calp-ink">
         {label}
       </label>
       <input
         name={name}
         type={type}
-        className="w-full rounded-lg border border-calp-navy/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
+        className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
       />
       {error ? <p className="mt-1 text-xs text-calp-red">{error}</p> : null}
     </div>

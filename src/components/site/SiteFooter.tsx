@@ -1,32 +1,35 @@
-import { Link } from "@tanstack/react-router";
 import { BrandWordmark } from "@/components/site/BrandWordmark";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-calp-navy/5 bg-white">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-10 md:flex-row">
-        <BrandWordmark showSubBrand={false} variant="footer" />
-        <div className="flex flex-wrap justify-center gap-7 text-sm font-medium text-calp-slate">
-          <Link to="/courses" className="hover:text-calp-navy">Courses</Link>
-          <Link to="/trainers" className="hover:text-calp-navy">Trainers</Link>
-          <Link to="/trainings" className="hover:text-calp-navy">Trainings</Link>
-          <Link to="/calendar" className="hover:text-calp-navy">Calendar</Link>
-          <Link to="/apply" className="hover:text-calp-navy">How to Apply</Link>
+    <footer className="border-t border-calp-blue/10 bg-white">
+      <div className="mx-auto grid max-w-7xl items-center gap-6 px-6 py-8 md:grid-cols-3">
+        <BrandWordmark showSubBrand={false} />
+        <div className="text-sm font-medium md:text-center">
+          <a
+            href="https://www.calpnetwork.org"
+            target="_blank"
+            rel="noreferrer"
+            className="text-calp-blue underline-offset-4 hover:underline"
+          >
+            Visit the CALP Network website
+          </a>
         </div>
-        <Link
-          to="/contact"
-          className="rounded-full bg-calp-navy px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-calp-red"
-        >
-          Contact
-        </Link>
+        <div className="flex flex-wrap gap-6 text-sm text-calp-red md:justify-end">
+          <a href="#" className="underline-offset-4 hover:underline">
+            Privacy policy
+          </a>
+          <a href="#" className="underline-offset-4 hover:underline">
+            Cookie policy
+          </a>
+          <a href="#" className="underline-offset-4 hover:underline">
+            Terms of use
+          </a>
+        </div>
       </div>
-      <div className="border-t border-calp-navy/5">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-4 text-xs text-calp-slate md:flex-row">
-          <span>© {new Date().getFullYear()} CALP Network. All rights reserved.</span>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-calp-navy">Privacy Policy</a>
-            <a href="#" className="hover:text-calp-navy">Terms of Use</a>
-          </div>
+      <div className="border-t border-calp-blue/10">
+        <div className="mx-auto max-w-7xl px-6 py-4 text-xs text-calp-blue-75">
+          © {new Date().getFullYear()} CALP Network. All rights reserved.
         </div>
       </div>
     </footer>

@@ -10,7 +10,7 @@ import { courses as fallbackCourses } from "@/data/courses";
 import { trainers as fallbackTrainers } from "@/data/trainers";
 import { upcomingTrainings as fallbackUpcoming } from "@/data/trainings";
 import { formatDate } from "@/lib/format";
-import calpLogo from "@/assets/calp-logo-red.png.asset.json";
+import calpLogo from "@/assets/calp-logo-official.png.asset.json";
 
 const searchSchema = z.object({
   training: fallback(z.string(), "").default(""),
@@ -330,17 +330,14 @@ function ApplyPage() {
               "path('M0,0 L1600,0 L1600,110 C1200,190 800,190 400,140 C260,120 120,140 0,170 Z')",
           }}
         />
-        <div className="absolute right-6 top-6 flex items-center gap-2.5 rounded-md bg-white/95 px-3 py-2 shadow-sm">
-          <img src={calpLogo.url} alt="CALP Network" className="h-10 w-auto" />
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-[15px] font-extrabold tracking-tight text-calp-red">
-              CALP NETWORK
-            </span>
-            <span className="mt-1 text-[8px] font-semibold uppercase tracking-[0.14em] text-calp-red/80">
-              Choice &amp; dignity for people in crisis
-            </span>
-          </span>
+        <div className="absolute right-6 top-6 rounded-md bg-white/95 px-3 py-2 shadow-sm">
+          <img
+            src={calpLogo.url}
+            alt="CALP Network — choice and dignity for people in crisis"
+            className="h-11 w-auto"
+          />
         </div>
+
       </div>
 
       {/* Decorative blob cluster bottom-left */}
@@ -348,20 +345,20 @@ function ApplyPage() {
         aria-hidden
         className="pointer-events-none absolute bottom-0 left-0 h-64 w-64"
       >
-        <div className="absolute bottom-16 left-6 h-24 w-24 rounded-full bg-calp-navy/80" />
+        <div className="absolute bottom-16 left-6 h-24 w-24 rounded-full bg-calp-blue/80" />
         <div className="absolute bottom-6 left-24 h-20 w-20 rounded-full bg-calp-red" />
-        <div className="absolute bottom-0 left-0 h-16 w-16 rounded-full bg-calp-navy/60" />
+        <div className="absolute bottom-0 left-0 h-16 w-16 rounded-full bg-calp-blue/60" />
         <div className="absolute bottom-20 left-40 h-10 w-10 rounded-full bg-calp-red/70" />
       </div>
 
       <div className="relative mx-auto max-w-4xl px-6 pb-32 pt-8">
         {/* Title + course intro */}
-        <h1 className="font-display text-3xl font-extrabold leading-tight text-calp-red md:text-4xl">
+        <h1 className="font-display text-3xl font-bold leading-tight text-calp-red md:text-4xl">
           Application form for {courseTitle}
           {activeTraining ? ` in ${trainingLocation}` : null}
         </h1>
 
-        <div className="mt-6 rounded-md bg-calp-red/10 px-5 py-4 text-sm text-calp-navy">
+        <div className="mt-6 rounded-md bg-calp-red/10 px-5 py-4 text-sm text-calp-blue">
           Please note that this is a {activeCourse?.duration ?? "5 day"} course, which will be delivered in{" "}
           <strong>{trainingLocation}</strong>
           {activeTraining ? " from " : ""}
@@ -369,7 +366,7 @@ function ApplyPage() {
           will be conducted in <strong>{trainingLanguage}</strong>.
         </div>
 
-        <p className="mt-4 text-sm italic text-calp-slate">Donor acknowledgement</p>
+        <p className="mt-4 text-sm italic text-calp-ink">Donor acknowledgement</p>
 
         <IntroSection title="About the Course">
           <p>
@@ -422,13 +419,13 @@ function ApplyPage() {
 
         {preselectedTraining ? (
           <div className="mb-8 rounded-md border-l-4 border-calp-red bg-calp-red/5 p-5">
-            <p className="text-[10px] font-bold tracking-widest text-calp-red">
+            <p className="text-[10px] font-bold text-calp-red">
               Applying for
             </p>
-            <p className="mt-1 font-display text-lg font-bold text-calp-navy">
+            <p className="mt-1 font-display text-lg font-bold text-calp-blue">
               {sortedCourses.find((c) => c.id === preselectedTraining.courseId)?.title ?? "Training"}
             </p>
-            <p className="text-sm text-calp-slate">
+            <p className="text-sm text-calp-ink">
               {preselectedTraining.city}, {preselectedTraining.country} ·{" "}
               {formatDate(preselectedTraining.startDate)} →{" "}
               {formatDate(preselectedTraining.endDate)} ·{" "}
@@ -698,7 +695,7 @@ function ApplyPage() {
             </button>
           </div>
 
-          <p className="text-sm text-calp-slate">
+          <p className="text-sm text-calp-ink">
             Thank you very much for your interest and for completing this
             application form. We will let you know about the outcome of your
             application and next steps as soon as possible after the deadline.
@@ -728,7 +725,7 @@ function IntroSection({
       <h2 className="mb-2 font-display text-xl font-bold text-calp-red underline decoration-2 underline-offset-4">
         {title}
       </h2>
-      <div className="text-sm leading-relaxed text-calp-navy">{children}</div>
+      <div className="text-sm leading-relaxed text-calp-blue">{children}</div>
     </section>
   );
 }
@@ -774,7 +771,7 @@ function Label({
 }
 
 const inputCls =
-  "w-full rounded-md border border-calp-red/30 bg-white px-4 py-3 text-sm text-calp-navy outline-none transition-colors focus:border-calp-red focus:ring-2 focus:ring-calp-red/20 disabled:cursor-not-allowed disabled:bg-calp-canvas disabled:text-calp-slate";
+  "w-full rounded-md border border-calp-red/30 bg-white px-4 py-3 text-sm text-calp-blue outline-none transition-colors focus:border-calp-red focus:ring-2 focus:ring-calp-red/20 disabled:cursor-not-allowed disabled:bg-calp-canvas disabled:text-calp-ink";
 
 function Field({
   label,
@@ -795,7 +792,7 @@ function Field({
     <div>
       <Label required={required}>{label}</Label>
       <input name={name} type={type} className={inputCls} />
-      {help ? <p className="mt-1 text-xs text-calp-slate">{help}</p> : null}
+      {help ? <p className="mt-1 text-xs text-calp-ink">{help}</p> : null}
       {error ? <p className="mt-1 text-xs text-calp-red">{error}</p> : null}
     </div>
   );
@@ -854,7 +851,7 @@ function SelectField({
       >
         {children}
       </select>
-      {help ? <p className="mt-1 text-xs text-calp-slate">{help}</p> : null}
+      {help ? <p className="mt-1 text-xs text-calp-ink">{help}</p> : null}
       {error ? <p className="mt-1 text-xs text-calp-red">{error}</p> : null}
     </div>
   );
@@ -883,14 +880,14 @@ function RadioGroup({
   return (
     <div role="radiogroup" aria-label={label}>
       {label ? <Label required={required}>{label}</Label> : null}
-      {help ? <p className="mb-2 text-xs text-calp-slate">{help}</p> : null}
+      {help ? <p className="mb-2 text-xs text-calp-ink">{help}</p> : null}
       <div className="grid gap-x-8 gap-y-2 md:grid-cols-2">
         {options.map((opt) => {
           const checked = controlled ? value === opt : undefined;
           return (
             <label
               key={opt}
-              className="group flex cursor-pointer items-center gap-3 py-1 text-sm text-calp-navy"
+              className="group flex cursor-pointer items-center gap-3 py-1 text-sm text-calp-blue"
             >
               <span
                 className={`relative flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-colors ${

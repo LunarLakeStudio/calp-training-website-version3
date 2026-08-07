@@ -14,7 +14,7 @@ export const t: Dict = {
   "nav.trainers": { en: "Trainers", fr: "Formateurs", es: "Formadores", ar: "المدربون" },
   "nav.trainings": { en: "Trainings", fr: "Sessions", es: "Sesiones", ar: "التدريبات" },
   "nav.apply": {
-    en: "How to Apply",
+    en: "How to apply",
     fr: "Comment postuler",
     es: "Cómo aplicar",
     ar: "كيفية التقديم",

@@ -87,13 +87,13 @@ function TrainersPage() {
       <section className="relative mx-auto max-w-7xl px-6 pb-24">
         <div className="bg-subtle-pattern pointer-events-none absolute inset-x-0 top-0 -z-10 h-full" />
         <ScrollReveal>
-          <div className="mb-8 flex flex-col gap-6 rounded-2xl border border-calp-navy/5 bg-white p-6 shadow-sm">
+          <div className="mb-8 flex flex-col gap-6 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
             <input
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search by name or location…"
-              className="w-full rounded-lg border border-calp-navy/10 bg-calp-canvas px-4 py-3 text-sm outline-none placeholder:text-calp-slate focus:border-calp-red"
+              className="w-full rounded-lg border border-calp-blue/10 bg-calp-canvas px-4 py-3 text-sm outline-none placeholder:text-calp-ink focus:border-calp-red"
             />
             <div className="flex flex-col gap-3">
               <FilterGroup label="Language">
@@ -128,14 +128,14 @@ function TrainersPage() {
           </div>
         </ScrollReveal>
 
-        <p className="mb-6 text-xs font-bold uppercase tracking-widest text-calp-slate">
+        <p className="mb-6 text-xs font-bold text-calp-ink">
           Showing {filtered.length} of {trainers.length}
         </p>
 
         {isLoading ? (
-          <p className="py-16 text-center text-calp-slate">Loading trainers…</p>
+          <p className="py-16 text-center text-calp-ink">Loading trainers…</p>
         ) : filtered.length === 0 ? (
-          <p className="py-16 text-center text-calp-slate">
+          <p className="py-16 text-center text-calp-ink">
             No trainers match those filters yet.
           </p>
         ) : (
@@ -155,7 +155,7 @@ function TrainersPage() {
 function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="mr-2 text-[10px] font-bold uppercase tracking-widest text-calp-slate">
+      <span className="mr-2 text-[10px] font-bold text-calp-ink">
         {label}
       </span>
       {children}
