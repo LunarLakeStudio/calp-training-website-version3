@@ -83,7 +83,7 @@ function Contact() {
       <section className="mx-auto grid max-w-6xl gap-16 px-6 pb-24 md:grid-cols-[1fr_1.4fr]">
         <aside className="space-y-8">
           <div>
-            <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-calp-ink">
+            <p className="mb-1 text-[10px] font-bold text-calp-ink">
               Training team
             </p>
             <a
@@ -94,7 +94,7 @@ function Contact() {
             </a>
           </div>
           <div>
-            <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-calp-ink">
+            <p className="mb-1 text-[10px] font-bold text-calp-ink">
               Partnerships
             </p>
             <a
@@ -105,7 +105,7 @@ function Contact() {
             </a>
           </div>
           <div>
-            <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-calp-ink">
+            <p className="mb-1 text-[10px] font-bold text-calp-ink">
               Main network
             </p>
             <a
@@ -125,7 +125,7 @@ function Contact() {
           </div>
           <Field label="Subject" name="subject" error={errors.subject} />
           <div>
-            <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-calp-ink">
+            <label className="mb-2 block text-xs font-bold text-calp-ink">
               Message
             </label>
             <textarea
@@ -141,7 +141,7 @@ function Contact() {
           <button
             type="submit"
             disabled={submitting}
-            className="rounded-lg bg-calp-blue px-8 py-4 font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-calp-red disabled:opacity-60"
+            className="rounded-lg bg-calp-red px-8 py-4 font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-60"
           >
             {submitting ? "Sending…" : "Send message"}
           </button>
@@ -164,7 +164,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-calp-ink">
+      <label className="mb-2 block text-xs font-bold text-calp-ink">
         {label}
       </label>
       <input

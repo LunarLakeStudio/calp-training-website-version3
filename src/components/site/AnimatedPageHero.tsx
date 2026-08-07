@@ -50,7 +50,7 @@ export function AnimatedPageHero({
       {eyebrow ? (
         <motion.div
           variants={itemVariants}
-          className="mb-6 inline-flex items-center gap-2 rounded-full bg-calp-red/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-calp-red"
+          className="mb-6 inline-flex items-center gap-2 rounded-full bg-calp-red/10 px-3 py-1 text-xs font-bold text-calp-red"
         >
           {eyebrow}
         </motion.div>

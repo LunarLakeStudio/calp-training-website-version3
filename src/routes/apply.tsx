@@ -10,7 +10,7 @@ import { courses as fallbackCourses } from "@/data/courses";
 import { trainers as fallbackTrainers } from "@/data/trainers";
 import { upcomingTrainings as fallbackUpcoming } from "@/data/trainings";
 import { formatDate } from "@/lib/format";
-import calpLogo from "@/assets/calp-logo-red.png.asset.json";
+import calpLogo from "@/assets/calp-logo-official.png.asset.json";
 
 const searchSchema = z.object({
   training: fallback(z.string(), "").default(""),
@@ -336,7 +336,7 @@ function ApplyPage() {
             <span className="font-display text-[15px] font-extrabold tracking-tight text-calp-red">
               CALP NETWORK
             </span>
-            <span className="mt-1 text-[8px] font-semibold uppercase tracking-[0.14em] text-calp-red/80">
+            <span className="mt-1 text-[8px] font-semibold tracking-[0.14em] text-calp-red/80">
               Choice &amp; dignity for people in crisis
             </span>
           </span>
@@ -422,7 +422,7 @@ function ApplyPage() {
 
         {preselectedTraining ? (
           <div className="mb-8 rounded-md border-l-4 border-calp-red bg-calp-red/5 p-5">
-            <p className="text-[10px] font-bold tracking-widest text-calp-red">
+            <p className="text-[10px] font-bold text-calp-red">
               Applying for
             </p>
             <p className="mt-1 font-display text-lg font-bold text-calp-blue">

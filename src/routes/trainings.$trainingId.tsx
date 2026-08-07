@@ -122,15 +122,15 @@ function TrainingDetail() {
         <div className="mx-auto max-w-7xl px-6 py-16">
           <Link
             to="/calendar"
-            className="mb-6 inline-block text-xs font-bold uppercase tracking-widest text-calp-red"
+            className="mb-6 inline-block text-xs font-bold text-calp-red"
           >
             ← Calendar
           </Link>
           <div className="mb-4 flex flex-wrap gap-2">
-            <span className="rounded bg-calp-blue px-2 py-1 text-[10px] font-bold uppercase text-white">
+            <span className="rounded bg-calp-blue px-2 py-1 text-[10px] font-bold text-white">
               {training.format}
             </span>
-            <span className="rounded bg-slate-100 px-2 py-1 text-[10px] font-bold uppercase">
+            <span className="rounded bg-calp-pale-teal/40 px-2 py-1 text-[10px] font-bold">
               {training.language}
             </span>
           </div>
@@ -145,7 +145,7 @@ function TrainingDetail() {
 
       <section className="mx-auto grid max-w-7xl gap-16 px-6 py-20 lg:grid-cols-[1fr_1.2fr]">
         <aside className="space-y-6">
-          <h2 className="font-display text-sm font-bold uppercase tracking-widest text-calp-red">
+          <h2 className="font-display text-sm font-bold text-calp-red">
             Training details
           </h2>
           <ul className="space-y-4 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
@@ -169,7 +169,7 @@ function TrainingDetail() {
               params={{ courseId: course.slug }}
               className="block rounded-xl border border-calp-blue/10 bg-white p-6 transition-colors hover:border-calp-red/40"
             >
-              <p className="mb-1 text-xs font-bold uppercase tracking-widest text-calp-ink">
+              <p className="mb-1 text-xs font-bold text-calp-ink">
                 About the course
               </p>
               <p className="text-sm font-semibold text-calp-blue">{course.title}</p>
@@ -203,7 +203,7 @@ function TrainingDetail() {
               <Field label="Country" name="country" error={errors.country} />
             </div>
             <div>
-              <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-calp-ink">
+              <label className="mb-2 block text-xs font-bold text-calp-ink">
                 Language of application
               </label>
               <select
@@ -222,7 +222,7 @@ function TrainingDetail() {
               ) : null}
             </div>
             <div>
-              <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-calp-ink">
+              <label className="mb-2 block text-xs font-bold text-calp-ink">
                 Motivation
               </label>
               <textarea
@@ -239,7 +239,7 @@ function TrainingDetail() {
             <button
               type="submit"
               disabled={submitting}
-              className="rounded-lg bg-calp-blue px-8 py-4 font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-calp-red disabled:opacity-60"
+              className="rounded-lg bg-calp-red px-8 py-4 font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-60"
             >
               {submitting ? "Sending…" : "Submit application"}
             </button>
@@ -263,7 +263,7 @@ function DetailItem({
     <li className="flex items-start gap-3">
       <Icon className="mt-0.5 h-4 w-4 shrink-0 text-calp-red" />
       <div>
-        <p className="text-[10px] font-bold uppercase tracking-widest text-calp-ink">
+        <p className="text-[10px] font-bold text-calp-ink">
           {label}
         </p>
         <p className="text-sm font-medium text-calp-blue">{value}</p>
@@ -285,7 +285,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-calp-ink">
+      <label className="mb-2 block text-xs font-bold text-calp-ink">
         {label}
       </label>
       <input

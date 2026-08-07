@@ -54,21 +54,21 @@ function CourseDetail() {
           <div>
             <Link
               to="/courses"
-              className="mb-6 inline-block text-xs font-bold uppercase tracking-widest text-calp-red"
+              className="mb-6 inline-block text-xs font-bold text-calp-red"
             >
               ← Catalogue
             </Link>
             <div className="mb-6 flex flex-wrap gap-2">
-              <span className="rounded bg-slate-100 px-2 py-1 text-[10px] font-bold uppercase">
+              <span className="rounded bg-calp-pale-teal/40 px-2 py-1 text-[10px] font-bold">
                 {course.level} Level
               </span>
-              <span className="rounded bg-slate-100 px-2 py-1 text-[10px] font-bold uppercase">
+              <span className="rounded bg-calp-pale-teal/40 px-2 py-1 text-[10px] font-bold">
                 {course.duration}
               </span>
               {course.languages.map((l) => (
                 <span
                   key={l}
-                  className="rounded bg-calp-blue px-2 py-1 text-[10px] font-bold uppercase text-white"
+                  className="rounded bg-calp-blue px-2 py-1 text-[10px] font-bold text-white"
                 >
                   {l}
                 </span>
@@ -95,14 +95,14 @@ function CourseDetail() {
 
       <section className="mx-auto grid max-w-7xl gap-16 px-6 py-20 lg:grid-cols-[1.4fr_1fr]">
         <div>
-          <h2 className="mb-6 font-display text-sm font-bold uppercase tracking-widest text-calp-red">
+          <h2 className="mb-6 font-display text-sm font-bold text-calp-red">
             About this course
           </h2>
           <p className="text-lg leading-relaxed text-calp-blue/90">
             {course.description || course.summary}
           </p>
 
-          <h2 className="mt-16 mb-6 font-display text-sm font-bold uppercase tracking-widest text-calp-red">
+          <h2 className="mt-16 mb-6 font-display text-sm font-bold text-calp-red">
             Topics covered
           </h2>
           {course.topics.length === 0 ? (
@@ -122,7 +122,7 @@ function CourseDetail() {
         </div>
 
         <aside>
-          <h2 className="mb-6 font-display text-sm font-bold uppercase tracking-widest text-calp-red">
+          <h2 className="mb-6 font-display text-sm font-bold text-calp-red">
             Free materials
           </h2>
           <ul className="space-y-3">
@@ -164,7 +164,7 @@ function CourseDetail() {
             </div>
             <Link
               to="/calendar"
-              className="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-white/80 hover:text-white"
+              className="whitespace-nowrap text-xs font-bold text-white/80 hover:text-white"
             >
               Full calendar →
             </Link>

@@ -128,7 +128,7 @@ function TrainersPage() {
           </div>
         </ScrollReveal>
 
-        <p className="mb-6 text-xs font-bold uppercase tracking-widest text-calp-ink">
+        <p className="mb-6 text-xs font-bold text-calp-ink">
           Showing {filtered.length} of {trainers.length}
         </p>
 
@@ -155,7 +155,7 @@ function TrainersPage() {
 function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="mr-2 text-[10px] font-bold uppercase tracking-widest text-calp-ink">
+      <span className="mr-2 text-[10px] font-bold text-calp-ink">
         {label}
       </span>
       {children}

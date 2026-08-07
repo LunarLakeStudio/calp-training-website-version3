@@ -158,7 +158,7 @@ function CalendarPage() {
                   <h2 className="mb-6 flex items-baseline gap-3 font-display text-2xl font-bold">
                     <span>{MONTH_LABELS[parseInt(mm, 10) - 1]}</span>
                     <span className="text-calp-ink">{y}</span>
-                    <span className="ml-auto text-xs font-medium uppercase tracking-widest text-calp-ink">
+                    <span className="ml-auto text-xs font-medium text-calp-ink">
                       {items.length} training{items.length > 1 ? "s" : ""}
                     </span>
                   </h2>
@@ -188,7 +188,7 @@ function CalendarPage() {
 function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="mr-2 w-20 shrink-0 text-[10px] font-bold uppercase tracking-widest text-calp-ink">
+      <span className="mr-2 w-20 shrink-0 text-[10px] font-bold text-calp-ink">
         {label}
       </span>
       {children}
