@@ -1,50 +1,56 @@
-# Redesign the site to match the CALP design
+# Apply the official CALP brand system across the app
 
-Rebuild the homepage to match the attached design exactly, then roll the same palette, typography, header, footer and spacing across every other page.
+Keep the approved layout from the attached design. Replace the current palette and typography with the official CALP brand system, applied consistently to every page.
 
-## What changes
+## Brand tokens
 
-### 1. Design system (palette + type)
-- Replace the current crimson/slate palette with the design's colours, sampled directly from the attached PNG so they match to the letter:
-  - CALP red (headlines, "Apply" buttons, links, logo) — approx `#C8102E`
-  - Deep teal/navy (primary buttons, nav text) — approx `#14506B`
-  - Teal and pale-blue decorative circles — approx `#3E9BAA` / `#A8D2DA`
-  - Blush band behind "How to apply" — approx `#EFD5CE`
-  - White page background (the current off-white canvas goes away)
-- Typography: Roboto for everything (headings and body), self-hosted via the Roboto font package. Headings bold, tight leading, sentence case as in the design. The current Sora/Inter pairing is removed.
-- Margins/rhythm matched to the design: wide centred container, generous section spacing, card padding and border radii as drawn.
+Defined once in `src/styles.css` and used everywhere via semantic classes — no new colours, no other fonts.
 
-### 2. Header
-- Logo left (existing red CALP logo with tagline lockup), vertical divider.
-- Centre nav: Courses, Trainings, Trainers, Calendar, How to apply — teal, medium weight.
-- Right: globe + "EN ⌄" language selector (dropdown replacing today's pill toggle), then a teal "Find a training" button.
-- White, no blur, thin bottom hairline.
+| Token | Value | Use |
+| --- | --- | --- |
+| CALP Red | `#CA2128` | H1, H2/H3, primary buttons, key links |
+| Dark Blue | `#065B82` | H2/H3 alternative, secondary buttons and links, nav |
+| Teal | `#00B0BF` | Decorative only |
+| Dark Blue 75% | `#4484A1` | Decorative / muted UI |
+| Dark Blue 50% | `#82ADC0` | Decorative / muted UI |
+| Pale Red | `#F0CDBF` | Decorative bands (e.g. "How to apply") |
+| Pale Teal | `#9CD1DA` | Decorative shapes |
+| Black | `#000000` | Body text |
+| White | `#FFFFFF` | Page background, text on red |
 
-### 3. Homepage sections (top to bottom)
-1. **Hero** — left column: "Build the skills / to deliver better CVA." in red, sub-line, teal "Explore courses" button + outlined "Find a training" button. Right: full-bleed workshop photo with teal, pale-blue and red circles peeking out behind its corners.
-2. **Three-column band**:
-   - *Explore our courses* + "View all courses →": three photo cards with title, 2–3 line summary, modality + language codes, and a small square arrow button.
-   - *Upcoming trainings* + "View full calendar →": rows with big red day / small month, course title, "City, Country • In-person • EN" meta, red "Apply" button, hairline dividers.
-   - *Meet our trainers* + "View all trainers →": three portrait cards with name, language codes, region.
-3. **How to apply** — blush full-width band with decorative circles, red heading, three numbered steps in red circles with chevrons between, and a teal "See application guidance" button.
-4. **Footer** — logo left, centred "Visit the CALP Network website" link, right-side red Privacy Policy / Cookie Policy / Terms of Use links.
+Typography: Roboto only, weights 400 / 500 / 700, loaded once in the root route. The Sora + Inter pairing is removed and `--font-display` / `--font-sans` both map to Roboto.
 
-All content stays wired to the live database exactly as it is now; only presentation changes. Where the database has more/fewer items than the mockup, the layout keeps the same card and row design.
+## Rules enforced in components
 
-### 4. Other pages
-Courses, course detail, trainings, training detail, trainers, calendar, apply and contact get the new palette, Roboto type, new header/footer, and the redesigned card/row components — same structure and functionality, new skin.
+- H1 Roboto Bold in CALP Red; H2/H3 in Red or Dark Blue; body copy black.
+- Primary buttons: red background, white text. Secondary buttons and links: Dark Blue.
+- Teal and pale tints reserved for decorative shapes and bands — never for text or primary UI.
+- Sentence case everywhere; the existing ALL-CAPS eyebrows, badges and wordmark labels are converted.
+- Text left-aligned; generous white space; white page background (the off-white canvas is dropped).
+- Rounded corners on images and cards, CALP organic blob shapes kept and recoloured to teal / pale teal / pale red / red.
+- Contrast checked: black on white and white on red pass AA; Dark Blue links on white pass AA.
 
-## Assets I need from you
-- Hero workshop photo (the training-room image)
-- The three course card photos (market/cash-distribution images)
-- Trainer portrait photos (or confirm I should keep pulling photos from the database and use the existing portraits as fallback)
+## Logo
 
-Everything else (logo, icons, circles) I can produce from what's already in the project.
+The supplied official 2-line red logo with subtitle is used as-is — uploaded via the asset pipeline and rendered at a fixed height with `w-auto`, never recoloured, cropped or stretched. The hand-built text wordmark next to it in `BrandWordmark` is removed so the official lockup stands alone (with the "Training Hub" divider label retained in sentence case). Header and footer use the same file. Favicon derived from the same logo, padded to a square so proportions are preserved.
+
+## Homepage layout (from the approved design)
+
+1. **Hero** — left: "Build the skills to deliver better CVA." in red Roboto Bold, black sub-line, red "Explore courses" primary button + Dark Blue outlined "Find a training". Right: the supplied hero photo with rounded corners and teal / pale-teal / red organic shapes behind its corners.
+2. **Three-column band** — *Explore our courses* (three rounded photo cards), *Upcoming trainings* (red day / month, title, meta, red Apply buttons, hairline dividers), *Meet our trainers* (portrait cards with name, languages, region), each with a Dark Blue "View all →" link.
+3. **How to apply** — full-width Pale Red band with organic shapes, red heading, three numbered steps in red circles, Dark Blue "See application guidance" button.
+4. **Footer** — official logo left, centred Dark Blue "Visit the CALP Network website" link, red policy links right.
+
+All content stays wired to the live database; only presentation changes.
+
+## Every other page
+
+Courses, course detail, trainings, training detail, trainers, calendar, apply and contact are restyled with the same tokens, Roboto, header/footer and card components — structure and functionality unchanged — so this site and the Training Hub read as one CALP product family.
 
 ## Technical notes
-- Brand tokens redefined in `src/styles.css` (`@theme inline` + `:root`); no hardcoded colour utilities in components.
-- Roboto loaded via a `@fontsource` package import in `src/styles.css`, mapped to `--font-sans` / `--font-display`.
-- New/edited components: `SiteHeader`, `SiteFooter`, `BrandWordmark`, `CourseCard`, `TrainingRow`, `TrainerCard`, plus new `HowToApply`, `LangSelect` and `BrandBlobs` updates.
-- `src/routes/index.tsx` rewritten to the four-section composition; other routes keep their loaders/queries untouched.
-- Exact hex values sampled from the attached design image before implementation.
-- Responsive: the three-column band stacks to one column on mobile using grid + `min-w-0` so text truncates rather than clips.
+
+- `src/styles.css`: brand tokens in `:root`, exposed through `@theme inline` as `calp-red`, `calp-blue`, `calp-teal`, `calp-blue-75`, `calp-blue-50`, `calp-pale-red`, `calp-pale-teal`. Old `calp-navy` / `calp-slate` / `calp-canvas` tokens are replaced and all usages updated (they appear across every route and component).
+- Roboto via Google Fonts `<link>` in `src/routes/__root.tsx` (weights 400,500,700), replacing the Sora/Inter link.
+- Components touched: `BrandWordmark`, `SiteHeader`, `SiteFooter`, `PageHero`, `CourseCard`, `TrainingRow`, `TrainerCard`, `FilterChip`, `BrandBlobs`, plus a new `HowToApply` section and the rewritten `src/routes/index.tsx`.
+- Logo and hero uploaded as `lovable-assets` pointers; favicon written as a real square PNG in `public/`.
+- Responsive: the three-column band collapses to one column with grid + `min-w-0` so text truncates rather than clips.
