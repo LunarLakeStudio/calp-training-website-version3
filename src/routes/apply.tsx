@@ -330,17 +330,14 @@ function ApplyPage() {
               "path('M0,0 L1600,0 L1600,110 C1200,190 800,190 400,140 C260,120 120,140 0,170 Z')",
           }}
         />
-        <div className="absolute right-6 top-6 flex items-center gap-2.5 rounded-md bg-white/95 px-3 py-2 shadow-sm">
-          <img src={calpLogo.url} alt="CALP Network" className="h-10 w-auto" />
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-[15px] font-extrabold tracking-tight text-calp-red">
-              CALP NETWORK
-            </span>
-            <span className="mt-1 text-[8px] font-semibold tracking-[0.14em] text-calp-red/80">
-              Choice &amp; dignity for people in crisis
-            </span>
-          </span>
+        <div className="absolute right-6 top-6 rounded-md bg-white/95 px-3 py-2 shadow-sm">
+          <img
+            src={calpLogo.url}
+            alt="CALP Network — choice and dignity for people in crisis"
+            className="h-11 w-auto"
+          />
         </div>
+
       </div>
 
       {/* Decorative blob cluster bottom-left */}
