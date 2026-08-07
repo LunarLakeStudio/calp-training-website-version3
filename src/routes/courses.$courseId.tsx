@@ -49,7 +49,7 @@ function CourseDetail() {
 
   return (
     <>
-      <header className="border-b border-calp-navy/5 bg-white">
+      <header className="border-b border-calp-blue/5 bg-white">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <div>
             <Link
@@ -68,7 +68,7 @@ function CourseDetail() {
               {course.languages.map((l) => (
                 <span
                   key={l}
-                  className="rounded bg-calp-navy px-2 py-1 text-[10px] font-bold uppercase text-white"
+                  className="rounded bg-calp-blue px-2 py-1 text-[10px] font-bold uppercase text-white"
                 >
                   {l}
                 </span>
@@ -77,11 +77,11 @@ function CourseDetail() {
             <h1 className="mb-6 font-display text-4xl font-bold leading-[1.1] text-balance md:text-5xl">
               {course.title}
             </h1>
-            <p className="max-w-xl text-lg leading-relaxed text-calp-slate">
+            <p className="max-w-xl text-lg leading-relaxed text-calp-ink">
               {course.summary}
             </p>
           </div>
-          <div className="overflow-hidden rounded-2xl border border-calp-navy/5 shadow-xl">
+          <div className="overflow-hidden rounded-2xl border border-calp-blue/5 shadow-xl">
             <img
               src={course.cover}
               alt=""
@@ -98,7 +98,7 @@ function CourseDetail() {
           <h2 className="mb-6 font-display text-sm font-bold uppercase tracking-widest text-calp-red">
             About this course
           </h2>
-          <p className="text-lg leading-relaxed text-calp-navy/90">
+          <p className="text-lg leading-relaxed text-calp-blue/90">
             {course.description || course.summary}
           </p>
 
@@ -106,13 +106,13 @@ function CourseDetail() {
             Topics covered
           </h2>
           {course.topics.length === 0 ? (
-            <p className="text-sm text-calp-slate">Topics to be announced.</p>
+            <p className="text-sm text-calp-ink">Topics to be announced.</p>
           ) : (
             <ul className="flex flex-wrap gap-2">
               {course.topics.map((tp) => (
                 <li
                   key={tp}
-                  className="rounded-full border border-calp-navy/15 px-3 py-1.5 text-xs font-semibold text-calp-navy"
+                  className="rounded-full border border-calp-blue/15 px-3 py-1.5 text-xs font-semibold text-calp-blue"
                 >
                   {tp}
                 </li>
@@ -131,19 +131,19 @@ function CourseDetail() {
               return (
                 <li
                   key={d.label}
-                  className="group flex items-center gap-4 rounded-xl border border-calp-navy/5 bg-white p-4 transition-colors hover:border-calp-red/40"
+                  className="group flex items-center gap-4 rounded-xl border border-calp-blue/5 bg-white p-4 transition-colors hover:border-calp-red/40"
                 >
                   <Icon className="h-5 w-5 shrink-0 text-calp-red" />
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-semibold text-calp-navy">
+                    <p className="truncate text-sm font-semibold text-calp-blue">
                       {d.label}
                     </p>
-                    <p className="text-xs text-calp-slate">
+                    <p className="text-xs text-calp-ink">
                       {d.kind}
                       {d.size ? ` · ${d.size}` : ""}
                     </p>
                   </div>
-                  <Download className="h-4 w-4 text-calp-slate transition-colors group-hover:text-calp-red" />
+                  <Download className="h-4 w-4 text-calp-ink transition-colors group-hover:text-calp-red" />
                 </li>
               );
             })}
@@ -151,7 +151,7 @@ function CourseDetail() {
         </aside>
       </section>
 
-      <section className="bg-calp-navy py-20 text-white">
+      <section className="bg-calp-blue py-20 text-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-10 flex items-end justify-between">
             <div>

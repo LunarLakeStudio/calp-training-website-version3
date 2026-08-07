@@ -20,20 +20,20 @@ export function BrandWordmark({
           <span
             className={
               "font-display text-[15px] font-extrabold tracking-tight " +
-              (variant === "footer" ? "text-calp-navy" : "text-calp-red")
+              (variant === "footer" ? "text-calp-blue" : "text-calp-red")
             }
           >
             CALP NETWORK
           </span>
-          <span className="mt-1 text-[8px] font-semibold uppercase tracking-[0.14em] text-calp-slate">
+          <span className="mt-1 text-[8px] font-semibold uppercase tracking-[0.14em] text-calp-ink">
             Choice &amp; dignity for people in crisis
           </span>
         </span>
       </Link>
       {showSubBrand ? (
         <>
-          <span className="h-8 w-px bg-calp-navy/15" aria-hidden />
-          <span className="font-display text-sm font-bold text-calp-navy">
+          <span className="h-8 w-px bg-calp-blue/15" aria-hidden />
+          <span className="font-display text-sm font-bold text-calp-blue">
             Training Hub
           </span>
         </>

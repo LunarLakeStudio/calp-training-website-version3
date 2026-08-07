@@ -44,12 +44,12 @@ function Index() {
         <header className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 pt-14 pb-20 lg:grid-cols-2 lg:pt-20">
           <div className="relative z-10">
 
-            <h1 className="mb-6 font-display text-6xl font-extrabold leading-[1.02] tracking-tight text-calp-navy md:text-7xl">
+            <h1 className="mb-6 font-display text-6xl font-extrabold leading-[1.02] tracking-tight text-calp-blue md:text-7xl">
               Precision in <br />
               Humanitarian <br />
               <span className="italic text-calp-red">Action.</span>
             </h1>
-            <p className="mb-10 max-w-md text-lg leading-relaxed text-calp-slate">
+            <p className="mb-10 max-w-md text-lg leading-relaxed text-calp-ink">
               Advanced Cash and Voucher Assistance (CVA) training for the modern
               humanitarian sector. Multilingual, expert-led, and field-ready.
             </p>
@@ -84,10 +84,10 @@ function Index() {
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="mb-12 flex items-end justify-between gap-6">
           <div>
-            <h2 className="mb-2 font-display text-4xl font-bold text-calp-navy">
+            <h2 className="mb-2 font-display text-4xl font-bold text-calp-blue">
               Featured Courses
             </h2>
-            <p className="text-calp-slate">
+            <p className="text-calp-ink">
               Certified pathways for every stage of your career.
             </p>
           </div>
@@ -106,7 +106,7 @@ function Index() {
       </section>
 
       {/* Calendar preview */}
-      <section className="relative overflow-hidden bg-calp-navy py-24 text-white">
+      <section className="relative overflow-hidden bg-calp-blue py-24 text-white">
         <BlueBlob className="-top-16 -left-16 h-[240px] w-[240px] opacity-10" />
         <RedBlob className="-right-24 top-6 h-[220px] w-[220px] opacity-80" />
         <RedCircle className="right-16 bottom-10 h-[80px] w-[80px] opacity-60" />
@@ -123,7 +123,7 @@ function Index() {
               </p>
               <Link
                 to="/calendar"
-                className="inline-block rounded-md border border-white/30 px-8 py-3 text-sm font-semibold transition-all hover:bg-white hover:text-calp-navy"
+                className="inline-block rounded-md border border-white/30 px-8 py-3 text-sm font-semibold transition-all hover:bg-white hover:text-calp-blue"
               >
                 View full schedule
               </Link>
@@ -145,10 +145,10 @@ function Index() {
             <h3 className="mb-5 font-display text-sm font-bold uppercase tracking-widest text-calp-red">
               Our Mission
             </h3>
-            <h2 className="font-display text-4xl font-bold leading-[1.15] text-calp-navy md:text-5xl">
+            <h2 className="font-display text-4xl font-bold leading-[1.15] text-calp-blue md:text-5xl">
               Choice &amp; dignity <br /> for people in crisis
             </h2>
-            <p className="mt-6 max-w-md leading-relaxed text-calp-slate">
+            <p className="mt-6 max-w-md leading-relaxed text-calp-ink">
               We empower the humanitarian community to deliver high-quality CVA
               at scale, ensuring aid is effective, dignified, and responsive to
               local markets.
@@ -171,7 +171,7 @@ function Stat({ value, label }: { value: string; label: string }) {
       <span className="mb-2 block font-display text-5xl font-extrabold text-calp-red">
         {value}
       </span>
-      <span className="text-xs font-medium text-calp-slate">{label}</span>
+      <span className="text-xs font-medium text-calp-ink">{label}</span>
     </div>
   );
 }

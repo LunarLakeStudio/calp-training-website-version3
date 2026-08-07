@@ -15,8 +15,8 @@ export function FilterChip({
       className={cn(
         "rounded-full border px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all",
         active
-          ? "border-calp-navy bg-calp-navy text-white"
-          : "border-calp-navy/15 bg-white text-calp-slate hover:border-calp-navy/40 hover:text-calp-navy",
+          ? "border-calp-blue bg-calp-blue text-white"
+          : "border-calp-blue/15 bg-white text-calp-ink hover:border-calp-blue/40 hover:text-calp-blue",
       )}
     >
       {children}

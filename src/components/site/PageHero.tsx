@@ -22,7 +22,7 @@ export function PageHero({
         {title}
       </h1>
       {intro ? (
-        <p className="max-w-2xl text-lg leading-relaxed text-calp-slate">{intro}</p>
+        <p className="max-w-2xl text-lg leading-relaxed text-calp-ink">{intro}</p>
       ) : null}
       {children}
     </header>

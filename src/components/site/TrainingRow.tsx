@@ -39,7 +39,7 @@ export function TrainingRow({
         "group flex items-center gap-6 rounded-xl border p-6 transition-colors " +
         (isDark
           ? "border-white/10 bg-white/5 hover:bg-white/10"
-          : "border-calp-navy/10 bg-white hover:border-calp-red/40 hover:shadow-lg hover:shadow-calp-navy/5")
+          : "border-calp-blue/10 bg-white hover:border-calp-red/40 hover:shadow-lg hover:shadow-calp-blue/5")
       }
     >
       <div className="flex min-w-[60px] flex-col items-center">
@@ -51,10 +51,10 @@ export function TrainingRow({
         </span>
       </div>
       <div className="min-w-0 flex-1">
-        <h4 className={"truncate text-lg font-semibold " + (isDark ? "text-white" : "text-calp-navy")}>
+        <h4 className={"truncate text-lg font-semibold " + (isDark ? "text-white" : "text-calp-blue")}>
           {training.city}, {training.country} · {training.format}
         </h4>
-        <p className={"truncate text-sm " + (isDark ? "text-white/50" : "text-calp-slate")}>
+        <p className={"truncate text-sm " + (isDark ? "text-white/50" : "text-calp-ink")}>
           {course?.title ?? "Training"}
           <span className="ml-2 rounded bg-black/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider">
             {training.language}

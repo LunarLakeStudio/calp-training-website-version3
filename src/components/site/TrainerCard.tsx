@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 export function TrainerCard({ trainer }: { trainer: Trainer }) {
   return (
     <motion.div
-      className="group flex flex-col overflow-hidden rounded-xl border border-calp-navy/5 bg-white transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-calp-navy/5"
+      className="group flex flex-col overflow-hidden rounded-xl border border-calp-blue/5 bg-white transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-calp-blue/5"
       whileHover={{ y: -4 }}
       transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] as const }}
     >
@@ -22,12 +22,12 @@ export function TrainerCard({ trainer }: { trainer: Trainer }) {
         />
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
-        <h3 className="font-display text-lg font-bold leading-tight text-calp-navy">
+        <h3 className="font-display text-lg font-bold leading-tight text-calp-blue">
           <span className="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-calp-red after:transition-transform after:duration-300 group-hover:after:origin-bottom-left group-hover:after:scale-x-100">
             {trainer.name}
           </span>
         </h3>
-        <div className="flex items-center gap-1.5 text-xs text-calp-slate">
+        <div className="flex items-center gap-1.5 text-xs text-calp-ink">
           <MapPin className="h-3.5 w-3.5" />
           <span>{trainer.location}</span>
         </div>
@@ -35,7 +35,7 @@ export function TrainerCard({ trainer }: { trainer: Trainer }) {
           {trainer.languages.map((l) => (
             <span
               key={l}
-              className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-bold text-calp-navy transition-transform duration-200 group-hover:scale-105"
+              className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-bold text-calp-blue transition-transform duration-200 group-hover:scale-105"
             >
               {l}
             </span>

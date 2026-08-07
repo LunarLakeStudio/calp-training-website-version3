@@ -33,9 +33,9 @@
   --color-ring-offset-background: var(--background);
 
   /* CALP Training Hub brand tokens — Humanitarian Precision direction */
-  --color-calp-navy: var(--calp-navy);
+  --color-calp-blue: var(--calp-blue);
   --color-calp-red: var(--calp-red);
-  --color-calp-slate: var(--calp-slate);
+  --color-calp-ink: var(--calp-ink);
   --color-calp-canvas: var(--calp-canvas);
 
   --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
@@ -46,9 +46,9 @@
   --radius: 0.625rem;
 
   /* CALP palette (Humanitarian Precision) */
-  --calp-navy: #0f172a;
+  --calp-blue: #0f172a;
   --calp-red: #e11d48;
-  --calp-slate: #64748b;
+  --calp-ink: #64748b;
   --calp-canvas: #f8fafc;
 
   /* shadcn tokens mapped to CALP palette */
@@ -106,7 +106,7 @@
 
   body {
     background-color: var(--color-calp-canvas);
-    color: var(--color-calp-navy);
+    color: var(--color-calp-blue);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
@@ -116,7 +116,7 @@
 
   .bg-subtle-pattern {
     background-image:
-      radial-gradient(circle at 1px 1px, var(--calp-navy) 1px, transparent 0);
+      radial-gradient(circle at 1px 1px, var(--calp-blue) 1px, transparent 0);
     background-size: 32px 32px;
     mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
     -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);

@@ -64,7 +64,7 @@ export function AnimatedPageHero({
       {intro ? (
         <motion.p
           variants={itemVariants}
-          className="max-w-2xl text-lg leading-relaxed text-calp-slate"
+          className="max-w-2xl text-lg leading-relaxed text-calp-ink"
         >
           {intro}
         </motion.p>

@@ -83,36 +83,36 @@ function Contact() {
       <section className="mx-auto grid max-w-6xl gap-16 px-6 pb-24 md:grid-cols-[1fr_1.4fr]">
         <aside className="space-y-8">
           <div>
-            <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-calp-slate">
+            <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-calp-ink">
               Training team
             </p>
             <a
               href="mailto:training@calpnetwork.org"
-              className="text-lg font-semibold text-calp-navy hover:text-calp-red"
+              className="text-lg font-semibold text-calp-blue hover:text-calp-red"
             >
               training@calpnetwork.org
             </a>
           </div>
           <div>
-            <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-calp-slate">
+            <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-calp-ink">
               Partnerships
             </p>
             <a
               href="mailto:partnerships@calpnetwork.org"
-              className="text-lg font-semibold text-calp-navy hover:text-calp-red"
+              className="text-lg font-semibold text-calp-blue hover:text-calp-red"
             >
               partnerships@calpnetwork.org
             </a>
           </div>
           <div>
-            <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-calp-slate">
+            <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-calp-ink">
               Main network
             </p>
             <a
               href="https://www.calpnetwork.org"
               target="_blank"
               rel="noreferrer"
-              className="text-lg font-semibold text-calp-navy hover:text-calp-red"
+              className="text-lg font-semibold text-calp-blue hover:text-calp-red"
             >
               calpnetwork.org
             </a>
@@ -125,14 +125,14 @@ function Contact() {
           </div>
           <Field label="Subject" name="subject" error={errors.subject} />
           <div>
-            <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-calp-slate">
+            <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-calp-ink">
               Message
             </label>
             <textarea
               name="message"
               rows={6}
               maxLength={2000}
-              className="w-full rounded-lg border border-calp-navy/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
+              className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
             />
             {errors.message ? (
               <p className="mt-1 text-xs text-calp-red">{errors.message}</p>
@@ -141,7 +141,7 @@ function Contact() {
           <button
             type="submit"
             disabled={submitting}
-            className="rounded-lg bg-calp-navy px-8 py-4 font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-calp-red disabled:opacity-60"
+            className="rounded-lg bg-calp-blue px-8 py-4 font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-calp-red disabled:opacity-60"
           >
             {submitting ? "Sending…" : "Send message"}
           </button>
@@ -164,13 +164,13 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-calp-slate">
+      <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-calp-ink">
         {label}
       </label>
       <input
         name={name}
         type={type}
-        className="w-full rounded-lg border border-calp-navy/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
+        className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
       />
       {error ? <p className="mt-1 text-xs text-calp-red">{error}</p> : null}
     </div>
