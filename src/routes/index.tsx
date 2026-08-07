@@ -92,14 +92,14 @@ function Index() {
       </section>
 
       {/* Courses / trainings / trainers */}
-      <section className="mx-auto grid max-w-7xl gap-12 px-6 pb-16 lg:grid-cols-3">
+      <section className="mx-auto grid max-w-7xl gap-10 px-6 pb-16 lg:grid-cols-[1.35fr_1fr_0.95fr]">
         <div className="min-w-0">
           <SectionHead
             title="Explore our courses"
             linkLabel="View all courses"
             to="/courses"
           />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+          <div className="grid gap-5 sm:grid-cols-3">
             {featured.map((c) => (
               <CourseCard key={c.id} course={c} />
             ))}
