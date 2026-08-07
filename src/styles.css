@@ -32,46 +32,57 @@
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
 
-  /* CALP Training Hub brand tokens — Humanitarian Precision direction */
-  --color-calp-blue: var(--calp-blue);
+  /* Official CALP brand tokens */
   --color-calp-red: var(--calp-red);
+  --color-calp-blue: var(--calp-blue);
+  --color-calp-teal: var(--calp-teal);
+  --color-calp-blue-75: var(--calp-blue-75);
+  --color-calp-blue-50: var(--calp-blue-50);
+  --color-calp-pale-red: var(--calp-pale-red);
+  --color-calp-pale-teal: var(--calp-pale-teal);
   --color-calp-ink: var(--calp-ink);
   --color-calp-canvas: var(--calp-canvas);
 
-  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
   --radius: 0.625rem;
 
-  /* CALP palette (Humanitarian Precision) */
-  --calp-blue: #0f172a;
-  --calp-red: #e11d48;
-  --calp-ink: #64748b;
-  --calp-canvas: #f8fafc;
+  /* Official CALP palette */
+  --calp-red: #ca2128;
+  --calp-blue: #065b82;
+  --calp-teal: #00b0bf;
+  --calp-blue-75: #4484a1;
+  --calp-blue-50: #82adc0;
+  --calp-pale-red: #f0cdbf;
+  --calp-pale-teal: #9cd1da;
+  --calp-ink: #000000;
+  --calp-canvas: #ffffff;
 
-  /* shadcn tokens mapped to CALP palette */
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  /* shadcn tokens mapped to the CALP palette */
+  --background: #ffffff;
+  --foreground: #000000;
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card-foreground: #000000;
   --popover: #ffffff;
-  --popover-foreground: #0f172a;
-  --primary: #0f172a;
-  --primary-foreground: #f8fafc;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --accent: #f1f5f9;
-  --accent-foreground: #0f172a;
-  --destructive: #e11d48;
-  --destructive-foreground: #f8fafc;
-  --border: rgba(15, 23, 42, 0.08);
-  --input: rgba(15, 23, 42, 0.12);
-  --ring: #e11d48;
+  --popover-foreground: #000000;
+  --primary: #ca2128;
+  --primary-foreground: #ffffff;
+  --secondary: #f0cdbf;
+  --secondary-foreground: #065b82;
+  --muted: #f4f7f9;
+  --muted-foreground: #4484a1;
+  --accent: #9cd1da;
+  --accent-foreground: #065b82;
+  --destructive: #ca2128;
+  --destructive-foreground: #ffffff;
+  --border: rgba(6, 91, 130, 0.14);
+  --input: rgba(6, 91, 130, 0.24);
+  --ring: #065b82;
 }
+
 
 .dark {
   --background: #0f172a;
