@@ -356,7 +356,7 @@ function ApplyPage() {
 
       <div className="relative mx-auto max-w-4xl px-6 pb-32 pt-8">
         {/* Title + course intro */}
-        <h1 className="font-display text-3xl font-extrabold leading-tight text-calp-red md:text-4xl">
+        <h1 className="font-display text-3xl font-bold leading-tight text-calp-red md:text-4xl">
           Application form for {courseTitle}
           {activeTraining ? ` in ${trainingLocation}` : null}
         </h1>

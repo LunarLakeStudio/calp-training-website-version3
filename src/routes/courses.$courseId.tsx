@@ -74,7 +74,7 @@ function CourseDetail() {
                 </span>
               ))}
             </div>
-            <h1 className="mb-6 font-display text-4xl font-bold leading-[1.1] text-balance md:text-5xl">
+            <h1 className="mb-6 font-display text-4xl font-bold leading-tight text-balance text-calp-red md:text-5xl">
               {course.title}
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-calp-ink">
