@@ -1,31 +1,50 @@
-# Full-site translation: FR / ES / AR
+# Redesign the site to match the CALP design
 
-Clicking FR, ES or AR in the header translates the whole site — navigation, page copy, and the course/trainer/training content coming from the database — while the URL stays the same and the choice is remembered per visitor.
+Rebuild the homepage to match the attached design exactly, then roll the same palette, typography, header, footer and spacing across every other page.
 
-## How it works
+## What changes
 
-1. **Interface text** — every hard-coded English string on the pages (headings, intros, buttons, filter labels, form labels, footer, empty states) moves into the existing translation dictionary with FR/ES/AR versions written up front. No page keeps loose English text.
-2. **Database content** — course titles, summaries, descriptions, topics, venue/format words and trainer locations are translated on demand by Lovable AI when a non-English language is active. Translations are cached so each item is translated once, not on every page view.
-3. **Arabic** — the layout already flips to right-to-left; the pages get an RTL pass so spacing, arrows and card alignment look correct.
-4. **Dates** — the calendar and training dates format in the selected language (e.g. "12 mars 2026", "١٢ مارس ٢٠٢٦").
+### 1. Design system (palette + type)
+- Replace the current crimson/slate palette with the design's colours, sampled directly from the attached PNG so they match to the letter:
+  - CALP red (headlines, "Apply" buttons, links, logo) — approx `#C8102E`
+  - Deep teal/navy (primary buttons, nav text) — approx `#14506B`
+  - Teal and pale-blue decorative circles — approx `#3E9BAA` / `#A8D2DA`
+  - Blush band behind "How to apply" — approx `#EFD5CE`
+  - White page background (the current off-white canvas goes away)
+- Typography: Roboto for everything (headings and body), self-hosted via the Roboto font package. Headings bold, tight leading, sentence case as in the design. The current Sora/Inter pairing is removed.
+- Margins/rhythm matched to the design: wide centred container, generous section spacing, card padding and border radii as drawn.
 
-## What the visitor sees
+### 2. Header
+- Logo left (existing red CALP logo with tagline lockup), vertical divider.
+- Centre nav: Courses, Trainings, Trainers, Calendar, How to apply — teal, medium weight.
+- Right: globe + "EN ⌄" language selector (dropdown replacing today's pill toggle), then a teal "Find a training" button.
+- White, no blur, thin bottom hairline.
 
-- Pick a language once; it sticks across pages and on return visits.
-- English pages render instantly. On first switch to FR/ES/AR, database content shows briefly in English and then swaps in translated text; after that it is instant for everyone thanks to the cache.
-- Anything not yet translated falls back to English rather than showing a blank.
+### 3. Homepage sections (top to bottom)
+1. **Hero** — left column: "Build the skills / to deliver better CVA." in red, sub-line, teal "Explore courses" button + outlined "Find a training" button. Right: full-bleed workshop photo with teal, pale-blue and red circles peeking out behind its corners.
+2. **Three-column band**:
+   - *Explore our courses* + "View all courses →": three photo cards with title, 2–3 line summary, modality + language codes, and a small square arrow button.
+   - *Upcoming trainings* + "View full calendar →": rows with big red day / small month, course title, "City, Country • In-person • EN" meta, red "Apply" button, hairline dividers.
+   - *Meet our trainers* + "View all trainers →": three portrait cards with name, language codes, region.
+3. **How to apply** — blush full-width band with decorative circles, red heading, three numbered steps in red circles with chevrons between, and a teal "See application guidance" button.
+4. **Footer** — logo left, centred "Visit the CALP Network website" link, right-side red Privacy Policy / Cookie Policy / Terms of Use links.
+
+All content stays wired to the live database exactly as it is now; only presentation changes. Where the database has more/fewer items than the mockup, the layout keeps the same card and row design.
+
+### 4. Other pages
+Courses, course detail, trainings, training detail, trainers, calendar, apply and contact get the new palette, Roboto type, new header/footer, and the redesigned card/row components — same structure and functionality, new skin.
+
+## Assets I need from you
+- Hero workshop photo (the training-room image)
+- The three course card photos (market/cash-distribution images)
+- Trainer portrait photos (or confirm I should keep pulling photos from the database and use the existing portraits as fallback)
+
+Everything else (logo, icons, circles) I can produce from what's already in the project.
 
 ## Technical notes
-
-- Expand `src/i18n/dict.ts` with the full key set; sweep each route (`index`, `courses`, `courses.$courseId`, `trainers`, `trainings`, `trainings.$trainingId`, `calendar`, `apply`, `contact`) and the site components to replace literals with `t("key")`.
-- Add a server function `src/lib/translate.functions.ts` (+ `translate.server.ts`) that takes a batch of strings plus a target language and calls the Lovable AI Gateway (`google/gemini-3.6-flash`) with a strict JSON schema, instructing it to keep humanitarian/CVA terminology and proper nouns intact.
-- Cache translations in a new Cloud table `content_translations` (`source_hash`, `lang`, `text`) so each string is translated once; the server function reads cache first, translates only misses, and writes them back. Standard grants + RLS: public `SELECT` for `anon`/`authenticated`, writes only from the server function.
-- Client side: `useTranslatedContent(items, lang)` wraps the existing `useCourses` / `useTrainers` / `useTrainings` hooks, keyed by language, returning English immediately and translated fields when ready.
-- Locale-aware date helpers in `src/lib/format.ts` using `Intl.DateTimeFormat` with the active language.
-- RTL polish in `src/styles.css` and components via logical properties / `rtl:` variants.
-- Metadata (`head()` titles/descriptions) stays English for SEO since there is one URL per page.
-
-## Out of scope
-
-- Separate `/fr`, `/es`, `/ar` URLs and per-language SEO metadata.
-- Human review of AI translations (an editable override table can be added later).
+- Brand tokens redefined in `src/styles.css` (`@theme inline` + `:root`); no hardcoded colour utilities in components.
+- Roboto loaded via a `@fontsource` package import in `src/styles.css`, mapped to `--font-sans` / `--font-display`.
+- New/edited components: `SiteHeader`, `SiteFooter`, `BrandWordmark`, `CourseCard`, `TrainingRow`, `TrainerCard`, plus new `HowToApply`, `LangSelect` and `BrandBlobs` updates.
+- `src/routes/index.tsx` rewritten to the four-section composition; other routes keep their loaders/queries untouched.
+- Exact hex values sampled from the attached design image before implementation.
+- Responsive: the three-column band stacks to one column on mobile using grid + `min-w-0` so text truncates rather than clips.
