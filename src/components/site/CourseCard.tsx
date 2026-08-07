@@ -19,11 +19,11 @@ export function CourseCard({ course }: { course: Course }) {
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </div>
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col p-4">
         <h3 className="mb-3 font-display text-base font-bold leading-snug text-calp-blue transition-colors group-hover:text-calp-red">
           {course.title}
         </h3>
-        <p className="mb-5 line-clamp-3 flex-1 text-sm leading-relaxed text-calp-ink">
+        <p className="mb-4 line-clamp-3 flex-1 text-[13px] leading-relaxed text-calp-ink">
           {course.summary}
         </p>
         <div className="flex items-end justify-between gap-3">
