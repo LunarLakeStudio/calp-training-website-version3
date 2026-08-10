@@ -10,6 +10,8 @@ import { courses as fallbackCourses } from "@/data/courses";
 import { trainers as fallbackTrainers } from "@/data/trainers";
 import { upcomingTrainings as fallbackUpcoming } from "@/data/trainings";
 import { formatDate } from "@/lib/format";
+import { ShapeClusterWarm } from "@/components/site/BrandShapes";
+
 import calpLogo from "@/assets/calp-logo-official.png.asset.json";
 
 const searchSchema = z.object({
