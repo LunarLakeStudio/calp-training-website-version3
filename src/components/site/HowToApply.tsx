@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import {
-  PaleTealCircle,
-  RedCircle,
-  TealCircle,
-} from "@/components/site/BrandBlobs";
+  ShapeClusterCool,
+  ShapeClusterWarm,
+} from "@/components/site/BrandShapes";
+
 
 const STEPS = [
   {
