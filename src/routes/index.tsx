@@ -6,10 +6,10 @@ import { TrainingRow } from "@/components/site/TrainingRow";
 import { TrainerCard } from "@/components/site/TrainerCard";
 import { HowToApply } from "@/components/site/HowToApply";
 import {
-  TealCircle,
-  PaleTealCircle,
-  RedCircle,
-} from "@/components/site/BrandBlobs";
+  ShapeClusterCool,
+  ShapeClusterWarm,
+} from "@/components/site/BrandShapes";
+
 import { courses as fallbackCourses } from "@/data/courses";
 import { trainers as fallbackTrainers } from "@/data/trainers";
 import { upcomingTrainings as fallbackUpcoming } from "@/data/trainings";
