@@ -77,9 +77,8 @@ function Index() {
           </div>
 
           <div className="relative">
-            <TealCircle className="-left-10 -top-8 h-40 w-40 opacity-90" />
-            <PaleTealCircle className="-right-8 -top-10 h-36 w-36" />
-            <RedCircle className="-right-6 -bottom-8 h-32 w-32" />
+            <ShapeClusterCool className="-left-16 -top-12 h-[130%] w-[85%]" />
+            <ShapeClusterWarm className="-bottom-16 -right-12 h-[70%] w-[45%]" />
             <img
               src={heroAsset.url}
               alt="Humanitarian professionals in a CALP training workshop"
@@ -88,6 +87,7 @@ function Index() {
               className="relative z-10 aspect-[16/9] w-full rounded-xl object-cover"
             />
           </div>
+
         </div>
       </section>
 
