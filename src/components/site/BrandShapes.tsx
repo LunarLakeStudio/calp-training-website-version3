@@ -78,22 +78,22 @@ export function ShapeClusterCool({ className = "" }: { className?: string }) {
       <BrandShape
         shape="oval"
         fill="teal"
-        opacity={0.45}
+        opacity={0.6}
         className="right-0 top-0 h-[85%] w-[85%]"
       />
       <BrandShape
         shape="round"
         fill="blue"
-        opacity={0.55}
+        opacity={0.7}
         rotate={-18}
         className="-left-[6%] bottom-0 h-[62%] w-[62%]"
       />
       <BrandShape
         shape="wave"
         fill="red"
-        opacity={0.7}
+        opacity={0.8}
         rotate={12}
-        className="bottom-[8%] right-[6%] h-[26%] w-[26%]"
+        className="bottom-[8%] right-[6%] h-[30%] w-[30%]"
       />
     </div>
   );
@@ -110,21 +110,21 @@ export function ShapeClusterWarm({ className = "" }: { className?: string }) {
       <BrandShape
         shape="round"
         fill="blue50"
-        opacity={0.85}
+        opacity={0.95}
         rotate={8}
         className="right-0 top-[6%] h-[82%] w-[82%]"
       />
       <BrandShape
         shape="wave"
         fill="red"
-        opacity={0.68}
+        opacity={0.8}
         rotate={-6}
         className="bottom-0 left-0 h-[70%] w-[70%]"
       />
       <BrandShape
         shape="oval"
         fill="paleRed"
-        opacity={0.75}
+        opacity={0.9}
         rotate={24}
         className="-top-[4%] left-[22%] h-[38%] w-[38%]"
       />

@@ -21,6 +21,9 @@ export function SiteHeader() {
         <BrandWordmark />
 
         <div className="hidden items-center gap-7 text-sm font-medium text-calp-blue lg:flex">
+          <HeaderLink to="/" exact>
+            {t("nav.home")}
+          </HeaderLink>
           <HeaderLink to="/courses">{t("nav.courses")}</HeaderLink>
           <HeaderLink to="/trainings">{t("nav.trainings")}</HeaderLink>
           <HeaderLink to="/trainers">{t("nav.trainers")}</HeaderLink>
@@ -63,12 +66,21 @@ export function SiteHeader() {
   );
 }
 
-function HeaderLink({ to, children }: { to: string; children: React.ReactNode }) {
+function HeaderLink({
+  to,
+  exact,
+  children,
+}: {
+  to: string;
+  exact?: boolean;
+  children: React.ReactNode;
+}) {
   return (
     <Link
       to={to}
       className="transition-colors hover:text-calp-red"
       activeProps={{ className: "text-calp-red" }}
+      activeOptions={exact ? { exact: true } : undefined}
     >
       {children}
     </Link>

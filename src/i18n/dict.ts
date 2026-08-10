@@ -10,6 +10,7 @@ export const LANGS: { code: Lang; label: string; native: string }[] = [
 type Dict = Record<string, Record<Lang, string>>;
 
 export const t: Dict = {
+  "nav.home": { en: "Home", fr: "Accueil", es: "Inicio", ar: "الرئيسية" },
   "nav.courses": { en: "Courses", fr: "Formations", es: "Cursos", ar: "الدورات" },
   "nav.trainers": { en: "Trainers", fr: "Formateurs", es: "Formadores", ar: "المدربون" },
   "nav.trainings": { en: "Trainings", fr: "Sessions", es: "Sesiones", ar: "التدريبات" },

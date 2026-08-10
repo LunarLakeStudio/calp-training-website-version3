@@ -49,7 +49,8 @@ function Index() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 pt-10 pb-14 lg:grid-cols-2">
+        <ShapeClusterCool className="-left-44 top-[42%] h-[85%] w-[38%] opacity-60" />
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pt-14 pb-20 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="relative z-10">
             <h1 className="mb-5 font-display text-4xl font-bold leading-tight text-calp-red md:text-5xl">
               Build the skills
@@ -77,14 +78,14 @@ function Index() {
           </div>
 
           <div className="relative">
-            <ShapeClusterCool className="-left-16 -top-12 h-[130%] w-[85%]" />
-            <ShapeClusterWarm className="-bottom-16 -right-12 h-[70%] w-[45%]" />
+            <ShapeClusterCool className="-left-16 -top-24 h-[140%] w-[105%]" />
+            <ShapeClusterWarm className="-bottom-24 -right-24 h-[90%] w-[65%]" />
             <img
               src={heroAsset.url}
               alt="Humanitarian professionals in a CALP training workshop"
               width={1600}
-              height={600}
-              className="relative z-10 aspect-[16/9] w-full rounded-xl object-cover"
+              height={1100}
+              className="relative z-10 aspect-[4/3] w-full rounded-2xl object-cover"
             />
           </div>
 
