@@ -24,8 +24,9 @@ const STEPS = [
 export function HowToApply() {
   return (
     <section className="relative overflow-hidden bg-calp-pale-red py-14">
-      <ShapeClusterCool className="-left-24 -top-10 h-[150%] w-[26rem]" />
-      <ShapeClusterWarm className="-right-20 -bottom-16 h-[150%] w-[24rem]" />
+      <ShapeClusterCool className="-left-40 -top-16 h-[130%] w-[18rem] opacity-60" />
+      <ShapeClusterWarm className="-right-32 -bottom-20 h-[130%] w-[18rem] opacity-70" />
+
 
 
       <div className="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[200px_minmax(0,1fr)_auto] lg:items-center">
