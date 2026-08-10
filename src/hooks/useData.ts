@@ -4,7 +4,9 @@ import { useQuery } from "@tanstack/react-query";
 import type { Course } from "@/data/courses";
 import { courses as fallbackCourses } from "@/data/courses";
 import type { Trainer } from "@/data/trainers";
+import { trainers as fallbackTrainers } from "@/data/trainers";
 import type { Training } from "@/data/trainings";
+import { upcomingTrainings as fallbackUpcoming } from "@/data/trainings";
 import {
   getCourses,
   getCourseBySlug,
