@@ -78,22 +78,22 @@ export function ShapeClusterCool({ className = "" }: { className?: string }) {
       <BrandShape
         shape="oval"
         fill="teal"
-        opacity={0.45}
+        opacity={0.6}
         className="right-0 top-0 h-[85%] w-[85%]"
       />
       <BrandShape
         shape="round"
         fill="blue"
-        opacity={0.55}
+        opacity={0.7}
         rotate={-18}
         className="-left-[6%] bottom-0 h-[62%] w-[62%]"
       />
       <BrandShape
         shape="wave"
         fill="red"
-        opacity={0.7}
+        opacity={0.8}
         rotate={12}
-        className="bottom-[8%] right-[6%] h-[26%] w-[26%]"
+        className="bottom-[8%] right-[6%] h-[30%] w-[30%]"
       />
     </div>
   );
