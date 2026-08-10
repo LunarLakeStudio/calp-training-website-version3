@@ -340,16 +340,9 @@ function ApplyPage() {
 
       </div>
 
-      {/* Decorative blob cluster bottom-left */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 left-0 h-64 w-64"
-      >
-        <div className="absolute bottom-16 left-6 h-24 w-24 rounded-full bg-calp-blue/80" />
-        <div className="absolute bottom-6 left-24 h-20 w-20 rounded-full bg-calp-red" />
-        <div className="absolute bottom-0 left-0 h-16 w-16 rounded-full bg-calp-blue/60" />
-        <div className="absolute bottom-20 left-40 h-10 w-10 rounded-full bg-calp-red/70" />
-      </div>
+      {/* Decorative organic shape cluster bottom-left */}
+      <ShapeClusterWarm className="-bottom-10 -left-16 h-72 w-72" />
+
 
       <div className="relative mx-auto max-w-4xl px-6 pb-32 pt-8">
         {/* Title + course intro */}
