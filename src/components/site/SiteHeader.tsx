@@ -66,12 +66,21 @@ export function SiteHeader() {
   );
 }
 
-function HeaderLink({ to, children }: { to: string; children: React.ReactNode }) {
+function HeaderLink({
+  to,
+  exact,
+  children,
+}: {
+  to: string;
+  exact?: boolean;
+  children: React.ReactNode;
+}) {
   return (
     <Link
       to={to}
       className="transition-colors hover:text-calp-red"
       activeProps={{ className: "text-calp-red" }}
+      activeOptions={exact ? { exact: true } : undefined}
     >
       {children}
     </Link>
