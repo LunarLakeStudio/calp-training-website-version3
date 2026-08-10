@@ -49,7 +49,14 @@ export function useCourse(slug: string) {
 export function useTrainers() {
   return useQuery<Trainer[]>({
     queryKey: ["trainers"],
-    queryFn: () => getTrainers() as Promise<Trainer[]>,
+    queryFn: async () => {
+      try {
+        const rows = (await getTrainers()) as Trainer[];
+        return rows?.length ? rows : fallbackTrainers;
+      } catch {
+        return fallbackTrainers;
+      }
+    },
     staleTime: 5 * 60 * 1000,
   });
 }
@@ -57,7 +64,14 @@ export function useTrainers() {
 export function useTrainings() {
   return useQuery<Training[]>({
     queryKey: ["trainings"],
-    queryFn: () => getTrainings() as Promise<Training[]>,
+    queryFn: async () => {
+      try {
+        const rows = (await getTrainings()) as Training[];
+        return rows?.length ? rows : fallbackUpcoming();
+      } catch {
+        return fallbackUpcoming();
+      }
+    },
     staleTime: 60 * 1000,
   });
 }

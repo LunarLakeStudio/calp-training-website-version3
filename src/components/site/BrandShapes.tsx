@@ -110,21 +110,21 @@ export function ShapeClusterWarm({ className = "" }: { className?: string }) {
       <BrandShape
         shape="round"
         fill="blue50"
-        opacity={0.85}
+        opacity={0.95}
         rotate={8}
         className="right-0 top-[6%] h-[82%] w-[82%]"
       />
       <BrandShape
         shape="wave"
         fill="red"
-        opacity={0.68}
+        opacity={0.8}
         rotate={-6}
         className="bottom-0 left-0 h-[70%] w-[70%]"
       />
       <BrandShape
         shape="oval"
         fill="paleRed"
-        opacity={0.75}
+        opacity={0.9}
         rotate={24}
         className="-top-[4%] left-[22%] h-[38%] w-[38%]"
       />
