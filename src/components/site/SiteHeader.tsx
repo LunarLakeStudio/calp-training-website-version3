@@ -21,6 +21,9 @@ export function SiteHeader() {
         <BrandWordmark />
 
         <div className="hidden items-center gap-7 text-sm font-medium text-calp-blue lg:flex">
+          <HeaderLink to="/" exact>
+            {t("nav.home")}
+          </HeaderLink>
           <HeaderLink to="/courses">{t("nav.courses")}</HeaderLink>
           <HeaderLink to="/trainings">{t("nav.trainings")}</HeaderLink>
           <HeaderLink to="/trainers">{t("nav.trainers")}</HeaderLink>
