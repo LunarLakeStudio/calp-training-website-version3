@@ -358,7 +358,7 @@ function ApplyPage() {
           {activeTraining ? ` in ${trainingLocation}` : null}
         </h1>
 
-        <div className="mt-6 rounded-md bg-calp-red/10 px-5 py-4 text-sm text-calp-blue">
+        <div className="mt-6 rounded-md bg-calp-pale-red px-5 py-4 text-sm text-calp-blue">
           Please note that this is a {activeCourse?.duration ?? "5 day"} course, which will be delivered in{" "}
           <strong>{trainingLocation}</strong>
           {activeTraining ? " from " : ""}
@@ -418,7 +418,7 @@ function ApplyPage() {
         <p className="mb-6 mt-8 text-sm font-semibold text-calp-red">* Required</p>
 
         {preselectedTraining ? (
-          <div className="mb-8 rounded-md border-l-4 border-calp-red bg-calp-red/5 p-5">
+          <div className="mb-8 rounded-md border-l-4 border-calp-red bg-calp-pale-red p-5">
             <p className="text-[10px] font-bold text-calp-red">
               Applying for
             </p>

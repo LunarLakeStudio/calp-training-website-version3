@@ -154,13 +154,13 @@ function TrainingsPage() {
                     <span className="rounded bg-calp-blue px-2 py-1 text-[10px] font-bold text-white">
                       {t.format}
                     </span>
-                    <span className="rounded bg-calp-pale-teal/40 px-2 py-1 text-[10px] font-bold">
+                    <span className="rounded bg-calp-pale-teal px-2 py-1 text-[10px] font-bold">
                       {t.language}
                     </span>
                     {course?.topics.slice(0, 1).map((tp) => (
                       <span
                         key={tp}
-                        className="rounded bg-calp-red/10 px-2 py-1 text-[10px] font-bold text-calp-red"
+                        className="rounded bg-calp-pale-red px-2 py-1 text-[10px] font-bold text-calp-red"
                       >
                         {tp}
                       </span>
