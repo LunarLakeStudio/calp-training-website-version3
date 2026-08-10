@@ -1,59 +1,52 @@
-# Align the site with the CALP design implementation guide
+# Replace circles with the official CALP organic shapes
 
-The guide confirms the official decorative device is a **cluster of flat circles** — one large circle with smaller satellites, in the brand palette — not organic blobs. It also reveals that the "%" colours are **transparency levels of the base colours**, and it sets a clear colour hierarchy per surface. This plan drops the earlier "organic blobs" direction and implements the guide as written.
+The uploaded SVGs are the real brand device: soft, asymmetric organic forms that overlap each other with transparency, exactly as in `CALP_Bottom_shapes.png`. Circles go away entirely.
 
-## What the guide changes
+## What's usable from the uploads
 
-**1. Decorative shapes are circle clusters.** Keep circles, but arrange them as the brand does: one dominant circle with 3–5 smaller circles of varying size overlapping its edge, in mixed brand tints. Each cluster keeps CALP red present (the guide requires red in every design), usually as a small accent circle.
-
-**2. Transparency is the palette, not an effect.** The tints in the guide are exact colours representing opacity of the base:
-
-| Guide name | Hex | Equivalent |
+| File | Content | Usable? |
 | --- | --- | --- |
-| Dark blue 75% | `#4484a1` | `#065b82` at 75% on white |
-| Dark blue 50% | `#82adc0` | `#065b82` at 50% on white |
-| Teal 50% | `#9cd1da` | `#00b0bf` at 50% on white |
-| CALP red 20% | `#f0cdbf` | `#ca2128` at 20% on white |
+| `3.svg` | Single clean path, teal `#00abbf` at 40% | Yes — soft wide oval |
+| `15.svg` | Single clean path, red `#c91619` at 69% | Yes — the distinctive notched "wave" form |
+| `2.svg` | Single clean path, yellow `#f9b916` at 60% | Yes as geometry, but the colour is off-brand |
+| `1.svg`, `17.svg`, `21.svg` | Base64 PNG inside an SVG mask, not real paths | No — raster, can't be recoloured as vectors |
 
-So the shapes must use these **exact tints at full opacity**. The current code layers arbitrary `opacity-40` / `opacity-70` / `opacity-90` on top of full-strength colours, which produces off-brand shades that appear nowhere in the guide. Those arbitrary opacity classes are removed. Where a shape genuinely sits over a coloured band (the "How to apply" pale-red band), the tint is chosen so it reads correctly on that background rather than faked with opacity.
+So three genuine vector silhouettes are available. Their `d` attributes are extracted and inlined as reusable path constants; the yellow one is recoloured to a brand value (its shape is fine, only the fill was off-brand). No raster files are embedded.
 
-**3. Colour hierarchy per surface.** The guide assigns roles by surface:
+## Colour and transparency
 
-- **External interface (site pages):** Dark Blue `#065b82` is *main*; CALP Red and Teal are *secondary*; Dark blue 50%, red 20% and teal 50% are *accents*.
-- **Forms (apply / contact):** red 20% `#f0cdbf` for backgrounds only; text and buttons in CALP Red or Dark Blue.
-- **Never** place Dark Blue directly on CALP Red or vice versa (jarring combination the guide calls out by name).
+Every fill comes from the official palette, and transparency is done with `fill-opacity` — which is what produces the overlap blending in the reference image:
 
-Applied consistently, this means Dark Blue carries the interface (nav, links, secondary buttons, card headings), red stays the action/emphasis colour (H1, primary buttons), and the pale tints are reserved for backgrounds and decorative circles.
+- Teal `#00b0bf` at 0.4–0.5
+- Dark blue `#065b82` at 0.5–0.65
+- CALP red `#ca2128` at 0.65–0.7
+- Pale teal `#9cd1da` and pale red `#f0cdbf` at full opacity for the largest, quietest background forms
 
-## Changes by file
+Using true `fill-opacity` (rather than the pre-mixed tint hexes) is what lets two shapes overlap and darken at the intersection, the signature look of the brand shapes. Red is present in every cluster, per the design guide.
 
-### `src/styles.css`
-- Keep the nine palette tokens (already correct hexes).
-- Add semantic aliases documenting the guide's roles so components read intent, not raw colour: a main/secondary/accent mapping for the external interface, and a form-background token pointing at red 20%.
-- Verify the shadcn mappings follow the hierarchy — `--secondary` currently points at red 20% (correct as a background), `--ring`/`--accent-foreground` at Dark Blue (correct).
+## New component: `src/components/site/BrandShapes.tsx`
 
-### `src/components/site/BrandBlobs.tsx`
-- Remove the unused `ORGANIC_A` / `ORGANIC_B` blob components (`RedBlob`, `TealBlob`, `PaleTealBlob`, `PaleRedBlob`, `BlueBlob`) — they aren't the brand device.
-- Keep the circle primitives and add the missing tints: dark blue, dark blue 75%, dark blue 50%, teal, teal 50%, red, red 20%.
-- Add a `CircleCluster` component that renders a brand-accurate grouping (one dominant circle + satellites) with variants for a light background and for the pale-red band, so both usage sites get a consistent, guide-compliant cluster instead of hand-placed one-offs.
+Replaces `BrandBlobs.tsx` entirely.
+
+- Three path constants extracted from the uploaded SVGs (`SHAPE_OVAL`, `SHAPE_WAVE`, `SHAPE_ROUND`), each with its own `viewBox` preserved so the geometry isn't distorted.
+- A `<BrandShape shape fill opacity className />` primitive rendering one path, absolutely positioned, `pointer-events-none`, `aria-hidden`.
+- Two composed clusters mirroring the reference image:
+  - `ShapeClusterCool` — large pale-teal oval with a dark-blue form overlapping its lower-left, so the intersection reads darker.
+  - `ShapeClusterWarm` — red wave crossing a dark-blue oval, with a small pale-red form catching the top edge.
+- Each shape gets a slight individual rotation/scale via transform so no two clusters look stamped from the same template, and generous blur-free crispness is kept (no filters — these stay razor sharp at any zoom).
+- `overflow-hidden` on the host section clips them; sizes are set in `rem`-based Tailwind classes so they scale with the layout rather than overflowing on mobile.
+
+`BrandBlobs.tsx` is deleted along with its unused blob and circle exports.
+
+## Usage sites
 
 ### `src/routes/index.tsx` — hero
-- Replace the three hand-placed circles with a `CircleCluster` behind the hero image: dominant Dark Blue circle, satellites in teal 50%, dark blue 50%, red 20%, and a small CALP Red accent.
-- Remove `opacity-90` and friends; the tints carry the lightness.
+The three circles behind the hero image are replaced with one `ShapeClusterCool` behind the image's top-left and a smaller warm accent at the bottom-right, so the photo sits inside the shapes rather than on top of stray dots. All `opacity-*` utility classes are dropped — opacity now lives in the SVG fills.
 
 ### `src/components/site/HowToApply.tsx` — pale red band
-- Replace the four circles with a cluster tuned for the `#f0cdbf` background: dominant Dark Blue 75% circle with teal 50%, dark blue 50% and a small red accent — matching the second palette illustration in the guide, which is exactly this arrangement.
-- Remove `opacity-40` / `opacity-70` / `opacity-90`.
-
-### Forms — `src/routes/apply.tsx`, `src/routes/contact.tsx`
-- Any decorative or panel background moves to red 20% `#f0cdbf`; field labels and helper text in black, buttons and links in CALP Red or Dark Blue per the guide's forms rule.
-- Audit for any Dark-Blue-on-red or red-on-Dark-Blue pairing and separate them with white or a pale tint.
-
-### Site-wide audit
-- Sweep all routes and site components for arbitrary opacity on brand colours (`/20`, `/40`, `opacity-*` on `bg-calp-*`) and replace with the correct named tint.
-- Confirm image corners stay rounded and Roboto remains the only font (both already in place).
+The four circles are replaced with a `ShapeClusterWarm` bleeding off the right edge and a cool cluster off the left, tuned so they read correctly against the `#f0cdbf` band instead of washing out. Content keeps its `relative z-10` so no shape ever crosses the numbered steps or the button.
 
 ## Notes
-- No new colours and no new fonts are introduced — every value comes from the guide's table.
-- H1 stays CALP Red per your earlier brand rule; Dark Blue takes the "main" interface role the guide describes, so red reads as emphasis rather than as the base colour.
-- Contrast is checked for each pairing: black and Dark Blue on white and on red 20% pass AA; white on CALP Red and on Dark Blue pass AA. Pale tints are never used for text.
+- Pure inline SVG — no new dependencies, no image requests, and the shapes stay sharp on any display.
+- No new colours and no new fonts; every fill is a palette value at a stated opacity.
+- Text contrast is unaffected: shapes sit behind content and never under body copy at an opacity that would reduce legibility.
