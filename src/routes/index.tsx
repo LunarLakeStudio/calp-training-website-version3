@@ -78,8 +78,8 @@ function Index() {
           </div>
 
           <div className="relative">
-            <ShapeClusterCool className="-left-32 -top-28 h-[150%] w-[115%]" />
-            <ShapeClusterWarm className="-bottom-28 -right-28 h-[95%] w-[70%]" />
+            <ShapeClusterCool className="-left-16 -top-24 h-[140%] w-[105%]" />
+            <ShapeClusterWarm className="-bottom-24 -right-24 h-[90%] w-[65%]" />
             <img
               src={heroAsset.url}
               alt="Humanitarian professionals in a CALP training workshop"
