@@ -13,16 +13,39 @@ The uploaded SVGs are the real brand device: soft, asymmetric organic forms that
 
 So three genuine vector silhouettes are available. Their `d` attributes are extracted and inlined as reusable path constants; the yellow one is recoloured to a brand value (its shape is fine, only the fill was off-brand). No raster files are embedded.
 
-## Colour and transparency
+## Palette compliance
 
-Every fill comes from the official palette, and transparency is done with `fill-opacity` — which is what produces the overlap blending in the reference image:
+Every fill is one of the nine values from the design guide — nothing else is permitted anywhere in the shape system:
+
+| Guide name | Hex |
+| --- | --- |
+| Dark Blue (main) | `#065b82` |
+| CALP Red (secondary) | `#ca2128` |
+| Teal (secondary) | `#00b0bf` |
+| Dark blue 75% | `#4484a1` |
+| Dark blue 50% (accent) | `#82adc0` |
+| CALP red 20% (accent) | `#f0cdbf` |
+| Teal 50% (accent) | `#9cd1da` |
+| Black | `#000000` |
+| White | `#ffffff` |
+
+Two colours in the uploaded SVGs are **not** brand values and are corrected: `#00abbf` becomes teal `#00b0bf`, `#c91619` becomes CALP Red `#ca2128`, and the yellow `#f9b916` is dropped entirely in favour of a brand fill. Fills reference the existing CSS variables (`var(--calp-red)` etc.) rather than literal hexes, so the palette stays single-sourced in `src/styles.css` and can never drift.
+
+The guide's colour hierarchy is respected: Dark Blue is the main interface colour, red and teal are secondary, and the three tints are accents only. Dark Blue is never placed directly against CALP Red — where the two clusters meet, a white or pale-tint gap separates them, as the guide requires.
+
+## Transparency
+
+Transparency is applied with `fill-opacity`, which is what produces the overlap blending in the reference image:
 
 - Teal `#00b0bf` at 0.4–0.5
 - Dark blue `#065b82` at 0.5–0.65
 - CALP red `#ca2128` at 0.65–0.7
 - Pale teal `#9cd1da` and pale red `#f0cdbf` at full opacity for the largest, quietest background forms
 
-Using true `fill-opacity` (rather than the pre-mixed tint hexes) is what lets two shapes overlap and darken at the intersection, the signature look of the brand shapes. Red is present in every cluster, per the design guide.
+Using true `fill-opacity` (rather than the pre-mixed tint hexes) is what lets two shapes overlap and darken at the intersection, the signature look of the brand shapes. Red is present in every cluster, per the guide.
+
+A separate site-wide sweep removes arbitrary Tailwind `opacity-*` and `/20`-style alpha modifiers layered on brand colours elsewhere in the app, since those generate shades that appear nowhere in the guide; each is replaced with the correct named tint.
+
 
 ## New component: `src/components/site/BrandShapes.tsx`
 
