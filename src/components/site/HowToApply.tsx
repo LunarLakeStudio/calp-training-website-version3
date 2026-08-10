@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import {
-  PaleTealCircle,
-  RedCircle,
-  TealCircle,
-} from "@/components/site/BrandBlobs";
+  ShapeClusterCool,
+  ShapeClusterWarm,
+} from "@/components/site/BrandShapes";
+
 
 const STEPS = [
   {
@@ -24,10 +24,10 @@ const STEPS = [
 export function HowToApply() {
   return (
     <section className="relative overflow-hidden bg-calp-pale-red py-14">
-      <PaleTealCircle className="-left-10 top-0 h-40 w-40 opacity-70" />
-      <PaleTealCircle className="-right-16 bottom-0 h-48 w-48 opacity-70" />
-      <RedCircle className="-right-6 -bottom-10 h-36 w-36 opacity-90" />
-      <TealCircle className="right-40 -top-12 h-24 w-24 opacity-40" />
+      <ShapeClusterCool className="-left-40 -top-16 h-[130%] w-[18rem] opacity-60" />
+      <ShapeClusterWarm className="-right-32 -bottom-20 h-[130%] w-[18rem] opacity-70" />
+
+
 
       <div className="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[200px_minmax(0,1fr)_auto] lg:items-center">
         <h2 className="font-display text-2xl font-bold text-calp-red">

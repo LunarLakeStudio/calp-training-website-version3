@@ -59,10 +59,10 @@ function CourseDetail() {
               ← Catalogue
             </Link>
             <div className="mb-6 flex flex-wrap gap-2">
-              <span className="rounded bg-calp-pale-teal/40 px-2 py-1 text-[10px] font-bold">
+              <span className="rounded bg-calp-pale-teal px-2 py-1 text-[10px] font-bold">
                 {course.level} Level
               </span>
-              <span className="rounded bg-calp-pale-teal/40 px-2 py-1 text-[10px] font-bold">
+              <span className="rounded bg-calp-pale-teal px-2 py-1 text-[10px] font-bold">
                 {course.duration}
               </span>
               {course.languages.map((l) => (

@@ -130,7 +130,7 @@ function TrainingDetail() {
             <span className="rounded bg-calp-blue px-2 py-1 text-[10px] font-bold text-white">
               {training.format}
             </span>
-            <span className="rounded bg-calp-pale-teal/40 px-2 py-1 text-[10px] font-bold">
+            <span className="rounded bg-calp-pale-teal px-2 py-1 text-[10px] font-bold">
               {training.language}
             </span>
           </div>

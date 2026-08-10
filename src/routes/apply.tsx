@@ -10,6 +10,8 @@ import { courses as fallbackCourses } from "@/data/courses";
 import { trainers as fallbackTrainers } from "@/data/trainers";
 import { upcomingTrainings as fallbackUpcoming } from "@/data/trainings";
 import { formatDate } from "@/lib/format";
+import { ShapeClusterWarm } from "@/components/site/BrandShapes";
+
 import calpLogo from "@/assets/calp-logo-official.png.asset.json";
 
 const searchSchema = z.object({
@@ -340,16 +342,9 @@ function ApplyPage() {
 
       </div>
 
-      {/* Decorative blob cluster bottom-left */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 left-0 h-64 w-64"
-      >
-        <div className="absolute bottom-16 left-6 h-24 w-24 rounded-full bg-calp-blue/80" />
-        <div className="absolute bottom-6 left-24 h-20 w-20 rounded-full bg-calp-red" />
-        <div className="absolute bottom-0 left-0 h-16 w-16 rounded-full bg-calp-blue/60" />
-        <div className="absolute bottom-20 left-40 h-10 w-10 rounded-full bg-calp-red/70" />
-      </div>
+      {/* Decorative organic shape cluster bottom-left */}
+      <ShapeClusterWarm className="-bottom-10 -left-16 h-72 w-72" />
+
 
       <div className="relative mx-auto max-w-4xl px-6 pb-32 pt-8">
         {/* Title + course intro */}
@@ -358,7 +353,7 @@ function ApplyPage() {
           {activeTraining ? ` in ${trainingLocation}` : null}
         </h1>
 
-        <div className="mt-6 rounded-md bg-calp-red/10 px-5 py-4 text-sm text-calp-blue">
+        <div className="mt-6 rounded-md bg-calp-pale-red px-5 py-4 text-sm text-calp-blue">
           Please note that this is a {activeCourse?.duration ?? "5 day"} course, which will be delivered in{" "}
           <strong>{trainingLocation}</strong>
           {activeTraining ? " from " : ""}
@@ -418,7 +413,7 @@ function ApplyPage() {
         <p className="mb-6 mt-8 text-sm font-semibold text-calp-red">* Required</p>
 
         {preselectedTraining ? (
-          <div className="mb-8 rounded-md border-l-4 border-calp-red bg-calp-red/5 p-5">
+          <div className="mb-8 rounded-md border-l-4 border-calp-red bg-calp-pale-red p-5">
             <p className="text-[10px] font-bold text-calp-red">
               Applying for
             </p>
