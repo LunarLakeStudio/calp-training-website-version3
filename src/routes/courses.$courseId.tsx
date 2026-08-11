@@ -37,7 +37,7 @@ export const Route = createFileRoute("/courses/$courseId")({
       : {},
   component: CourseDetail,
   notFoundComponent: () => (
-    <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+    <div className="mx-auto max-w-7xl px-6 py-24">
       <h1 className="mb-4 font-display text-3xl font-bold">Course not found</h1>
       <Link to="/courses" className="text-calp-red">
         ← Back to catalogue

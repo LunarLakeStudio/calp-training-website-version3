@@ -19,7 +19,7 @@ import { Toaster } from "@/components/ui/sonner";
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-calp-canvas px-4">
-      <div className="max-w-md text-center">
+      <div className="max-w-md">
         <h1 className="font-display text-7xl font-bold text-calp-blue">404</h1>
         <h2 className="mt-4 text-xl font-medium text-calp-blue">Page not found</h2>
         <p className="mt-2 text-sm text-calp-ink">
@@ -47,7 +47,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-calp-canvas px-4">
-      <div className="max-w-md text-center">
+      <div className="max-w-md">
         <h1 className="font-display text-xl font-medium text-calp-blue">
           This page didn't load
         </h1>

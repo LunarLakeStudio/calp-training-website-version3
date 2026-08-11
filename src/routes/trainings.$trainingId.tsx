@@ -58,7 +58,7 @@ export const Route = createFileRoute("/trainings/$trainingId")({
       : {},
   component: TrainingDetail,
   notFoundComponent: () => (
-    <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+    <div className="mx-auto max-w-7xl px-6 py-24">
       <h1 className="mb-4 font-display text-3xl font-bold">Training not found</h1>
       <Link to="/calendar" className="text-calp-red">
         ← Back to calendar
