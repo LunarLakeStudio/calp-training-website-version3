@@ -24,7 +24,7 @@ import p10 from "@/assets/trainers/portrait-10.jpg";
 import p11 from "@/assets/trainers/portrait-11.jpg";
 import p12 from "@/assets/trainers/portrait-12.jpg";
 
-const COURSE_COVERS = [fundamentalsImg, strategicImg, digitalImg];
+const COURSE_COVERS = [shape1.url, shape2.url, shape3.url];
 const PORTRAITS = [p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12];
 
 const LANG_TO_CODE: Record<string, string> = {
