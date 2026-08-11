@@ -8,9 +8,9 @@ import type { Course } from "@/data/courses";
 import type { Trainer } from "@/data/trainers";
 import type { Training } from "@/data/trainings";
 
-import fundamentalsImg from "@/assets/course-fundamentals.jpg";
-import strategicImg from "@/assets/course-strategic.jpg";
-import digitalImg from "@/assets/course-digital.jpg";
+import shape1 from "@/assets/course-shape-1.png.asset.json";
+import shape2 from "@/assets/course-shape-2.png.asset.json";
+import shape3 from "@/assets/course-shape-3.png.asset.json";
 import p01 from "@/assets/trainers/portrait-01.jpg";
 import p02 from "@/assets/trainers/portrait-02.jpg";
 import p03 from "@/assets/trainers/portrait-03.jpg";
