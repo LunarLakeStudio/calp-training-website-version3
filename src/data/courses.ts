@@ -1,6 +1,10 @@
-import fundamentalsImg from "@/assets/course-fundamentals.jpg";
-import strategicImg from "@/assets/course-strategic.jpg";
-import digitalImg from "@/assets/course-digital.jpg";
+import shape1 from "@/assets/course-shape-1.png.asset.json";
+import shape2 from "@/assets/course-shape-2.png.asset.json";
+import shape3 from "@/assets/course-shape-3.png.asset.json";
+
+const fundamentalsImg = shape1.url;
+const strategicImg = shape2.url;
+const digitalImg = shape3.url;
 
 export type Course = {
   id: string;
