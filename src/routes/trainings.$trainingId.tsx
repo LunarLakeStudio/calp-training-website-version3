@@ -4,6 +4,7 @@ import { z } from "zod";
 import { toast } from "sonner";
 import type { Course } from "@/data/courses";
 import type { Training } from "@/data/trainings";
+import { getTraining as getFallbackTraining, getCourseForTraining } from "@/data/trainings";
 import { getTrainingWithCourse } from "@/lib/content.functions";
 import { submitApplication } from "@/lib/submissions.functions";
 import { LANGS } from "@/i18n/dict";
@@ -12,11 +13,23 @@ import { formatDate } from "@/lib/format";
 
 export const Route = createFileRoute("/trainings/$trainingId")({
   loader: async ({ params }) => {
-    const result = (await getTrainingWithCourse({
-      data: { id: params.trainingId },
-    })) as { training: Training | null; course: Course | null };
-    if (!result.training) throw notFound();
-    return { training: result.training, course: result.course ?? undefined };
+    let training: Training | null = null;
+    let course: Course | null = null;
+    try {
+      const result = (await getTrainingWithCourse({
+        data: { id: params.trainingId },
+      })) as { training: Training | null; course: Course | null };
+      training = result.training;
+      course = result.course;
+    } catch {
+      const fb = getFallbackTraining(params.trainingId);
+      if (fb) {
+        training = fb;
+        course = getCourseForTraining(fb) ?? null;
+      }
+    }
+    if (!training) throw notFound();
+    return { training, course: course ?? undefined };
   },
   head: ({ loaderData }) =>
     loaderData
