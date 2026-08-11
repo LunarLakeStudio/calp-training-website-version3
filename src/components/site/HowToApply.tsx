@@ -23,7 +23,7 @@ const STEPS = [
 
 export function HowToApply() {
   return (
-    <section className="relative overflow-hidden bg-calp-pale-red py-14">
+    <section className="relative overflow-hidden bg-calp-pale-red-soft py-14">
       <ShapeClusterCool className="-left-40 -top-16 h-[130%] w-[18rem] opacity-60" />
       <ShapeClusterWarm className="-right-32 -bottom-20 h-[130%] w-[18rem] opacity-70" />
 
