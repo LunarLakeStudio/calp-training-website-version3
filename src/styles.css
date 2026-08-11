@@ -39,6 +39,7 @@
   --color-calp-blue-75: var(--calp-blue-75);
   --color-calp-blue-50: var(--calp-blue-50);
   --color-calp-pale-red: var(--calp-pale-red);
+  --color-calp-pale-red-soft: var(--calp-pale-red-soft);
   --color-calp-pale-teal: var(--calp-pale-teal);
   --color-calp-ink: var(--calp-ink);
   --color-calp-canvas: var(--calp-canvas);
@@ -57,6 +58,7 @@
   --calp-blue-75: #4484a1;
   --calp-blue-50: #82adc0;
   --calp-pale-red: #f0cdbf;
+  --calp-pale-red-soft: #f7e4db;
   --calp-pale-teal: #9cd1da;
   --calp-ink: #000000;
   --calp-canvas: #ffffff;
