@@ -144,9 +144,9 @@ function CalendarPage() {
         </div>
 
         {isLoading ? (
-          <p className="py-16 text-center text-calp-ink">Loading calendar…</p>
+          <p className="py-16 text-calp-ink">Loading calendar…</p>
         ) : results.length === 0 ? (
-          <p className="py-16 text-center text-calp-ink">
+          <p className="py-16 text-calp-ink">
             No trainings match those filters.
           </p>
         ) : (
@@ -188,7 +188,7 @@ function CalendarPage() {
 function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="mr-2 w-20 shrink-0 text-[10px] font-bold text-calp-ink">
+      <span className="mr-2 w-20 shrink-0 text-xs font-bold text-calp-ink">
         {label}
       </span>
       {children}

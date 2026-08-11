@@ -348,7 +348,7 @@ function ApplyPage() {
 
       <div className="relative mx-auto max-w-4xl px-6 pb-32 pt-8">
         {/* Title + course intro */}
-        <h1 className="font-display text-3xl font-bold leading-tight text-calp-red md:text-4xl">
+        <h1 className="font-display text-3xl font-bold leading-snug text-calp-red md:text-4xl">
           Application form for {courseTitle}
           {activeTraining ? ` in ${trainingLocation}` : null}
         </h1>
@@ -361,7 +361,7 @@ function ApplyPage() {
           will be conducted in <strong>{trainingLanguage}</strong>.
         </div>
 
-        <p className="mt-4 text-sm italic text-calp-ink">Donor acknowledgement</p>
+        <p className="mt-4 text-sm font-medium text-calp-ink">Donor acknowledgement</p>
 
         <IntroSection title="About the Course">
           <p>
@@ -410,11 +410,11 @@ function ApplyPage() {
           </p>
         </IntroSection>
 
-        <p className="mb-6 mt-8 text-sm font-semibold text-calp-red">* Required</p>
+        <p className="mb-6 mt-8 text-sm font-medium text-calp-red">* Required</p>
 
         {preselectedTraining ? (
           <div className="mb-8 rounded-md border-l-4 border-calp-red bg-calp-pale-red p-5">
-            <p className="text-[10px] font-bold text-calp-red">
+            <p className="text-xs font-bold text-calp-red">
               Applying for
             </p>
             <p className="mt-1 font-display text-lg font-bold text-calp-blue">
@@ -684,7 +684,7 @@ function ApplyPage() {
             <button
               type="submit"
               disabled={submitting}
-              className="inline-flex items-center justify-center rounded-full bg-calp-red px-10 py-3.5 font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-calp-red/90 disabled:opacity-60"
+              className="inline-flex items-center justify-center rounded-full bg-calp-red px-10 py-3.5 font-medium text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-calp-red/90 disabled:opacity-60"
             >
               {submitting ? "Sending…" : "Submit application"}
             </button>
@@ -717,7 +717,7 @@ function IntroSection({
 }) {
   return (
     <section className="mt-6">
-      <h2 className="mb-2 font-display text-xl font-bold text-calp-red underline decoration-2 underline-offset-4">
+      <h2 className="mb-2 font-display text-xl font-bold text-calp-red">
         {title}
       </h2>
       <div className="text-sm leading-relaxed text-calp-blue">{children}</div>
@@ -734,7 +734,7 @@ function FormSection({
 }) {
   return (
     <section className="space-y-5">
-      <h2 className="font-display text-xl font-bold text-calp-red underline decoration-2 underline-offset-4">
+      <h2 className="font-display text-xl font-bold text-calp-red">
         {title}
       </h2>
       {children}
@@ -744,7 +744,7 @@ function FormSection({
 
 function SubHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="pt-4 font-display text-lg font-bold text-calp-red underline decoration-2 underline-offset-4">
+    <h3 className="pt-4 font-display text-lg font-bold text-calp-red">
       {children}
     </h3>
   );
@@ -758,7 +758,7 @@ function Label({
   required?: boolean;
 }) {
   return (
-    <label className="mb-2 block text-sm font-semibold text-calp-red">
+    <label className="mb-2 block text-sm font-medium text-calp-red">
       {children}
       {required ? <span className="text-calp-red"> *</span> : null}
     </label>

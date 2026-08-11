@@ -133,9 +133,9 @@ function TrainingsPage() {
         </p>
 
         {isLoading ? (
-          <p className="py-16 text-center text-calp-ink">Loading trainings…</p>
+          <p className="py-16 text-calp-ink">Loading trainings…</p>
         ) : results.length === 0 ? (
-          <p className="py-16 text-center text-calp-ink">
+          <p className="py-16 text-calp-ink">
             No trainings match those filters. Try broadening your topic or country.
           </p>
         ) : (
@@ -151,16 +151,16 @@ function TrainingsPage() {
                   className="group flex flex-col rounded-2xl border border-calp-blue/10 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-calp-red/40 hover:shadow-lg"
                 >
                   <div className="mb-3 flex flex-wrap gap-2">
-                    <span className="rounded bg-calp-blue px-2 py-1 text-[10px] font-bold text-white">
+                    <span className="rounded bg-calp-blue px-2 py-1 text-xs font-bold text-white">
                       {t.format}
                     </span>
-                    <span className="rounded bg-calp-pale-teal px-2 py-1 text-[10px] font-bold">
+                    <span className="rounded bg-calp-pale-teal px-2 py-1 text-xs font-bold">
                       {t.language}
                     </span>
                     {course?.topics.slice(0, 1).map((tp) => (
                       <span
                         key={tp}
-                        className="rounded bg-calp-pale-red px-2 py-1 text-[10px] font-bold text-calp-red"
+                        className="rounded bg-calp-pale-red px-2 py-1 text-xs font-bold text-calp-red"
                       >
                         {tp}
                       </span>
@@ -220,7 +220,7 @@ function TrainingsPage() {
 function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="mr-2 w-20 shrink-0 text-[10px] font-bold text-calp-ink">
+      <span className="mr-2 w-20 shrink-0 text-xs font-bold text-calp-ink">
         {label}
       </span>
       {children}

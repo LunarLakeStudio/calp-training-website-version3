@@ -33,7 +33,7 @@ export function TrainingRow({
   return (
     <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-4 border-b border-calp-blue/10 py-4 sm:flex">
       <div className="flex w-12 shrink-0 flex-col items-start">
-        <span className="font-display text-2xl font-bold leading-none text-calp-red">
+        <span className="font-display text-2xl font-bold leading-snug text-calp-red">
           {String(date.getUTCDate()).padStart(2, "0")}
         </span>
         <span className="mt-1 text-xs font-medium text-calp-red">

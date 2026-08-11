@@ -68,14 +68,14 @@ function TrainersPage() {
             can’t find a suitable trainer, please contact{" "}
             <a
               href="mailto:training@calpnetwork.org"
-              className="text-calp-red underline underline-offset-2 transition-colors hover:text-calp-red/80"
+              className="text-calp-red underline-offset-4 hover:underline transition-colors hover:text-calp-red/80"
             >
               training@calpnetwork.org
             </a>
             , or{" "}
             <Link
               to="/courses"
-              className="text-calp-red underline underline-offset-2 transition-colors hover:text-calp-red/80"
+              className="text-calp-red underline-offset-4 hover:underline transition-colors hover:text-calp-red/80"
             >
               find out about other ways to access CALP training
             </Link>
@@ -133,9 +133,9 @@ function TrainersPage() {
         </p>
 
         {isLoading ? (
-          <p className="py-16 text-center text-calp-ink">Loading trainers…</p>
+          <p className="py-16 text-calp-ink">Loading trainers…</p>
         ) : filtered.length === 0 ? (
-          <p className="py-16 text-center text-calp-ink">
+          <p className="py-16 text-calp-ink">
             No trainers match those filters yet.
           </p>
         ) : (
@@ -155,7 +155,7 @@ function TrainersPage() {
 function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="mr-2 text-[10px] font-bold text-calp-ink">
+      <span className="mr-2 text-xs font-bold text-calp-ink">
         {label}
       </span>
       {children}

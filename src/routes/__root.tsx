@@ -19,16 +19,16 @@ import { Toaster } from "@/components/ui/sonner";
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-calp-canvas px-4">
-      <div className="max-w-md text-center">
+      <div className="max-w-md">
         <h1 className="font-display text-7xl font-bold text-calp-blue">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-calp-blue">Page not found</h2>
+        <h2 className="mt-4 text-xl font-medium text-calp-blue">Page not found</h2>
         <p className="mt-2 text-sm text-calp-ink">
           The page you're looking for doesn't exist or has been moved.
         </p>
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-full bg-calp-blue px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-calp-red"
+            className="inline-flex items-center justify-center rounded-full bg-calp-blue px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-calp-red"
           >
             Go home
           </Link>
@@ -47,8 +47,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-calp-canvas px-4">
-      <div className="max-w-md text-center">
-        <h1 className="font-display text-xl font-semibold tracking-tight text-calp-blue">
+      <div className="max-w-md">
+        <h1 className="font-display text-xl font-medium text-calp-blue">
           This page didn't load
         </h1>
         <p className="mt-2 text-sm text-calp-ink">
@@ -60,13 +60,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-full bg-calp-blue px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-calp-red"
+            className="inline-flex items-center justify-center rounded-full bg-calp-blue px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-calp-red"
           >
             Try again
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-full border border-calp-blue/20 bg-white px-5 py-2 text-sm font-semibold text-calp-blue transition-colors hover:bg-calp-canvas"
+            className="inline-flex items-center justify-center rounded-full border border-calp-blue/20 bg-white px-5 py-2 text-sm font-medium text-calp-blue transition-colors hover:bg-calp-canvas"
           >
             Go home
           </a>

@@ -58,7 +58,7 @@ export const Route = createFileRoute("/trainings/$trainingId")({
       : {},
   component: TrainingDetail,
   notFoundComponent: () => (
-    <div className="mx-auto max-w-7xl px-6 py-24 text-center">
+    <div className="mx-auto max-w-7xl px-6 py-24">
       <h1 className="mb-4 font-display text-3xl font-bold">Training not found</h1>
       <Link to="/calendar" className="text-calp-red">
         ← Back to calendar
@@ -140,14 +140,14 @@ function TrainingDetail() {
             ← Calendar
           </Link>
           <div className="mb-4 flex flex-wrap gap-2">
-            <span className="rounded bg-calp-blue px-2 py-1 text-[10px] font-bold text-white">
+            <span className="rounded bg-calp-blue px-2 py-1 text-xs font-bold text-white">
               {training.format}
             </span>
-            <span className="rounded bg-calp-pale-teal px-2 py-1 text-[10px] font-bold">
+            <span className="rounded bg-calp-pale-teal px-2 py-1 text-xs font-bold">
               {training.language}
             </span>
           </div>
-          <h1 className="mb-4 max-w-3xl font-display text-4xl font-bold leading-tight text-balance text-calp-red md:text-5xl">
+          <h1 className="mb-4 max-w-3xl font-display text-4xl font-bold leading-snug text-balance text-calp-red md:text-5xl">
             {course?.title ?? "Training"}
           </h1>
           <p className="text-lg text-calp-ink">
@@ -185,7 +185,7 @@ function TrainingDetail() {
               <p className="mb-1 text-xs font-bold text-calp-ink">
                 About the course
               </p>
-              <p className="text-sm font-semibold text-calp-blue">{course.title}</p>
+              <p className="text-sm font-medium text-calp-blue">{course.title}</p>
               <p className="mt-2 line-clamp-3 text-sm text-calp-ink">
                 {course.summary}
               </p>
@@ -276,7 +276,7 @@ function DetailItem({
     <li className="flex items-start gap-3">
       <Icon className="mt-0.5 h-4 w-4 shrink-0 text-calp-red" />
       <div>
-        <p className="text-[10px] font-bold text-calp-ink">
+        <p className="text-xs font-bold text-calp-ink">
           {label}
         </p>
         <p className="text-sm font-medium text-calp-blue">{value}</p>

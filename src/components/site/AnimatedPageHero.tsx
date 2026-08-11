@@ -57,7 +57,7 @@ export function AnimatedPageHero({
       ) : null}
       <motion.h1
         variants={itemVariants}
-        className="mb-6 max-w-3xl font-display text-4xl font-bold leading-tight text-balance text-calp-red md:text-5xl"
+        className="mb-6 max-w-3xl font-display text-4xl font-bold leading-snug text-balance text-calp-red md:text-5xl"
       >
         {title}
       </motion.h1>

@@ -108,9 +108,9 @@ function CoursesPage() {
         </ScrollReveal>
 
         {isLoading ? (
-          <p className="py-16 text-center text-calp-ink">Loading courses…</p>
+          <p className="py-16 text-calp-ink">Loading courses…</p>
         ) : filtered.length === 0 ? (
-          <p className="py-16 text-center text-calp-ink">
+          <p className="py-16 text-calp-ink">
             No courses match those filters yet.
           </p>
         ) : (
@@ -130,7 +130,7 @@ function CoursesPage() {
 function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="mr-2 text-[10px] font-bold text-calp-ink">
+      <span className="mr-2 text-xs font-bold text-calp-ink">
         {label}
       </span>
       {children}
