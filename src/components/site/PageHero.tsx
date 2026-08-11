@@ -18,7 +18,7 @@ export function PageHero({
           {eyebrow}
         </div>
       ) : null}
-      <h1 className="mb-6 max-w-3xl font-display text-4xl font-bold leading-tight text-balance text-calp-red md:text-5xl">
+      <h1 className="mb-6 max-w-3xl font-display text-4xl font-bold leading-snug text-balance text-calp-red md:text-5xl">
         {title}
       </h1>
       {intro ? (

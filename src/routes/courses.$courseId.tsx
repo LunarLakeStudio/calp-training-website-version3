@@ -65,22 +65,22 @@ function CourseDetail() {
               ← Catalogue
             </Link>
             <div className="mb-6 flex flex-wrap gap-2">
-              <span className="rounded bg-calp-pale-teal px-2 py-1 text-[10px] font-bold">
+              <span className="rounded bg-calp-pale-teal px-2 py-1 text-xs font-bold">
                 {course.level} Level
               </span>
-              <span className="rounded bg-calp-pale-teal px-2 py-1 text-[10px] font-bold">
+              <span className="rounded bg-calp-pale-teal px-2 py-1 text-xs font-bold">
                 {course.duration}
               </span>
               {course.languages.map((l) => (
                 <span
                   key={l}
-                  className="rounded bg-calp-blue px-2 py-1 text-[10px] font-bold text-white"
+                  className="rounded bg-calp-blue px-2 py-1 text-xs font-bold text-white"
                 >
                   {l}
                 </span>
               ))}
             </div>
-            <h1 className="mb-6 font-display text-4xl font-bold leading-tight text-balance text-calp-red md:text-5xl">
+            <h1 className="mb-6 font-display text-4xl font-bold leading-snug text-balance text-calp-red md:text-5xl">
               {course.title}
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-calp-ink">
@@ -118,7 +118,7 @@ function CourseDetail() {
               {course.topics.map((tp) => (
                 <li
                   key={tp}
-                  className="rounded-full border border-calp-blue/15 px-3 py-1.5 text-xs font-semibold text-calp-blue"
+                  className="rounded-full border border-calp-blue/15 px-3 py-1.5 text-xs font-medium text-calp-blue"
                 >
                   {tp}
                 </li>
@@ -141,7 +141,7 @@ function CourseDetail() {
                 >
                   <Icon className="h-5 w-5 shrink-0 text-calp-red" />
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-semibold text-calp-blue">
+                    <p className="truncate text-sm font-medium text-calp-blue">
                       {d.label}
                     </p>
                     <p className="text-xs text-calp-ink">

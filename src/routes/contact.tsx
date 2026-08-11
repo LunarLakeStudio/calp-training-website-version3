@@ -83,36 +83,36 @@ function Contact() {
       <section className="mx-auto grid max-w-6xl gap-16 px-6 pb-24 md:grid-cols-[1fr_1.4fr]">
         <aside className="space-y-8">
           <div>
-            <p className="mb-1 text-[10px] font-bold text-calp-ink">
+            <p className="mb-1 text-xs font-bold text-calp-ink">
               Training team
             </p>
             <a
               href="mailto:training@calpnetwork.org"
-              className="text-lg font-semibold text-calp-blue hover:text-calp-red"
+              className="text-lg font-medium text-calp-blue hover:text-calp-red"
             >
               training@calpnetwork.org
             </a>
           </div>
           <div>
-            <p className="mb-1 text-[10px] font-bold text-calp-ink">
+            <p className="mb-1 text-xs font-bold text-calp-ink">
               Partnerships
             </p>
             <a
               href="mailto:partnerships@calpnetwork.org"
-              className="text-lg font-semibold text-calp-blue hover:text-calp-red"
+              className="text-lg font-medium text-calp-blue hover:text-calp-red"
             >
               partnerships@calpnetwork.org
             </a>
           </div>
           <div>
-            <p className="mb-1 text-[10px] font-bold text-calp-ink">
+            <p className="mb-1 text-xs font-bold text-calp-ink">
               Main network
             </p>
             <a
               href="https://www.calpnetwork.org"
               target="_blank"
               rel="noreferrer"
-              className="text-lg font-semibold text-calp-blue hover:text-calp-red"
+              className="text-lg font-medium text-calp-blue hover:text-calp-red"
             >
               calpnetwork.org
             </a>

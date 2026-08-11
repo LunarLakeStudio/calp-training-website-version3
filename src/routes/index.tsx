@@ -52,7 +52,7 @@ function Index() {
         <ShapeClusterCool className="-left-44 top-[42%] h-[85%] w-[38%] opacity-60" />
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pt-14 pb-20 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="relative z-10">
-            <h1 className="mb-5 font-display text-4xl font-bold leading-tight text-calp-red md:text-5xl">
+            <h1 className="mb-5 font-display text-4xl font-bold leading-snug text-calp-red md:text-5xl">
               Build the skills
               <br />
               to deliver better CVA.
