@@ -1,4 +1,6 @@
 import { BrandWordmark } from "@/components/site/BrandWordmark";
+import { TrainingHubButton } from "@/components/site/TrainingHubButton";
+
 
 export function SiteFooter() {
   return (
