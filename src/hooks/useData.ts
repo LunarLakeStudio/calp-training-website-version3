@@ -81,7 +81,13 @@ export function useTrainings() {
 export function useTraining(id: string) {
   return useQuery<Training | null>({
     queryKey: ["training", id],
-    queryFn: () => getTrainingById({ data: { id } }) as Promise<Training | null>,
+    queryFn: async () => {
+      try {
+        return (await getTrainingById({ data: { id } })) as Training | null;
+      } catch {
+        return fallbackUpcoming().find((t) => t.id === id) ?? null;
+      }
+    },
     enabled: !!id,
     staleTime: 60 * 1000,
   });

@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import type { Course } from "@/data/courses";
+import { courses as fallbackCourses } from "@/data/courses";
 import { getCourseBySlug } from "@/lib/content.functions";
 import { useTrainings } from "@/hooks/useData";
 import { getTrainingsForCourse } from "@/lib/derive";
@@ -8,9 +9,14 @@ import { FileText, BookOpen, PlayCircle, Download } from "lucide-react";
 
 export const Route = createFileRoute("/courses/$courseId")({
   loader: async ({ params }): Promise<{ course: Course }> => {
-    const course = (await getCourseBySlug({
-      data: { slug: params.courseId },
-    })) as Course | null;
+    let course: Course | null = null;
+    try {
+      course = (await getCourseBySlug({
+        data: { slug: params.courseId },
+      })) as Course | null;
+    } catch {
+      course = fallbackCourses.find((c) => c.slug === params.courseId) ?? null;
+    }
     if (!course) throw notFound();
     return { course };
   },

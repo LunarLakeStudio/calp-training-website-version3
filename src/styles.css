@@ -46,6 +46,7 @@
 
   --font-display: "Roboto", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Roboto", ui-monospace, monospace;
 }
 
 :root {
@@ -120,7 +121,6 @@
   body {
     background-color: var(--color-calp-canvas);
     color: var(--color-calp-blue);
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   [dir="rtl"] {
