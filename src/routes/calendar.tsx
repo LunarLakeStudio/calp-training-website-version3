@@ -144,9 +144,9 @@ function CalendarPage() {
         </div>
 
         {isLoading ? (
-          <p className="py-16 text-center text-calp-ink">Loading calendar…</p>
+          <p className="py-16 text-calp-ink">Loading calendar…</p>
         ) : results.length === 0 ? (
-          <p className="py-16 text-center text-calp-ink">
+          <p className="py-16 text-calp-ink">
             No trainings match those filters.
           </p>
         ) : (

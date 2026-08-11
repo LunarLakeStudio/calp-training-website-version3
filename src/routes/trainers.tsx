@@ -133,9 +133,9 @@ function TrainersPage() {
         </p>
 
         {isLoading ? (
-          <p className="py-16 text-center text-calp-ink">Loading trainers…</p>
+          <p className="py-16 text-calp-ink">Loading trainers…</p>
         ) : filtered.length === 0 ? (
-          <p className="py-16 text-center text-calp-ink">
+          <p className="py-16 text-calp-ink">
             No trainers match those filters yet.
           </p>
         ) : (

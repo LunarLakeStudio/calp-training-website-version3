@@ -108,9 +108,9 @@ function CoursesPage() {
         </ScrollReveal>
 
         {isLoading ? (
-          <p className="py-16 text-center text-calp-ink">Loading courses…</p>
+          <p className="py-16 text-calp-ink">Loading courses…</p>
         ) : filtered.length === 0 ? (
-          <p className="py-16 text-center text-calp-ink">
+          <p className="py-16 text-calp-ink">
             No courses match those filters yet.
           </p>
         ) : (

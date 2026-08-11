@@ -133,9 +133,9 @@ function TrainingsPage() {
         </p>
 
         {isLoading ? (
-          <p className="py-16 text-center text-calp-ink">Loading trainings…</p>
+          <p className="py-16 text-calp-ink">Loading trainings…</p>
         ) : results.length === 0 ? (
-          <p className="py-16 text-center text-calp-ink">
+          <p className="py-16 text-calp-ink">
             No trainings match those filters. Try broadening your topic or country.
           </p>
         ) : (
