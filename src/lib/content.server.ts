@@ -8,9 +8,9 @@ import type { Course } from "@/data/courses";
 import type { Trainer } from "@/data/trainers";
 import type { Training } from "@/data/trainings";
 
-import fundamentalsImg from "@/assets/course-fundamentals.jpg";
-import strategicImg from "@/assets/course-strategic.jpg";
-import digitalImg from "@/assets/course-digital.jpg";
+import shape1 from "@/assets/course-shape-1.png.asset.json";
+import shape2 from "@/assets/course-shape-2.png.asset.json";
+import shape3 from "@/assets/course-shape-3.png.asset.json";
 import p01 from "@/assets/trainers/portrait-01.jpg";
 import p02 from "@/assets/trainers/portrait-02.jpg";
 import p03 from "@/assets/trainers/portrait-03.jpg";
@@ -24,7 +24,7 @@ import p10 from "@/assets/trainers/portrait-10.jpg";
 import p11 from "@/assets/trainers/portrait-11.jpg";
 import p12 from "@/assets/trainers/portrait-12.jpg";
 
-const COURSE_COVERS = [fundamentalsImg, strategicImg, digitalImg];
+const COURSE_COVERS = [shape1.url, shape2.url, shape3.url];
 const PORTRAITS = [p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12];
 
 const LANG_TO_CODE: Record<string, string> = {
