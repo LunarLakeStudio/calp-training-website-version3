@@ -1,5 +1,7 @@
+import { Link } from "@tanstack/react-router";
 import { BrandWordmark } from "@/components/site/BrandWordmark";
 import { TrainingHubButton } from "@/components/site/TrainingHubButton";
+
 
 
 export function SiteFooter() {
@@ -21,9 +23,10 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-wrap gap-6 text-sm text-calp-blue md:justify-end">
-          <a href="#" className="underline-offset-4 hover:underline">
+          <Link to="/privacy" className="underline-offset-4 hover:underline">
             Privacy policy
-          </a>
+          </Link>
+
           <a href="#" className="underline-offset-4 hover:underline">
             Cookie policy
           </a>
