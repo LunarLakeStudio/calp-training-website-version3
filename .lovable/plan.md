@@ -2,6 +2,9 @@
 
 ## What changes
 
+The page hero heading changes from "The full CALP catalogue" to "CALP Courses Catalogue".
+
+
 The Courses page currently uses rows of chip buttons for Topic and Language. These are replaced with the same compact drop-down filters used on Find a Training and Calendar.
 
 Filter panel layout (inside the existing white card):
