@@ -2,11 +2,11 @@
 // Maps the shared Supabase schema to the site UI types
 // (Course / Trainer / Training). Never imported by client code — routes reach
 // this through the server functions in src/lib/content.functions.ts.
-import { getSharedDb } from "@/integrations/supabase/shared.server";
+import { getSharedDb, isSharedDbConfigured } from "@/integrations/supabase/shared.server";
 import type { Database } from "@/integrations/supabase/db-types";
-import type { Course } from "@/data/courses";
-import type { Trainer } from "@/data/trainers";
-import type { Training } from "@/data/trainings";
+import { courses as localCourses, type Course } from "@/data/courses";
+import { trainers as localTrainers, type Trainer } from "@/data/trainers";
+import { trainings as localTrainings, type Training } from "@/data/trainings";
 
 import shape1 from "@/assets/course-shape-1.png.asset.json";
 import shape2 from "@/assets/course-shape-2.png.asset.json";
@@ -209,6 +209,7 @@ const COURSE_SELECT =
   "id, short_code, title, description, objectives, tags, course_languages(language), course_formats(format_type,duration_days), course_materials(material_type,url,language)";
 
 export async function fetchCourses(): Promise<Course[]> {
+  if (!isSharedDbConfigured()) return localCourses;
   const { data, error } = await getSharedDb()
     .from("courses")
     .select(COURSE_SELECT)
@@ -218,6 +219,7 @@ export async function fetchCourses(): Promise<Course[]> {
 }
 
 export async function fetchCourseBySlug(slug: string): Promise<Course | undefined> {
+  if (!isSharedDbConfigured()) return localCourses.find((c) => c.slug === slug);
   const { data, error } = await getSharedDb()
     .from("courses")
     .select(COURSE_SELECT)
@@ -228,6 +230,7 @@ export async function fetchCourseBySlug(slug: string): Promise<Course | undefine
 }
 
 export async function fetchCourseById(id: string): Promise<Course | undefined> {
+  if (!isSharedDbConfigured()) return localCourses.find((c) => c.id === id);
   const { data, error } = await getSharedDb()
     .from("courses")
     .select(COURSE_SELECT)
@@ -238,6 +241,7 @@ export async function fetchCourseById(id: string): Promise<Course | undefined> {
 }
 
 export async function fetchTrainers(): Promise<Trainer[]> {
+  if (!isSharedDbConfigured()) return localTrainers;
   const { data, error } = await getSharedDb()
     .from("trainers")
     .select(
@@ -250,6 +254,7 @@ export async function fetchTrainers(): Promise<Trainer[]> {
 }
 
 export async function fetchTrainings(): Promise<Training[]> {
+  if (!isSharedDbConfigured()) return localTrainings;
   const { data, error } = await getSharedDb()
     .from("trainings")
     .select(
@@ -263,6 +268,7 @@ export async function fetchTrainings(): Promise<Training[]> {
 }
 
 export async function fetchTraining(id: string): Promise<Training | undefined> {
+  if (!isSharedDbConfigured()) return localTrainings.find((t) => t.id === id);
   const { data, error } = await getSharedDb()
     .from("trainings")
     .select(
