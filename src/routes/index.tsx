@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroAsset from "@/assets/calp-hero.png.asset.json";
 import { useCourses, useTrainings, useTrainers } from "@/hooks/useData";
-import { CourseCard } from "@/components/site/CourseCard";
+import { CourseAccordionList } from "@/components/site/CourseAccordionList";
 import { TrainingRow } from "@/components/site/TrainingRow";
 import { TrainerCard } from "@/components/site/TrainerCard";
 import { HowToApply } from "@/components/site/HowToApply";
