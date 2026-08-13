@@ -684,7 +684,7 @@ function ApplyPage() {
             <button
               type="submit"
               disabled={submitting}
-              className="inline-flex items-center justify-center rounded-full bg-calp-blue px-10 py-3.5 font-medium text-white shadow-sm transition-all hover:-translate-y-0.5 hover:opacity-90 disabled:opacity-60"
+              className="inline-flex items-center justify-center rounded-full bg-calp-red px-10 py-3.5 font-medium text-white shadow-sm transition-all hover:-translate-y-0.5 hover:opacity-90 disabled:opacity-60"
             >
               {submitting ? "Sending…" : "Submit application"}
             </button>

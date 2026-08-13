@@ -61,7 +61,7 @@ export function TrainingRow({
       <Link
         to="/apply"
         search={{ training: training.id }}
-        className="col-span-2 justify-self-start rounded-md bg-calp-blue px-5 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:col-span-1 sm:justify-self-auto"
+        className="col-span-2 justify-self-start rounded-md bg-calp-red px-5 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:col-span-1 sm:justify-self-auto"
       >
         {t("cta.apply")}
       </Link>

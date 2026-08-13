@@ -64,13 +64,13 @@ function Index() {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/courses"
-                className="rounded-md bg-calp-blue px-7 py-3 font-medium text-white transition-opacity hover:opacity-90"
+                className="rounded-md bg-calp-red px-7 py-3 font-medium text-white transition-opacity hover:opacity-90"
               >
                 Explore courses
               </Link>
               <Link
                 to="/calendar"
-                className="rounded-md border border-calp-blue px-7 py-3 font-medium text-calp-blue transition-colors hover:bg-calp-blue hover:text-white"
+                className="rounded-md border border-calp-red px-7 py-3 font-medium text-calp-red transition-colors hover:bg-calp-red hover:text-white"
               >
                 Find a training
               </Link>

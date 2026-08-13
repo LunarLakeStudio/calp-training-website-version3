@@ -199,7 +199,7 @@ function TrainersPage() {
                 <button
                   type="button"
                   onClick={resetFilters}
-                  className="inline-flex items-center gap-2 rounded-lg border border-calp-blue/20 px-3 py-2 text-xs font-bold text-calp-blue transition-colors hover:bg-calp-blue/5"
+                  className="inline-flex items-center gap-2 rounded-lg border border-calp-red/30 px-3 py-2 text-xs font-bold text-calp-red transition-colors hover:bg-calp-red/5"
                 >
                   <RotateCcw className="h-3.5 w-3.5" />
                   Reset filters
@@ -237,7 +237,7 @@ function TrainersPage() {
                   type="button"
                   onClick={() => fetchNextPage()}
                   disabled={isFetchingNextPage}
-                  className="inline-flex items-center gap-2 rounded-lg bg-calp-blue px-5 py-3 text-sm font-bold text-white transition-colors hover:opacity-90 disabled:opacity-70"
+                  className="inline-flex items-center gap-2 rounded-lg bg-calp-red px-5 py-3 text-sm font-bold text-white transition-colors hover:opacity-90 disabled:opacity-70"
                 >
                   {isFetchingNextPage && <Loader2 className="h-4 w-4 animate-spin" />}
                   {isFetchingNextPage ? "Loading trainers…" : "Load More Trainers"}
