@@ -8,11 +8,18 @@ import {
   getCourseForTraining,
   allTopics,
 } from "@/lib/derive";
-import { FilterChip } from "@/components/site/FilterChip";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { AnimatedPageHero } from "@/components/site/AnimatedPageHero";
 import { AnimatedGrid } from "@/components/site/AnimatedGrid";
-import { CalendarDays, MapPin, Languages, Clock } from "lucide-react";
+import { CalendarDays, MapPin, Languages, Clock, RotateCcw } from "lucide-react";
 import { formatDate } from "@/lib/format";
+
 
 export const Route = createFileRoute("/trainings")({
   head: () => ({
@@ -61,72 +68,85 @@ function TrainingsPage() {
   }, [trainings, courses, topic, country, courseId, language, format]);
 
   const filterKey = `${topic}-${country}-${courseId}-${language}-${format}`;
+  const hasFilters = !!(topic || country || courseId || language || format);
+  const resetFilters = () => {
+    setTopic(null);
+    setCountry(null);
+    setCourseId(null);
+    setLanguage(null);
+    setFormat(null);
+  };
 
   return (
     <>
       <AnimatedPageHero
         eyebrow="Upcoming sessions"
-        title="Find a training"
+        title="Find a Training"
         intro="Filter by topic to find the right CALP training, then apply in one click."
       />
 
       <section className="mx-auto max-w-7xl px-6 pb-24">
-        <div className="mb-10 flex flex-col gap-4 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
-          <FilterGroup label="Topic">
-            <FilterChip active={topic === null} onClick={() => setTopic(null)}>
-              All
-            </FilterChip>
-            {topics.map((tp) => (
-              <FilterChip key={tp} active={topic === tp} onClick={() => setTopic(tp)}>
-                {tp}
-              </FilterChip>
-            ))}
-          </FilterGroup>
-          <FilterGroup label="Course">
-            <FilterChip active={courseId === null} onClick={() => setCourseId(null)}>
-              All
-            </FilterChip>
-            {courses.map((c) => (
-              <FilterChip
-                key={c.id}
-                active={courseId === c.id}
-                onClick={() => setCourseId(c.id)}
+        <div className="mb-10 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            <FilterSelect
+              label="Topic"
+              placeholder="All Topics"
+              value={topic}
+              onChange={setTopic}
+              options={topics.map((tp) => ({ value: tp, label: tp }))}
+            />
+            <FilterSelect
+              label="Course"
+              placeholder="All Courses"
+              value={courseId}
+              onChange={setCourseId}
+              options={courses.map((c) => ({
+                value: c.id,
+                label: c.title.length > 32 ? c.title.slice(0, 30) + "…" : c.title,
+              }))}
+            />
+            <FilterSelect
+              label="Location"
+              placeholder="All Locations"
+              value={country}
+              onChange={setCountry}
+              options={allCountries(trainings).map((c) => ({ value: c, label: c }))}
+            />
+            <FilterSelect
+              label="Language"
+              placeholder="All Languages"
+              value={language}
+              onChange={setLanguage}
+              options={allTrainingLanguages(trainings).map((l) => ({
+                value: l,
+                label: l,
+              }))}
+            />
+            <FilterSelect
+              label="Training type"
+              placeholder="All Training Types"
+              value={format}
+              onChange={setFormat}
+              options={["Face-to-Face", "Online", "Hybrid"].map((f) => ({
+                value: f,
+                label: f,
+              }))}
+            />
+          </div>
+          {hasFilters && (
+            <div className="mt-4 flex">
+              <button
+                type="button"
+                onClick={resetFilters}
+                className="inline-flex items-center gap-2 rounded-lg border border-calp-blue/15 px-3 py-2 text-xs font-bold text-calp-blue transition-colors hover:border-calp-blue"
               >
-                {c.title.length > 32 ? c.title.slice(0, 30) + "…" : c.title}
-              </FilterChip>
-            ))}
-          </FilterGroup>
-          <FilterGroup label="Country">
-            <FilterChip active={country === null} onClick={() => setCountry(null)}>
-              All
-            </FilterChip>
-            {allCountries(trainings).map((c) => (
-              <FilterChip key={c} active={country === c} onClick={() => setCountry(c)}>
-                {c}
-              </FilterChip>
-            ))}
-          </FilterGroup>
-          <FilterGroup label="Language">
-            <FilterChip active={language === null} onClick={() => setLanguage(null)}>
-              All
-            </FilterChip>
-            {allTrainingLanguages(trainings).map((l) => (
-              <FilterChip key={l} active={language === l} onClick={() => setLanguage(l)}>
-                {l}
-              </FilterChip>
-            ))}
-          </FilterGroup>
-          <FilterGroup label="Format">
-            <FilterChip active={format === null} onClick={() => setFormat(null)}>
-              All
-            </FilterChip>
-            {["Face-to-Face", "Online", "Hybrid"].map((f) => (
-              <FilterChip key={f} active={format === f} onClick={() => setFormat(f)}>
-                {f}
-              </FilterChip>
-            ))}
-          </FilterGroup>
+                <RotateCcw className="h-3.5 w-3.5" />
+                Reset filters
+              </button>
+            </div>
+          )}
         </div>
+
 
         <p className="mb-6 text-xs font-bold text-calp-ink">
           {results.length} training{results.length === 1 ? "" : "s"} match
@@ -217,13 +237,41 @@ function TrainingsPage() {
   );
 }
 
-function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
+function FilterSelect({
+  label,
+  placeholder,
+  value,
+  onChange,
+  options,
+}: {
+  label: string;
+  placeholder: string;
+  value: string | null;
+  onChange: (v: string | null) => void;
+  options: { value: string; label: string }[];
+}) {
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="mr-2 w-20 shrink-0 text-xs font-bold text-calp-ink">
-        {label}
-      </span>
-      {children}
+    <div className="flex flex-col gap-1.5">
+      <span className="text-xs font-bold text-calp-blue">{label}</span>
+      <Select
+        value={value ?? "all"}
+        onValueChange={(v) => onChange(v === "all" ? null : v)}
+      >
+        <SelectTrigger className="h-10 w-full border-calp-blue/15 bg-white text-xs font-medium text-calp-ink focus:ring-calp-blue">
+          <SelectValue placeholder={placeholder} />
+        </SelectTrigger>
+        <SelectContent className="max-h-72">
+          <SelectItem value="all" className="text-xs">
+            {placeholder}
+          </SelectItem>
+          {options.map((o) => (
+            <SelectItem key={o.value} value={o.value} className="text-xs">
+              {o.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     </div>
   );
 }
+
