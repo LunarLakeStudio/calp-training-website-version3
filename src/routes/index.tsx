@@ -3,7 +3,7 @@ import heroAsset from "@/assets/calp-hero.png.asset.json";
 import { useCourses, useTrainings, useTrainers } from "@/hooks/useData";
 import { CourseAccordionList } from "@/components/site/CourseAccordionList";
 import { TrainingRow } from "@/components/site/TrainingRow";
-import { TrainerCard } from "@/components/site/TrainerCard";
+import { TrainerRow } from "@/components/site/TrainerRow";
 import { HowToApply } from "@/components/site/HowToApply";
 import {
   ShapeClusterCool,
@@ -41,8 +41,8 @@ function Index() {
 
   const allCourses = coursesQuery.data ?? fallbackCourses;
   
-  const upcoming = trainingsQuery.data?.slice(0, 3) ?? fallbackUpcoming(3);
-  const trainers = (trainersQuery.data ?? fallbackTrainers).slice(0, 3);
+  const upcoming = trainingsQuery.data?.slice(0, 10) ?? fallbackUpcoming(10);
+  const trainers = (trainersQuery.data ?? fallbackTrainers).slice(0, 10);
   const courseById = new Map(allCourses.map((c) => [c.id, c]));
 
   return (
@@ -126,9 +126,9 @@ function Index() {
             linkLabel="View all trainers"
             to="/trainers"
           />
-          <div className="grid gap-5 sm:grid-cols-3">
+          <div className="flex flex-col gap-2">
             {trainers.map((tr) => (
-              <TrainerCard key={tr.id} trainer={tr} />
+              <TrainerRow key={tr.id} trainer={tr} />
             ))}
           </div>
         </div>
