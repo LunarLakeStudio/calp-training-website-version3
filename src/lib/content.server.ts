@@ -122,6 +122,7 @@ type TrainerRow = {
   first_name: string;
   last_name: string;
   country: string;
+  region?: string | null;
   organisation: string | null;
   photo_path: string | null;
   lang_english: boolean;
@@ -130,6 +131,7 @@ type TrainerRow = {
   lang_arabic: boolean;
   other_language: string | null;
   share_on_website: boolean;
+  trainer_courses?: { course_id: string }[] | null;
 };
 
 function mapTrainer(row: TrainerRow, index: number): Trainer {
@@ -155,8 +157,11 @@ function mapTrainer(row: TrainerRow, index: number): Trainer {
     location: row.country || "—",
     languages: langs,
     photo,
+    region: row.region ?? null,
+    courseIds: (row.trainer_courses ?? []).map((c) => c.course_id),
   };
 }
+
 
 // Public subset of the Hub's trainings table — application_token, created_by,
 // ref and other internal columns are never selected.
@@ -240,18 +245,192 @@ export async function fetchCourseById(id: string): Promise<Course | undefined> {
   return data ? mapCourse(data as unknown as CourseRow, 0) : undefined;
 }
 
+const sel = (s: string): string => s;
+
+const TRAINER_SELECT =
+  "id, first_name, last_name, country, region, organisation, photo_path, lang_english, lang_french, lang_spanish, lang_arabic, other_language, share_on_website, trainer_courses(course_id)";
+
+const LANG_COLUMN: Record<string, "lang_english" | "lang_french" | "lang_spanish" | "lang_arabic"> = {
+  EN: "lang_english",
+  FR: "lang_french",
+  ES: "lang_spanish",
+  AR: "lang_arabic",
+};
+
 export async function fetchTrainers(): Promise<Trainer[]> {
   if (!isSharedDbConfigured()) return localTrainers;
   const { data, error } = await getSharedDb()
     .from("trainers")
-    .select(
-      "id, first_name, last_name, country, organisation, photo_path, lang_english, lang_french, lang_spanish, lang_arabic, other_language, share_on_website",
-    )
+    .select(sel(TRAINER_SELECT))
     .eq("share_on_website", true)
     .order("first_name");
   if (error) throw error;
   return ((data ?? []) as unknown as TrainerRow[]).map((r, i) => mapTrainer(r, i));
 }
+
+export type TrainerQuery = {
+  country?: string | null;
+  region?: string | null;
+  language?: string | null;
+  courseId?: string | null;
+  query?: string | null;
+  offset: number;
+  limit: number;
+};
+
+export type TrainerPage = { trainers: Trainer[]; total: number };
+
+function matchesLocal(t: Trainer, f: TrainerQuery): boolean {
+  const country = t.location.split(",").pop()!.trim();
+  if (f.country && country !== f.country) return false;
+  if (f.region && (t.region ?? "") !== f.region) return false;
+  if (f.language && !t.languages.includes(f.language)) return false;
+  if (f.courseId && !(t.courseIds ?? []).includes(f.courseId)) return false;
+  const q = (f.query ?? "").trim().toLowerCase();
+  if (q && !t.name.toLowerCase().includes(q) && !t.location.toLowerCase().includes(q))
+    return false;
+  return true;
+}
+
+export async function fetchTrainersPage(f: TrainerQuery): Promise<TrainerPage> {
+  if (!isSharedDbConfigured()) {
+    const matched = localTrainers.filter((t) => matchesLocal(t, f));
+    return {
+      trainers: matched.slice(f.offset, f.offset + f.limit),
+      total: matched.length,
+    };
+  }
+
+  const db = getSharedDb();
+
+  let allowedIds: string[] | null = null;
+  if (f.courseId) {
+    const { data, error } = await db
+      .from("trainer_courses")
+      .select(sel("trainer_id"))
+      .eq("course_id", f.courseId)
+      .returns<{ trainer_id: string }[]>();
+    if (error) throw error;
+    allowedIds = (data ?? []).map((r) => r.trainer_id);
+    if (!allowedIds.length) return { trainers: [], total: 0 };
+  }
+
+  let q = db
+    .from("trainers")
+    .select(sel(TRAINER_SELECT), { count: "exact" })
+    .eq("share_on_website", true);
+
+  if (f.country) q = q.eq("country", f.country);
+  if (f.region) q = q.eq("region", f.region as never);
+  if (allowedIds) q = q.in("id", allowedIds);
+  if (f.language) {
+    const col = LANG_COLUMN[f.language];
+    if (col) q = q.eq(col, true);
+    else q = q.ilike("other_language", `%${f.language}%`);
+  }
+  const search = (f.query ?? "").trim().replace(/[%,()]/g, "");
+  if (search) {
+    q = q.or(
+      `first_name.ilike.%${search}%,last_name.ilike.%${search}%,country.ilike.%${search}%`,
+    );
+  }
+
+  const { data, error, count } = await q
+    .order("first_name")
+    .order("id")
+    .range(f.offset, f.offset + f.limit - 1);
+  if (error) throw error;
+
+  return {
+    trainers: ((data ?? []) as unknown as TrainerRow[]).map((r, i) =>
+      mapTrainer(r, f.offset + i),
+    ),
+    total: count ?? 0,
+  };
+}
+
+export type TrainerFacets = {
+  countries: string[];
+  regions: string[];
+  languages: string[];
+  courses: { id: string; title: string }[];
+};
+
+function localFacets(): TrainerFacets {
+  return {
+    countries: Array.from(
+      new Set(localTrainers.map((t) => t.location.split(",").pop()!.trim())),
+    ).sort(),
+    regions: Array.from(
+      new Set(localTrainers.map((t) => t.region).filter(Boolean) as string[]),
+    ).sort(),
+    languages: Array.from(new Set(localTrainers.flatMap((t) => t.languages))).sort(),
+    courses: localCourses.map((c) => ({ id: c.id, title: c.title })),
+  };
+}
+
+export async function fetchTrainerFacets(): Promise<TrainerFacets> {
+  if (!isSharedDbConfigured()) return localFacets();
+  const db = getSharedDb();
+
+  const { data, error } = await db
+    .from("trainers")
+    .select(
+      sel(
+        "country, region, lang_english, lang_french, lang_spanish, lang_arabic, other_language, trainer_courses(course_id)",
+      ),
+    )
+    .eq("share_on_website", true)
+    .returns<
+      {
+        country: string | null;
+        region: string | null;
+        lang_english: boolean;
+        lang_french: boolean;
+        lang_spanish: boolean;
+        lang_arabic: boolean;
+        other_language: string | null;
+        trainer_courses: { course_id: string }[] | null;
+      }[]
+    >();
+  if (error) throw error;
+
+  const rows = data ?? [];
+  const countries = new Set<string>();
+  const regions = new Set<string>();
+  const languages = new Set<string>();
+  const courseIds = new Set<string>();
+  for (const r of rows) {
+    if (r.country) countries.add(r.country);
+    if (r.region) regions.add(r.region);
+    if (r.lang_english) languages.add("EN");
+    if (r.lang_french) languages.add("FR");
+    if (r.lang_spanish) languages.add("ES");
+    if (r.lang_arabic) languages.add("AR");
+    if (r.other_language) languages.add(langToCode(r.other_language));
+    for (const c of r.trainer_courses ?? []) courseIds.add(c.course_id);
+  }
+
+  let courses: { id: string; title: string }[] = [];
+  if (courseIds.size) {
+    const { data: cData, error: cError } = await db
+      .from("courses")
+      .select(sel("id, title"))
+      .in("id", Array.from(courseIds))
+      .order("title")
+      .returns<{ id: string; title: string }[]>();
+    if (cError) throw cError;
+    courses = cData ?? [];
+  }
+
+  return {
+    countries: Array.from(countries).sort(),
+    regions: Array.from(regions).sort(),
+    languages: Array.from(languages).sort(),
+    courses,
+  };
+}
+
 
 export async function fetchTrainings(): Promise<Training[]> {
   if (!isSharedDbConfigured()) return localTrainings;
