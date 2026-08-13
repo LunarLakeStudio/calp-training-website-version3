@@ -87,6 +87,15 @@ function CalendarPage() {
     [trainings],
   );
 
+  const hasFilters = !!(country || courseId || language || month);
+  const resetFilters = () => {
+    setCountry(null);
+    setCourseId(null);
+    setLanguage(null);
+    setMonth(null);
+  };
+
+
   return (
     <>
       <PageHero
