@@ -7,7 +7,14 @@ import {
   filterTrainings,
 } from "@/lib/derive";
 import { TrainingRow } from "@/components/site/TrainingRow";
-import { FilterChip } from "@/components/site/FilterChip";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { RotateCcw } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/calendar")({
