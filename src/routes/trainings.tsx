@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useCourses, useTrainings } from "@/hooks/useData";
 import {
   allCountries,
@@ -63,12 +63,19 @@ function TrainingsPage() {
 
   const filterKey = `${topic}-${country}-${courseId}-${language}-${format}`;
   const hasFilters = !!(topic || country || courseId || language || format);
+  const [visible, setVisible] = useState(PAGE_SIZE);
+
+  useEffect(() => {
+    setVisible(PAGE_SIZE);
+  }, [filterKey]);
+
   const resetFilters = () => {
     setTopic(null);
     setCountry(null);
     setCourseId(null);
     setLanguage(null);
     setFormat(null);
+    setVisible(PAGE_SIZE);
   };
 
   return (
