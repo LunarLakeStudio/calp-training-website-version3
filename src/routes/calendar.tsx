@@ -6,7 +6,7 @@ import {
   allTrainingLanguages,
   filterTrainings,
 } from "@/lib/derive";
-import { TrainingRow } from "@/components/site/TrainingRow";
+import { TrainingCard } from "@/components/site/TrainingCard";
 import {
   Select,
   SelectContent,
@@ -182,18 +182,15 @@ function CalendarPage() {
                       {items.length} training{items.length > 1 ? "s" : ""}
                     </span>
                   </h2>
-                  <div className="space-y-3">
-                    {items.map((t) => {
-                      const course = courses.find((c) => c.id === t.courseId);
-                      return (
-                        <TrainingRow
-                          key={t.id}
-                          training={t}
-                          course={course}
-                          variant="light"
-                        />
-                      );
-                    })}
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {items.map((t) => (
+                      <TrainingCard
+                        key={t.id}
+                        training={t}
+                        course={courses.find((c) => c.id === t.courseId)}
+                        applyLabel="Apply for this Training"
+                      />
+                    ))}
                   </div>
                 </div>
               );
