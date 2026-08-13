@@ -3,7 +3,8 @@ import { useMemo, useState } from "react";
 import { useCourses } from "@/hooks/useData";
 import { allTopics, allCourseLanguages } from "@/lib/derive";
 import { CourseCard } from "@/components/site/CourseCard";
-import { FilterChip } from "@/components/site/FilterChip";
+import { FilterSelect } from "@/components/site/FilterSelect";
+import { RotateCcw } from "lucide-react";
 import { AnimatedPageHero } from "@/components/site/AnimatedPageHero";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
@@ -51,6 +52,13 @@ function CoursesPage() {
       );
   }, [courses, topic, lang, query]);
 
+  const hasFilters = !!(topic || lang || query.trim());
+  const resetFilters = () => {
+    setTopic(null);
+    setLangFilter(null);
+    setQuery("");
+  };
+
   return (
     <>
       <AnimatedPageHero
@@ -59,7 +67,7 @@ function CoursesPage() {
             <AnimatedCounter value={courses.length} /> Courses
           </>
         }
-        title="The full CALP catalogue"
+        title="CALP Courses Catalogue"
         intro="Every course is developed with practitioners, delivered by accredited facilitators, and offered across multiple languages and regions."
       />
 
@@ -74,36 +82,34 @@ function CoursesPage() {
               placeholder="Search courses…"
               className="w-full rounded-lg border border-calp-blue/10 bg-calp-canvas px-4 py-3 text-sm outline-none placeholder:text-calp-ink focus:border-calp-red"
             />
-            <div className="flex flex-col gap-3">
-              <FilterGroup label="Topic">
-                <FilterChip active={topic === null} onClick={() => setTopic(null)}>
-                  All
-                </FilterChip>
-                {topics.map((tp) => (
-                  <FilterChip
-                    key={tp}
-                    active={topic === tp}
-                    onClick={() => setTopic(tp)}
-                  >
-                    {tp}
-                  </FilterChip>
-                ))}
-              </FilterGroup>
-              <FilterGroup label="Language">
-                <FilterChip active={lang === null} onClick={() => setLangFilter(null)}>
-                  All
-                </FilterChip>
-                {languages.map((lg) => (
-                  <FilterChip
-                    key={lg}
-                    active={lang === lg}
-                    onClick={() => setLangFilter(lg)}
-                  >
-                    {lg}
-                  </FilterChip>
-                ))}
-              </FilterGroup>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <FilterSelect
+                label="Topic"
+                placeholder="All Topics"
+                value={topic}
+                onChange={setTopic}
+                options={topics.map((tp) => ({ value: tp, label: tp }))}
+              />
+              <FilterSelect
+                label="Language"
+                placeholder="All Languages"
+                value={lang}
+                onChange={setLangFilter}
+                options={languages.map((lg) => ({ value: lg, label: lg }))}
+              />
             </div>
+            {hasFilters && (
+              <div className="flex">
+                <button
+                  type="button"
+                  onClick={resetFilters}
+                  className="inline-flex items-center gap-2 rounded-lg border border-calp-blue/15 px-3 py-2 text-xs font-bold text-calp-blue transition-colors hover:border-calp-blue"
+                >
+                  <RotateCcw className="h-3.5 w-3.5" />
+                  Reset filters
+                </button>
+              </div>
+            )}
           </div>
         </ScrollReveal>
 
@@ -124,16 +130,5 @@ function CoursesPage() {
         )}
       </section>
     </>
-  );
-}
-
-function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="mr-2 text-xs font-bold text-calp-ink">
-        {label}
-      </span>
-      {children}
-    </div>
   );
 }
