@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroAsset from "@/assets/calp-hero.png.asset.json";
 import { useCourses, useTrainings, useTrainers } from "@/hooks/useData";
-import { CourseCard } from "@/components/site/CourseCard";
+import { CourseAccordionList } from "@/components/site/CourseAccordionList";
 import { TrainingRow } from "@/components/site/TrainingRow";
 import { TrainerCard } from "@/components/site/TrainerCard";
 import { HowToApply } from "@/components/site/HowToApply";
@@ -40,7 +40,7 @@ function Index() {
   const trainersQuery = useTrainers();
 
   const allCourses = coursesQuery.data ?? fallbackCourses;
-  const featured = allCourses.slice(0, 3);
+  
   const upcoming = trainingsQuery.data?.slice(0, 3) ?? fallbackUpcoming(3);
   const trainers = (trainersQuery.data ?? fallbackTrainers).slice(0, 3);
   const courseById = new Map(allCourses.map((c) => [c.id, c]));
@@ -100,11 +100,7 @@ function Index() {
             linkLabel="View all courses"
             to="/courses"
           />
-          <div className="grid gap-5 sm:grid-cols-3">
-            {featured.map((c) => (
-              <CourseCard key={c.id} course={c} />
-            ))}
-          </div>
+          <CourseAccordionList courses={allCourses} />
         </div>
 
         <div className="min-w-0">
