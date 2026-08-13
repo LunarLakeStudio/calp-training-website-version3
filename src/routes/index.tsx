@@ -100,11 +100,7 @@ function Index() {
             linkLabel="View all courses"
             to="/courses"
           />
-          <div className="grid gap-5 sm:grid-cols-3">
-            {featured.map((c) => (
-              <CourseCard key={c.id} course={c} />
-            ))}
-          </div>
+          <CourseAccordionList courses={allCourses} />
         </div>
 
         <div className="min-w-0">
