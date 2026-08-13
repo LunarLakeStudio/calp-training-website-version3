@@ -70,12 +70,12 @@ export function SiteHeader() {
 
           <Link
             to="/calendar"
-            className="hidden rounded-md bg-calp-red px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:inline-flex"
+            className="hidden rounded-md bg-white px-5 py-2.5 text-sm font-medium text-calp-blue transition-opacity hover:opacity-90 sm:inline-flex"
           >
             Find a training
           </Link>
 
-          <TrainingHubButton className="hidden lg:inline-flex" />
+          <TrainingHubButton className="hidden border border-white/70 lg:inline-flex" />
 
           {/* Mobile / tablet menu */}
           <DropdownMenu>
