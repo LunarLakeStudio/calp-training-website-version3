@@ -68,6 +68,14 @@ function TrainingsPage() {
   }, [trainings, courses, topic, country, courseId, language, format]);
 
   const filterKey = `${topic}-${country}-${courseId}-${language}-${format}`;
+  const hasFilters = !!(topic || country || courseId || language || format);
+  const resetFilters = () => {
+    setTopic(null);
+    setCountry(null);
+    setCourseId(null);
+    setLanguage(null);
+    setFormat(null);
+  };
 
   return (
     <>
