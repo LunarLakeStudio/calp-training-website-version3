@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useCourses, useTrainings } from "@/hooks/useData";
 import {
   allCountries,
@@ -13,6 +13,8 @@ import { AnimatedPageHero } from "@/components/site/AnimatedPageHero";
 import { AnimatedGrid } from "@/components/site/AnimatedGrid";
 import { RotateCcw } from "lucide-react";
 import { TrainingCard } from "@/components/site/TrainingCard";
+
+const PAGE_SIZE = 9;
 
 
 export const Route = createFileRoute("/trainings")({
@@ -63,12 +65,19 @@ function TrainingsPage() {
 
   const filterKey = `${topic}-${country}-${courseId}-${language}-${format}`;
   const hasFilters = !!(topic || country || courseId || language || format);
+  const [visible, setVisible] = useState(PAGE_SIZE);
+
+  useEffect(() => {
+    setVisible(PAGE_SIZE);
+  }, [filterKey]);
+
   const resetFilters = () => {
     setTopic(null);
     setCountry(null);
     setCourseId(null);
     setLanguage(null);
     setFormat(null);
+    setVisible(PAGE_SIZE);
   };
 
   return (
@@ -143,7 +152,7 @@ function TrainingsPage() {
 
 
         <p className="mb-6 text-xs font-bold text-calp-ink">
-          {results.length} training{results.length === 1 ? "" : "s"} match
+          Showing {Math.min(visible, results.length)} of {results.length}
         </p>
 
         {isLoading ? (
@@ -153,18 +162,32 @@ function TrainingsPage() {
             No trainings match those filters. Try broadening your topic or country.
           </p>
         ) : (
-          <AnimatedGrid
-            key={filterKey}
-            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-          >
-            {results.map((t) => (
-              <TrainingCard
-                key={t.id}
-                training={t}
-                course={getCourseForTraining(courses, t)}
-              />
-            ))}
-          </AnimatedGrid>
+          <>
+            <AnimatedGrid
+              key={filterKey}
+              className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+            >
+              {results.slice(0, visible).map((t) => (
+                <TrainingCard
+                  key={t.id}
+                  training={t}
+                  course={getCourseForTraining(courses, t)}
+                />
+              ))}
+            </AnimatedGrid>
+
+            {visible < results.length && (
+              <div className="mt-10">
+                <button
+                  type="button"
+                  onClick={() => setVisible((v) => v + PAGE_SIZE)}
+                  className="inline-flex items-center gap-2 rounded-lg bg-calp-red px-5 py-3 text-sm font-bold text-white transition-colors hover:opacity-90"
+                >
+                  Load More Trainings
+                </button>
+              </div>
+            )}
+          </>
         )}
       </section>
     </>
