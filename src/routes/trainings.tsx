@@ -229,13 +229,41 @@ function TrainingsPage() {
   );
 }
 
-function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
+function FilterSelect({
+  label,
+  placeholder,
+  value,
+  onChange,
+  options,
+}: {
+  label: string;
+  placeholder: string;
+  value: string | null;
+  onChange: (v: string | null) => void;
+  options: { value: string; label: string }[];
+}) {
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="mr-2 w-20 shrink-0 text-xs font-bold text-calp-ink">
-        {label}
-      </span>
-      {children}
+    <div className="flex flex-col gap-1.5">
+      <span className="text-xs font-bold text-calp-blue">{label}</span>
+      <Select
+        value={value ?? "all"}
+        onValueChange={(v) => onChange(v === "all" ? null : v)}
+      >
+        <SelectTrigger className="h-10 w-full border-calp-blue/15 bg-white text-xs font-medium text-calp-ink focus:ring-calp-blue">
+          <SelectValue placeholder={placeholder} />
+        </SelectTrigger>
+        <SelectContent className="max-h-72">
+          <SelectItem value="all" className="text-xs">
+            {placeholder}
+          </SelectItem>
+          {options.map((o) => (
+            <SelectItem key={o.value} value={o.value} className="text-xs">
+              {o.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     </div>
   );
 }
+
