@@ -9,6 +9,10 @@ const SHARED_SUPABASE_URL = "https://gyvfccrflinrxdxyssfz.supabase.co";
 
 let _client: SupabaseClient<Database> | undefined;
 
+export function isSharedDbConfigured(): boolean {
+  return !!process.env["SHARED_SUPABASE_SERVICE_ROLE_KEY"];
+}
+
 export function getSharedDb(): SupabaseClient<Database> {
   if (_client) return _client;
 
