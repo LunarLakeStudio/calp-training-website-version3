@@ -71,7 +71,7 @@ export function TrainingCard({
         <Link
           to="/apply"
           search={{ training: t.id }}
-          className="flex-1 rounded-lg bg-calp-blue px-4 py-2 text-center text-xs font-bold text-white transition-colors hover:bg-calp-blue"
+          className="flex-1 rounded-lg bg-calp-blue px-4 py-2 text-center text-xs font-bold text-white transition-opacity hover:opacity-90"
         >
           {applyLabel}
         </Link>

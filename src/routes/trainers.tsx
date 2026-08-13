@@ -128,14 +128,14 @@ function TrainersPage() {
             can’t find a suitable trainer, please contact{" "}
             <a
               href="mailto:training@calpnetwork.org"
-              className="text-calp-blue underline-offset-4 hover:underline transition-colors hover:text-calp-blue/80"
+              className="text-calp-blue underline-offset-4 hover:underline transition-colors hover:opacity-80"
             >
               training@calpnetwork.org
             </a>
             , or{" "}
             <Link
               to="/courses"
-              className="text-calp-blue underline-offset-4 hover:underline transition-colors hover:text-calp-blue/80"
+              className="text-calp-blue underline-offset-4 hover:underline transition-colors hover:opacity-80"
             >
               find out about other ways to access CALP training
             </Link>
@@ -237,7 +237,7 @@ function TrainersPage() {
                   type="button"
                   onClick={() => fetchNextPage()}
                   disabled={isFetchingNextPage}
-                  className="inline-flex items-center gap-2 rounded-lg bg-calp-blue px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-calp-blue/90 disabled:opacity-70"
+                  className="inline-flex items-center gap-2 rounded-lg bg-calp-blue px-5 py-3 text-sm font-bold text-white transition-colors hover:opacity-90 disabled:opacity-70"
                 >
                   {isFetchingNextPage && <Loader2 className="h-4 w-4 animate-spin" />}
                   {isFetchingNextPage ? "Loading trainers…" : "Load More Trainers"}
