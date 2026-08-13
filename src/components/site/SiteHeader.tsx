@@ -18,7 +18,6 @@ export function SiteHeader() {
   const current = LANGS.find((l) => l.code === lang) ?? LANGS[0];
 
   const navItems = [
-    { to: "/", label: t("nav.home"), exact: true },
     { to: "/courses", label: t("nav.courses") },
     { to: "/trainings", label: t("nav.trainings") },
     { to: "/trainers", label: t("nav.trainers") },
@@ -27,11 +26,18 @@ export function SiteHeader() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-calp-blue/10 bg-white px-6 py-4">
+    <nav className="sticky top-0 z-50 bg-calp-blue px-6 py-4">
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 lg:flex lg:justify-between">
-        <BrandWordmark />
+        <BrandWordmark variant="onDark" />
 
-        <div className="hidden items-center gap-7 text-sm font-medium text-calp-blue lg:flex">
+        <div className="hidden items-center gap-6 text-sm font-medium text-white lg:flex">
+          <Link
+            to="/"
+            className="inline-flex items-center rounded-md bg-calp-pale-red-soft px-4 py-2 text-sm font-medium text-calp-blue transition-opacity hover:opacity-90"
+            activeOptions={{ exact: true }}
+          >
+            {t("nav.home")}
+          </Link>
           {navItems.map((item) => (
             <HeaderLink key={item.to} to={item.to} exact={item.exact}>
               {item.label}
@@ -41,7 +47,7 @@ export function SiteHeader() {
 
         <div className="flex shrink-0 items-center gap-4">
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1.5 text-sm font-medium text-calp-blue outline-none focus-visible:ring-2 focus-visible:ring-calp-blue">
+            <DropdownMenuTrigger className="flex items-center gap-1.5 text-sm font-medium text-white outline-none focus-visible:ring-2 focus-visible:ring-white">
               <Globe className="h-4 w-4" aria-hidden />
               <span>{current.label}</span>
               <ChevronDown className="h-3.5 w-3.5" aria-hidden />
@@ -69,13 +75,13 @@ export function SiteHeader() {
             Find a training
           </Link>
 
-          <TrainingHubButton className="hidden lg:inline-flex" />
+          <TrainingHubButton className="hidden border border-white/70 lg:inline-flex" />
 
           {/* Mobile / tablet menu */}
           <DropdownMenu>
             <DropdownMenuTrigger
               aria-label="Open menu"
-              className="inline-flex items-center rounded-md border border-calp-blue/20 p-2 text-calp-blue outline-none focus-visible:ring-2 focus-visible:ring-calp-blue lg:hidden"
+              className="inline-flex items-center rounded-md border border-white/50 p-2 text-white outline-none focus-visible:ring-2 focus-visible:ring-white lg:hidden"
             >
               <Menu className="h-5 w-5" aria-hidden />
             </DropdownMenuTrigger>
@@ -84,6 +90,9 @@ export function SiteHeader() {
                 <TrainingHubButton className="w-full" />
               </div>
               <DropdownMenuSeparator />
+              <DropdownMenuItem asChild className="text-sm text-calp-blue">
+                <Link to="/">{t("nav.home")}</Link>
+              </DropdownMenuItem>
               {navItems.map((item) => (
                 <DropdownMenuItem key={item.to} asChild className="text-sm text-calp-blue">
                   <Link to={item.to}>{item.label}</Link>
@@ -113,8 +122,8 @@ function HeaderLink({
   return (
     <Link
       to={to}
-      className="transition-colors hover:text-calp-red"
-      activeProps={{ className: "text-calp-red" }}
+      className="transition-colors hover:text-calp-pale-red-soft"
+      activeProps={{ className: "text-calp-pale-red-soft font-bold" }}
       activeOptions={exact ? { exact: true } : undefined}
     >
       {children}
