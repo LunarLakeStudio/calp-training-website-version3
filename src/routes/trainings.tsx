@@ -73,67 +73,72 @@ function TrainingsPage() {
     <>
       <AnimatedPageHero
         eyebrow="Upcoming sessions"
-        title="Find a training"
+        title="Find a Training"
         intro="Filter by topic to find the right CALP training, then apply in one click."
       />
 
       <section className="mx-auto max-w-7xl px-6 pb-24">
-        <div className="mb-10 flex flex-col gap-4 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
-          <FilterGroup label="Topic">
-            <FilterChip active={topic === null} onClick={() => setTopic(null)}>
-              All
-            </FilterChip>
-            {topics.map((tp) => (
-              <FilterChip key={tp} active={topic === tp} onClick={() => setTopic(tp)}>
-                {tp}
-              </FilterChip>
-            ))}
-          </FilterGroup>
-          <FilterGroup label="Course">
-            <FilterChip active={courseId === null} onClick={() => setCourseId(null)}>
-              All
-            </FilterChip>
-            {courses.map((c) => (
-              <FilterChip
-                key={c.id}
-                active={courseId === c.id}
-                onClick={() => setCourseId(c.id)}
+        <div className="mb-10 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            <FilterSelect
+              label="Topic"
+              placeholder="All Topics"
+              value={topic}
+              onChange={setTopic}
+              options={topics.map((tp) => ({ value: tp, label: tp }))}
+            />
+            <FilterSelect
+              label="Course"
+              placeholder="All Courses"
+              value={courseId}
+              onChange={setCourseId}
+              options={courses.map((c) => ({
+                value: c.id,
+                label: c.title.length > 32 ? c.title.slice(0, 30) + "…" : c.title,
+              }))}
+            />
+            <FilterSelect
+              label="Location"
+              placeholder="All Locations"
+              value={country}
+              onChange={setCountry}
+              options={allCountries(trainings).map((c) => ({ value: c, label: c }))}
+            />
+            <FilterSelect
+              label="Language"
+              placeholder="All Languages"
+              value={language}
+              onChange={setLanguage}
+              options={allTrainingLanguages(trainings).map((l) => ({
+                value: l,
+                label: l,
+              }))}
+            />
+            <FilterSelect
+              label="Training type"
+              placeholder="All Training Types"
+              value={format}
+              onChange={setFormat}
+              options={["Face-to-Face", "Online", "Hybrid"].map((f) => ({
+                value: f,
+                label: f,
+              }))}
+            />
+          </div>
+          {hasFilters && (
+            <div className="mt-4 flex">
+              <button
+                type="button"
+                onClick={resetFilters}
+                className="inline-flex items-center gap-2 rounded-lg border border-calp-blue/15 px-3 py-2 text-xs font-bold text-calp-blue transition-colors hover:border-calp-blue"
               >
-                {c.title.length > 32 ? c.title.slice(0, 30) + "…" : c.title}
-              </FilterChip>
-            ))}
-          </FilterGroup>
-          <FilterGroup label="Country">
-            <FilterChip active={country === null} onClick={() => setCountry(null)}>
-              All
-            </FilterChip>
-            {allCountries(trainings).map((c) => (
-              <FilterChip key={c} active={country === c} onClick={() => setCountry(c)}>
-                {c}
-              </FilterChip>
-            ))}
-          </FilterGroup>
-          <FilterGroup label="Language">
-            <FilterChip active={language === null} onClick={() => setLanguage(null)}>
-              All
-            </FilterChip>
-            {allTrainingLanguages(trainings).map((l) => (
-              <FilterChip key={l} active={language === l} onClick={() => setLanguage(l)}>
-                {l}
-              </FilterChip>
-            ))}
-          </FilterGroup>
-          <FilterGroup label="Format">
-            <FilterChip active={format === null} onClick={() => setFormat(null)}>
-              All
-            </FilterChip>
-            {["Face-to-Face", "Online", "Hybrid"].map((f) => (
-              <FilterChip key={f} active={format === f} onClick={() => setFormat(f)}>
-                {f}
-              </FilterChip>
-            ))}
-          </FilterGroup>
+                <RotateCcw className="h-3.5 w-3.5" />
+                Reset filters
+              </button>
+            </div>
+          )}
         </div>
+
 
         <p className="mb-6 text-xs font-bold text-calp-ink">
           {results.length} training{results.length === 1 ? "" : "s"} match
