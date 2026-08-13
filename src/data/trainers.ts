@@ -101,14 +101,22 @@ export const trainers: Trainer[] = Array.from({ length: 200 }, (_, i) => {
   const first = firstNames[i % firstNames.length];
   const last = lastNames[(i * 13) % lastNames.length];
   const name = `${first} ${last}`;
+  const courseCount = 1 + (i % 3);
+  const courseIds = Array.from(
+    { length: courseCount },
+    (_, k) => `c${((i * 3 + k * 5) % 10) + 1}`,
+  );
   return {
     id: `t${i + 1}`,
     name,
     location: locations[i % locations.length],
     languages: pickLanguages(i),
     photo: portraits[i % portraits.length],
+    region: TRAINER_REGIONS[i % TRAINER_REGIONS.length],
+    courseIds: Array.from(new Set(courseIds)),
   };
 });
+
 
 export function allTrainerLanguages(): string[] {
   return Array.from(new Set(trainers.flatMap((t) => t.languages))).sort();
