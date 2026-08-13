@@ -7,7 +7,14 @@ import {
   filterTrainings,
 } from "@/lib/derive";
 import { TrainingRow } from "@/components/site/TrainingRow";
-import { FilterChip } from "@/components/site/FilterChip";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { RotateCcw } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/calendar")({
@@ -80,68 +87,81 @@ function CalendarPage() {
     [trainings],
   );
 
+  const hasFilters = !!(country || courseId || language || month);
+  const resetFilters = () => {
+    setCountry(null);
+    setCourseId(null);
+    setLanguage(null);
+    setMonth(null);
+  };
+
+
   return (
     <>
       <PageHero
         eyebrow="Global schedule"
-        title="Training calendar"
+        title="Training Calendar"
         intro="Every upcoming CALP training across all courses and countries. Dates populate automatically the moment a trainer publishes a session."
       />
 
       <section className="mx-auto max-w-7xl px-6 pb-24">
-        <div className="mb-10 flex flex-col gap-4 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
-          <FilterGroup label="Country">
-            <FilterChip active={country === null} onClick={() => setCountry(null)}>
-              All
-            </FilterChip>
-            {allCountries(trainings).map((c) => (
-              <FilterChip key={c} active={country === c} onClick={() => setCountry(c)}>
-                {c}
-              </FilterChip>
-            ))}
-          </FilterGroup>
-          <FilterGroup label="Course">
-            <FilterChip active={courseId === null} onClick={() => setCourseId(null)}>
-              All
-            </FilterChip>
-            {courses.map((c) => (
-              <FilterChip
-                key={c.id}
-                active={courseId === c.id}
-                onClick={() => setCourseId(c.id)}
+        <div className="mb-10 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <FilterSelect
+              label="Location"
+              placeholder="All Locations"
+              value={country}
+              onChange={setCountry}
+              options={allCountries(trainings).map((c) => ({ value: c, label: c }))}
+            />
+            <FilterSelect
+              label="Course"
+              placeholder="All Courses"
+              value={courseId}
+              onChange={setCourseId}
+              options={courses.map((c) => ({
+                value: c.id,
+                label: c.title.length > 32 ? c.title.slice(0, 30) + "…" : c.title,
+              }))}
+            />
+            <FilterSelect
+              label="Language"
+              placeholder="All Languages"
+              value={language}
+              onChange={setLanguage}
+              options={allTrainingLanguages(trainings).map((l) => ({
+                value: l,
+                label: l,
+              }))}
+            />
+            <FilterSelect
+              label="Month"
+              placeholder="All Months"
+              value={month}
+              onChange={setMonth}
+              options={months.map((m) => {
+                const [y, mm] = m.split("-");
+                return {
+                  value: m,
+                  label: `${MONTH_LABELS[parseInt(mm, 10) - 1]} ${y}`,
+                };
+              })}
+            />
+          </div>
+          {hasFilters && (
+            <div className="mt-4 flex">
+              <button
+                type="button"
+                onClick={resetFilters}
+                className="inline-flex items-center gap-2 rounded-lg border border-calp-blue/15 px-3 py-2 text-xs font-bold text-calp-blue transition-colors hover:border-calp-blue"
               >
-                {c.title.length > 32 ? c.title.slice(0, 30) + "…" : c.title}
-              </FilterChip>
-            ))}
-          </FilterGroup>
-          <FilterGroup label="Language">
-            <FilterChip active={language === null} onClick={() => setLanguage(null)}>
-              All
-            </FilterChip>
-            {allTrainingLanguages(trainings).map((l) => (
-              <FilterChip
-                key={l}
-                active={language === l}
-                onClick={() => setLanguage(l)}
-              >
-                {l}
-              </FilterChip>
-            ))}
-          </FilterGroup>
-          <FilterGroup label="Month">
-            <FilterChip active={month === null} onClick={() => setMonth(null)}>
-              All
-            </FilterChip>
-            {months.map((m) => {
-              const [y, mm] = m.split("-");
-              return (
-                <FilterChip key={m} active={month === m} onClick={() => setMonth(m)}>
-                  {MONTH_LABELS[parseInt(mm, 10) - 1].slice(0, 3)} {y}
-                </FilterChip>
-              );
-            })}
-          </FilterGroup>
+                <RotateCcw className="h-3.5 w-3.5" />
+                Reset filters
+              </button>
+            </div>
+          )}
         </div>
+
 
         {isLoading ? (
           <p className="py-16 text-calp-ink">Loading calendar…</p>
@@ -185,13 +205,40 @@ function CalendarPage() {
   );
 }
 
-function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
+function FilterSelect({
+  label,
+  placeholder,
+  value,
+  onChange,
+  options,
+}: {
+  label: string;
+  placeholder: string;
+  value: string | null;
+  onChange: (v: string | null) => void;
+  options: { value: string; label: string }[];
+}) {
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="mr-2 w-20 shrink-0 text-xs font-bold text-calp-ink">
-        {label}
-      </span>
-      {children}
+    <div className="flex flex-col gap-1.5">
+      <span className="text-xs font-bold text-calp-blue">{label}</span>
+      <Select
+        value={value ?? "all"}
+        onValueChange={(v) => onChange(v === "all" ? null : v)}
+      >
+        <SelectTrigger className="h-10 w-full border-calp-blue/15 bg-white text-xs font-medium text-calp-ink focus:ring-calp-blue">
+          <SelectValue placeholder={placeholder} />
+        </SelectTrigger>
+        <SelectContent className="max-h-72">
+          <SelectItem value="all" className="text-xs">
+            {placeholder}
+          </SelectItem>
+          {options.map((o) => (
+            <SelectItem key={o.value} value={o.value} className="text-xs">
+              {o.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     </div>
   );
 }
