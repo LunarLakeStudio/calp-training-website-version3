@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { CalendarDays, MapPin, Languages, Clock } from "lucide-react";
 import { formatDate } from "@/lib/format";
-import type { Course, Training } from "@/lib/types";
+import type { Training } from "@/data/trainings";
+import type { Course } from "@/data/courses";
 
 export function TrainingCard({
   training: t,
