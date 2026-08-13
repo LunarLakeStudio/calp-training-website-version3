@@ -348,7 +348,7 @@ function ApplyPage() {
 
       <div className="relative mx-auto max-w-4xl px-6 pb-32 pt-8">
         {/* Title + course intro */}
-        <h1 className="font-display text-3xl font-bold leading-snug text-calp-red md:text-4xl">
+        <h1 className="font-display text-3xl font-bold leading-snug text-calp-blue md:text-4xl">
           Application form for {courseTitle}
           {activeTraining ? ` in ${trainingLocation}` : null}
         </h1>
@@ -403,18 +403,18 @@ function ApplyPage() {
         <IntroSection title="Who to contact?">
           <p>
             If you have any questions about the training please contact{" "}
-            <a href="mailto:training@calpnetwork.org" className="text-calp-red underline">
+            <a href="mailto:training@calpnetwork.org" className="text-calp-blue underline">
               training@calpnetwork.org
             </a>
             .
           </p>
         </IntroSection>
 
-        <p className="mb-6 mt-8 text-sm font-medium text-calp-red">* Required</p>
+        <p className="mb-6 mt-8 text-sm font-medium text-calp-blue">* Required</p>
 
         {preselectedTraining ? (
-          <div className="mb-8 rounded-md border-l-4 border-calp-red bg-calp-pale-red p-5">
-            <p className="text-xs font-bold text-calp-red">
+          <div className="mb-8 rounded-md border-l-4 border-calp-blue bg-calp-pale-red p-5">
+            <p className="text-xs font-bold text-calp-blue">
               Applying for
             </p>
             <p className="mt-1 font-display text-lg font-bold text-calp-blue">
@@ -615,7 +615,7 @@ function ApplyPage() {
                   href="https://kayaconnect.org/course/info.php?id=496"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-calp-red underline"
+                  className="text-calp-blue underline"
                 >
                   Kaya
                 </a>
@@ -637,7 +637,7 @@ function ApplyPage() {
                   href="https://kayaconnect.org/course/view.php?id=4684"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-calp-red underline"
+                  className="text-calp-blue underline"
                 >
                   Kaya
                 </a>
@@ -684,7 +684,7 @@ function ApplyPage() {
             <button
               type="submit"
               disabled={submitting}
-              className="inline-flex items-center justify-center rounded-full bg-calp-red px-10 py-3.5 font-medium text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-calp-red/90 disabled:opacity-60"
+              className="inline-flex items-center justify-center rounded-full bg-calp-blue px-10 py-3.5 font-medium text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-calp-blue/90 disabled:opacity-60"
             >
               {submitting ? "Sending…" : "Submit application"}
             </button>
@@ -717,7 +717,7 @@ function IntroSection({
 }) {
   return (
     <section className="mt-6">
-      <h2 className="mb-2 font-display text-xl font-bold text-calp-red">
+      <h2 className="mb-2 font-display text-xl font-bold text-calp-blue">
         {title}
       </h2>
       <div className="text-sm leading-relaxed text-calp-blue">{children}</div>
@@ -734,7 +734,7 @@ function FormSection({
 }) {
   return (
     <section className="space-y-5">
-      <h2 className="font-display text-xl font-bold text-calp-red">
+      <h2 className="font-display text-xl font-bold text-calp-blue">
         {title}
       </h2>
       {children}
@@ -744,7 +744,7 @@ function FormSection({
 
 function SubHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="pt-4 font-display text-lg font-bold text-calp-red">
+    <h3 className="pt-4 font-display text-lg font-bold text-calp-blue">
       {children}
     </h3>
   );
@@ -758,15 +758,15 @@ function Label({
   required?: boolean;
 }) {
   return (
-    <label className="mb-2 block text-sm font-medium text-calp-red">
+    <label className="mb-2 block text-sm font-medium text-calp-blue">
       {children}
-      {required ? <span className="text-calp-red"> *</span> : null}
+      {required ? <span className="text-calp-blue"> *</span> : null}
     </label>
   );
 }
 
 const inputCls =
-  "w-full rounded-md border border-calp-red/30 bg-white px-4 py-3 text-sm text-calp-blue outline-none transition-colors focus:border-calp-red focus:ring-2 focus:ring-calp-red/20 disabled:cursor-not-allowed disabled:bg-calp-canvas disabled:text-calp-ink";
+  "w-full rounded-md border border-calp-blue/30 bg-white px-4 py-3 text-sm text-calp-blue outline-none transition-colors focus:border-calp-blue focus:ring-2 focus:ring-calp-blue/20 disabled:cursor-not-allowed disabled:bg-calp-canvas disabled:text-calp-ink";
 
 function Field({
   label,
@@ -788,7 +788,7 @@ function Field({
       <Label required={required}>{label}</Label>
       <input name={name} type={type} className={inputCls} />
       {help ? <p className="mt-1 text-xs text-calp-ink">{help}</p> : null}
-      {error ? <p className="mt-1 text-xs text-calp-red">{error}</p> : null}
+      {error ? <p className="mt-1 text-xs text-calp-blue">{error}</p> : null}
     </div>
   );
 }
@@ -808,7 +808,7 @@ function TextArea({
     <div>
       <Label required={required}>{label}</Label>
       <textarea name={name} rows={6} maxLength={1500} className={inputCls} />
-      {error ? <p className="mt-1 text-xs text-calp-red">{error}</p> : null}
+      {error ? <p className="mt-1 text-xs text-calp-blue">{error}</p> : null}
     </div>
   );
 }
@@ -847,7 +847,7 @@ function SelectField({
         {children}
       </select>
       {help ? <p className="mt-1 text-xs text-calp-ink">{help}</p> : null}
-      {error ? <p className="mt-1 text-xs text-calp-red">{error}</p> : null}
+      {error ? <p className="mt-1 text-xs text-calp-blue">{error}</p> : null}
     </div>
   );
 }
@@ -887,12 +887,12 @@ function RadioGroup({
               <span
                 className={`relative flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-colors ${
                   controlled && checked
-                    ? "border-calp-red"
-                    : "border-calp-red/50 group-hover:border-calp-red"
+                    ? "border-calp-blue"
+                    : "border-calp-blue/50 group-hover:border-calp-blue"
                 }`}
               >
                 <span
-                  className={`h-2 w-2 rounded-full bg-calp-red transition-opacity ${
+                  className={`h-2 w-2 rounded-full bg-calp-blue transition-opacity ${
                     controlled && checked ? "opacity-100" : "opacity-0"
                   }`}
                 />
@@ -911,7 +911,7 @@ function RadioGroup({
           );
         })}
       </div>
-      {error ? <p className="mt-1 text-xs text-calp-red">{error}</p> : null}
+      {error ? <p className="mt-1 text-xs text-calp-blue">{error}</p> : null}
     </div>
   );
 }

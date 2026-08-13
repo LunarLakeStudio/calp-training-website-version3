@@ -88,7 +88,7 @@ function Contact() {
             </p>
             <a
               href="mailto:training@calpnetwork.org"
-              className="text-lg font-medium text-calp-blue hover:text-calp-red"
+              className="text-lg font-medium text-calp-blue hover:text-calp-blue"
             >
               training@calpnetwork.org
             </a>
@@ -99,7 +99,7 @@ function Contact() {
             </p>
             <a
               href="mailto:partnerships@calpnetwork.org"
-              className="text-lg font-medium text-calp-blue hover:text-calp-red"
+              className="text-lg font-medium text-calp-blue hover:text-calp-blue"
             >
               partnerships@calpnetwork.org
             </a>
@@ -112,7 +112,7 @@ function Contact() {
               href="https://www.calpnetwork.org"
               target="_blank"
               rel="noreferrer"
-              className="text-lg font-medium text-calp-blue hover:text-calp-red"
+              className="text-lg font-medium text-calp-blue hover:text-calp-blue"
             >
               calpnetwork.org
             </a>
@@ -132,16 +132,16 @@ function Contact() {
               name="message"
               rows={6}
               maxLength={2000}
-              className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
+              className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-blue"
             />
             {errors.message ? (
-              <p className="mt-1 text-xs text-calp-red">{errors.message}</p>
+              <p className="mt-1 text-xs text-calp-blue">{errors.message}</p>
             ) : null}
           </div>
           <button
             type="submit"
             disabled={submitting}
-            className="rounded-lg bg-calp-red px-8 py-4 font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-60"
+            className="rounded-lg bg-calp-blue px-8 py-4 font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-60"
           >
             {submitting ? "Sending…" : "Send message"}
           </button>
@@ -170,9 +170,9 @@ function Field({
       <input
         name={name}
         type={type}
-        className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
+        className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-blue"
       />
-      {error ? <p className="mt-1 text-xs text-calp-red">{error}</p> : null}
+      {error ? <p className="mt-1 text-xs text-calp-blue">{error}</p> : null}
     </div>
   );
 }

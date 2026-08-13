@@ -33,10 +33,10 @@ export function TrainingRow({
   return (
     <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-4 border-b border-calp-blue/10 py-4 sm:flex">
       <div className="flex w-12 shrink-0 flex-col items-start">
-        <span className="font-display text-2xl font-bold leading-snug text-calp-red">
+        <span className="font-display text-2xl font-bold leading-snug text-calp-blue">
           {String(date.getUTCDate()).padStart(2, "0")}
         </span>
-        <span className="mt-1 text-xs font-medium text-calp-red">
+        <span className="mt-1 text-xs font-medium text-calp-blue">
           {MONTHS[date.getUTCMonth()]}
         </span>
       </div>
@@ -61,7 +61,7 @@ export function TrainingRow({
       <Link
         to="/apply"
         search={{ training: training.id }}
-        className="col-span-2 justify-self-start rounded-md bg-calp-red px-5 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:col-span-1 sm:justify-self-auto"
+        className="col-span-2 justify-self-start rounded-md bg-calp-blue px-5 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:col-span-1 sm:justify-self-auto"
       >
         {t("cta.apply")}
       </Link>

@@ -60,7 +60,7 @@ export const Route = createFileRoute("/trainings/$trainingId")({
   notFoundComponent: () => (
     <div className="mx-auto max-w-7xl px-6 py-24">
       <h1 className="mb-4 font-display text-3xl font-bold">Training not found</h1>
-      <Link to="/calendar" className="text-calp-red">
+      <Link to="/calendar" className="text-calp-blue">
         ← Back to calendar
       </Link>
     </div>
@@ -135,7 +135,7 @@ function TrainingDetail() {
         <div className="mx-auto max-w-7xl px-6 py-16">
           <Link
             to="/calendar"
-            className="mb-6 inline-block text-xs font-bold text-calp-red"
+            className="mb-6 inline-block text-xs font-bold text-calp-blue"
           >
             ← Calendar
           </Link>
@@ -147,7 +147,7 @@ function TrainingDetail() {
               {training.language}
             </span>
           </div>
-          <h1 className="mb-4 max-w-3xl font-display text-4xl font-bold leading-snug text-balance text-calp-red md:text-5xl">
+          <h1 className="mb-4 max-w-3xl font-display text-4xl font-bold leading-snug text-balance text-calp-blue md:text-5xl">
             {course?.title ?? "Training"}
           </h1>
           <p className="text-lg text-calp-ink">
@@ -158,7 +158,7 @@ function TrainingDetail() {
 
       <section className="mx-auto grid max-w-7xl gap-16 px-6 py-20 lg:grid-cols-[1fr_1.2fr]">
         <aside className="space-y-6">
-          <h2 className="font-display text-sm font-bold text-calp-red">
+          <h2 className="font-display text-sm font-bold text-calp-blue">
             Training details
           </h2>
           <ul className="space-y-4 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
@@ -180,7 +180,7 @@ function TrainingDetail() {
             <Link
               to="/courses/$courseId"
               params={{ courseId: course.slug }}
-              className="block rounded-xl border border-calp-blue/10 bg-white p-6 transition-colors hover:border-calp-red/40"
+              className="block rounded-xl border border-calp-blue/10 bg-white p-6 transition-colors hover:border-calp-blue/40"
             >
               <p className="mb-1 text-xs font-bold text-calp-ink">
                 About the course
@@ -222,7 +222,7 @@ function TrainingDetail() {
               <select
                 name="applicationLanguage"
                 defaultValue="en"
-                className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
+                className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-blue"
               >
                 {LANGS.map((l) => (
                   <option key={l.code} value={l.code}>
@@ -231,7 +231,7 @@ function TrainingDetail() {
                 ))}
               </select>
               {errors.applicationLanguage ? (
-                <p className="mt-1 text-xs text-calp-red">{errors.applicationLanguage}</p>
+                <p className="mt-1 text-xs text-calp-blue">{errors.applicationLanguage}</p>
               ) : null}
             </div>
             <div>
@@ -243,16 +243,16 @@ function TrainingDetail() {
                 rows={5}
                 maxLength={1500}
                 placeholder="Tell us about your current role and what you hope to gain from this training…"
-                className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
+                className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-blue"
               />
               {errors.motivation ? (
-                <p className="mt-1 text-xs text-calp-red">{errors.motivation}</p>
+                <p className="mt-1 text-xs text-calp-blue">{errors.motivation}</p>
               ) : null}
             </div>
             <button
               type="submit"
               disabled={submitting}
-              className="rounded-lg bg-calp-red px-8 py-4 font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-60"
+              className="rounded-lg bg-calp-blue px-8 py-4 font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-60"
             >
               {submitting ? "Sending…" : "Submit application"}
             </button>
@@ -274,7 +274,7 @@ function DetailItem({
 }) {
   return (
     <li className="flex items-start gap-3">
-      <Icon className="mt-0.5 h-4 w-4 shrink-0 text-calp-red" />
+      <Icon className="mt-0.5 h-4 w-4 shrink-0 text-calp-blue" />
       <div>
         <p className="text-xs font-bold text-calp-ink">
           {label}
@@ -304,9 +304,9 @@ function Field({
       <input
         name={name}
         type={type}
-        className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-red"
+        className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-blue"
       />
-      {error ? <p className="mt-1 text-xs text-calp-red">{error}</p> : null}
+      {error ? <p className="mt-1 text-xs text-calp-blue">{error}</p> : null}
     </div>
   );
 }

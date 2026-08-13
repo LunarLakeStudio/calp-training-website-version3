@@ -52,7 +52,7 @@ function Index() {
         <ShapeClusterCool className="-left-44 top-[42%] h-[85%] w-[38%] opacity-60" />
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pt-14 pb-20 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="relative z-10">
-            <h1 className="mb-5 font-display text-4xl font-bold leading-snug text-calp-red md:text-5xl">
+            <h1 className="mb-5 font-display text-4xl font-bold leading-snug text-calp-blue md:text-5xl">
               Build the skills
               <br />
               to deliver better CVA.
@@ -64,7 +64,7 @@ function Index() {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/courses"
-                className="rounded-md bg-calp-red px-7 py-3 font-medium text-white transition-opacity hover:opacity-90"
+                className="rounded-md bg-calp-blue px-7 py-3 font-medium text-white transition-opacity hover:opacity-90"
               >
                 Explore courses
               </Link>
@@ -154,7 +154,7 @@ function SectionHead({
 }) {
   return (
     <div className="mb-5 grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-3">
-      <h2 className="min-w-0 font-display text-xl font-bold text-calp-red">
+      <h2 className="min-w-0 font-display text-xl font-bold text-calp-blue">
         {title}
       </h2>
       <Link

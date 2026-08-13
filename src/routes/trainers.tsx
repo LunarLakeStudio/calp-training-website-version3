@@ -128,14 +128,14 @@ function TrainersPage() {
             can’t find a suitable trainer, please contact{" "}
             <a
               href="mailto:training@calpnetwork.org"
-              className="text-calp-red underline-offset-4 hover:underline transition-colors hover:text-calp-red/80"
+              className="text-calp-blue underline-offset-4 hover:underline transition-colors hover:text-calp-blue/80"
             >
               training@calpnetwork.org
             </a>
             , or{" "}
             <Link
               to="/courses"
-              className="text-calp-red underline-offset-4 hover:underline transition-colors hover:text-calp-red/80"
+              className="text-calp-blue underline-offset-4 hover:underline transition-colors hover:text-calp-blue/80"
             >
               find out about other ways to access CALP training
             </Link>
@@ -153,7 +153,7 @@ function TrainersPage() {
               value={q}
               onChange={(e) => setParam("q", e.target.value)}
               placeholder="Search by name or location…"
-              className="w-full rounded-lg border border-calp-blue/10 bg-calp-canvas px-4 py-3 text-sm outline-none placeholder:text-calp-ink focus:border-calp-red"
+              className="w-full rounded-lg border border-calp-blue/10 bg-calp-canvas px-4 py-3 text-sm outline-none placeholder:text-calp-ink focus:border-calp-blue"
             />
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <FilterSelect
@@ -237,7 +237,7 @@ function TrainersPage() {
                   type="button"
                   onClick={() => fetchNextPage()}
                   disabled={isFetchingNextPage}
-                  className="inline-flex items-center gap-2 rounded-lg bg-calp-red px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-calp-red/90 disabled:opacity-70"
+                  className="inline-flex items-center gap-2 rounded-lg bg-calp-blue px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-calp-blue/90 disabled:opacity-70"
                 >
                   {isFetchingNextPage && <Loader2 className="h-4 w-4 animate-spin" />}
                   {isFetchingNextPage ? "Loading trainers…" : "Load More Trainers"}

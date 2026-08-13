@@ -59,7 +59,7 @@ export function SiteHeader() {
                   onSelect={() => setLang(l.code)}
                   className={cn(
                     "text-sm",
-                    lang === l.code ? "font-bold text-calp-red" : "text-calp-blue",
+                    lang === l.code ? "font-bold text-calp-blue" : "text-calp-blue",
                   )}
                 >
                   {l.native}
@@ -70,7 +70,7 @@ export function SiteHeader() {
 
           <Link
             to="/calendar"
-            className="hidden rounded-md bg-calp-red px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:inline-flex"
+            className="hidden rounded-md bg-white px-5 py-2.5 text-sm font-medium text-calp-blue transition-opacity hover:opacity-90 sm:inline-flex"
           >
             Find a training
           </Link>
@@ -99,7 +99,7 @@ export function SiteHeader() {
                 </DropdownMenuItem>
               ))}
               <DropdownMenuSeparator />
-              <DropdownMenuItem asChild className="text-sm font-medium text-calp-red">
+              <DropdownMenuItem asChild className="text-sm font-medium text-calp-blue">
                 <Link to="/calendar">Find a training</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
