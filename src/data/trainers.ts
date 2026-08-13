@@ -34,7 +34,20 @@ export type Trainer = {
   location: string;
   languages: string[];
   photo: string;
+  region?: string | null;
+  courseIds?: string[];
 };
+
+export const TRAINER_REGIONS = [
+  "WCAF",
+  "ESAF",
+  "MENA",
+  "Asia",
+  "LAC",
+  "Europe",
+  "Global",
+] as const;
+
 
 const firstNames = [
   "Amina", "Fatou", "Layla", "Noor", "Zara", "Aisha", "Mariam", "Yasmin", "Salma", "Hana",
