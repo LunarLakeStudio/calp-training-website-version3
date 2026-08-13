@@ -8,11 +8,18 @@ import {
   getCourseForTraining,
   allTopics,
 } from "@/lib/derive";
-import { FilterChip } from "@/components/site/FilterChip";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { AnimatedPageHero } from "@/components/site/AnimatedPageHero";
 import { AnimatedGrid } from "@/components/site/AnimatedGrid";
-import { CalendarDays, MapPin, Languages, Clock } from "lucide-react";
+import { CalendarDays, MapPin, Languages, Clock, RotateCcw } from "lucide-react";
 import { formatDate } from "@/lib/format";
+
 
 export const Route = createFileRoute("/trainings")({
   head: () => ({
