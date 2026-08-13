@@ -1,5 +1,7 @@
+import { Link } from "@tanstack/react-router";
 import { BrandWordmark } from "@/components/site/BrandWordmark";
 import { TrainingHubButton } from "@/components/site/TrainingHubButton";
+
 
 
 export function SiteFooter() {
