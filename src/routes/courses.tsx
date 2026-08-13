@@ -80,7 +80,7 @@ function CoursesPage() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search courses…"
-              className="w-full rounded-lg border border-calp-blue/10 bg-calp-canvas px-4 py-3 text-sm outline-none placeholder:text-calp-ink focus:border-calp-red"
+              className="w-full rounded-lg border border-calp-blue/10 bg-calp-canvas px-4 py-3 text-sm outline-none placeholder:text-calp-ink focus:border-calp-blue"
             />
             <div className="grid gap-4 sm:grid-cols-2">
               <FilterSelect

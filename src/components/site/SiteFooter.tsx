@@ -20,7 +20,7 @@ export function SiteFooter() {
           <TrainingHubButton variant="link" label="Training Hub Login" />
         </div>
 
-        <div className="flex flex-wrap gap-6 text-sm text-calp-red md:justify-end">
+        <div className="flex flex-wrap gap-6 text-sm text-calp-blue md:justify-end">
           <a href="#" className="underline-offset-4 hover:underline">
             Privacy policy
           </a>

@@ -39,7 +39,7 @@ export const Route = createFileRoute("/courses/$courseId")({
   notFoundComponent: () => (
     <div className="mx-auto max-w-7xl px-6 py-24">
       <h1 className="mb-4 font-display text-3xl font-bold">Course not found</h1>
-      <Link to="/courses" className="text-calp-red">
+      <Link to="/courses" className="text-calp-blue">
         ← Back to catalogue
       </Link>
     </div>
@@ -60,7 +60,7 @@ function CourseDetail() {
           <div>
             <Link
               to="/courses"
-              className="mb-6 inline-block text-xs font-bold text-calp-red"
+              className="mb-6 inline-block text-xs font-bold text-calp-blue"
             >
               ← Catalogue
             </Link>
@@ -80,7 +80,7 @@ function CourseDetail() {
                 </span>
               ))}
             </div>
-            <h1 className="mb-6 font-display text-4xl font-bold leading-snug text-balance text-calp-red md:text-5xl">
+            <h1 className="mb-6 font-display text-4xl font-bold leading-snug text-balance text-calp-blue md:text-5xl">
               {course.title}
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-calp-ink">
@@ -101,14 +101,14 @@ function CourseDetail() {
 
       <section className="mx-auto grid max-w-7xl gap-16 px-6 py-20 lg:grid-cols-[1.4fr_1fr]">
         <div>
-          <h2 className="mb-6 font-display text-sm font-bold text-calp-red">
+          <h2 className="mb-6 font-display text-sm font-bold text-calp-blue">
             About this course
           </h2>
           <p className="text-lg leading-relaxed text-calp-blue/90">
             {course.description || course.summary}
           </p>
 
-          <h2 className="mt-16 mb-6 font-display text-sm font-bold text-calp-red">
+          <h2 className="mt-16 mb-6 font-display text-sm font-bold text-calp-blue">
             Topics covered
           </h2>
           {course.topics.length === 0 ? (
@@ -128,7 +128,7 @@ function CourseDetail() {
         </div>
 
         <aside>
-          <h2 className="mb-6 font-display text-sm font-bold text-calp-red">
+          <h2 className="mb-6 font-display text-sm font-bold text-calp-blue">
             Free materials
           </h2>
           <ul className="space-y-3">
@@ -137,9 +137,9 @@ function CourseDetail() {
               return (
                 <li
                   key={d.label}
-                  className="group flex items-center gap-4 rounded-xl border border-calp-blue/5 bg-white p-4 transition-colors hover:border-calp-red/40"
+                  className="group flex items-center gap-4 rounded-xl border border-calp-blue/5 bg-white p-4 transition-colors hover:border-calp-blue/40"
                 >
-                  <Icon className="h-5 w-5 shrink-0 text-calp-red" />
+                  <Icon className="h-5 w-5 shrink-0 text-calp-blue" />
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-medium text-calp-blue">
                       {d.label}
@@ -149,7 +149,7 @@ function CourseDetail() {
                       {d.size ? ` · ${d.size}` : ""}
                     </p>
                   </div>
-                  <Download className="h-4 w-4 text-calp-ink transition-colors group-hover:text-calp-red" />
+                  <Download className="h-4 w-4 text-calp-ink transition-colors group-hover:text-calp-blue" />
                 </li>
               );
             })}

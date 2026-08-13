@@ -30,14 +30,14 @@ export function HowToApply() {
 
 
       <div className="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[200px_minmax(0,1fr)_auto] lg:items-center">
-        <h2 className="font-display text-2xl font-bold text-calp-red">
+        <h2 className="font-display text-2xl font-bold text-calp-blue">
           How to apply
         </h2>
 
         <ol className="grid gap-8 md:grid-cols-3">
           {STEPS.map((s, i) => (
             <li key={s.title} className="relative flex min-w-0 gap-3">
-              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-calp-red text-sm font-bold text-white">
+              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-calp-blue text-sm font-bold text-white">
                 {i + 1}
               </span>
               <div className="min-w-0">

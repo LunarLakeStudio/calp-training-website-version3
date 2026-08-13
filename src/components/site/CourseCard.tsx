@@ -20,7 +20,7 @@ export function CourseCard({ course }: { course: Course }) {
         />
       </div>
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="mb-3 font-display text-base font-bold leading-snug text-calp-blue transition-colors group-hover:text-calp-red">
+        <h3 className="mb-3 font-display text-base font-bold leading-snug text-calp-blue transition-colors group-hover:opacity-80">
           {course.title}
         </h3>
         <p className="mb-4 line-clamp-3 flex-1 text-sm leading-relaxed text-calp-ink">
@@ -34,7 +34,7 @@ export function CourseCard({ course }: { course: Course }) {
           </span>
           <span
             aria-hidden
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-md border border-calp-blue/30 text-calp-blue transition-colors group-hover:border-calp-red group-hover:text-calp-red"
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-md border border-calp-blue/30 text-calp-blue transition-colors group-hover:border-calp-blue group-hover:opacity-80"
           >
             <ArrowRight className="h-4 w-4" />
           </span>
