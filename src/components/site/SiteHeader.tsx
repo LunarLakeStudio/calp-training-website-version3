@@ -75,7 +75,7 @@ export function SiteHeader() {
             Find a training
           </Link>
 
-          <TrainingHubButton className="hidden border border-white/70 lg:inline-flex" />
+          <TrainingHubButton className="hidden lg:inline-flex" />
 
           {/* Mobile / tablet menu */}
           <DropdownMenu>

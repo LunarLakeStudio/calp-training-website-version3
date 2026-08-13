@@ -17,7 +17,7 @@ export function TrainingHubButton({
   const enabled = TRAINING_HUB_LOGIN_URL.length > 0;
 
   const base = isButton
-    ? "inline-flex items-center justify-center gap-1.5 rounded-md bg-calp-blue px-5 py-2.5 text-sm font-medium text-white transition-opacity"
+    ? "inline-flex items-center justify-center gap-1.5 rounded-md bg-calp-pale-teal px-5 py-2.5 text-sm font-medium text-calp-blue transition-opacity"
     : "inline-flex items-center gap-1.5 text-sm font-medium text-calp-blue underline-offset-4";
 
   const state = enabled
