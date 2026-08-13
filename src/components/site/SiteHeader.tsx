@@ -39,7 +39,7 @@ export function SiteHeader() {
             {t("nav.home")}
           </Link>
           {navItems.map((item) => (
-            <HeaderLink key={item.to} to={item.to} exact={item.exact}>
+            <HeaderLink key={item.to} to={item.to}>
               {item.label}
             </HeaderLink>
           ))}
