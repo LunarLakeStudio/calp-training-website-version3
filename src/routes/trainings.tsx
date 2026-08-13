@@ -14,6 +14,8 @@ import { AnimatedGrid } from "@/components/site/AnimatedGrid";
 import { RotateCcw } from "lucide-react";
 import { TrainingCard } from "@/components/site/TrainingCard";
 
+const PAGE_SIZE = 9;
+
 
 export const Route = createFileRoute("/trainings")({
   head: () => ({
