@@ -122,6 +122,7 @@ type TrainerRow = {
   first_name: string;
   last_name: string;
   country: string;
+  region?: string | null;
   organisation: string | null;
   photo_path: string | null;
   lang_english: boolean;
@@ -130,6 +131,7 @@ type TrainerRow = {
   lang_arabic: boolean;
   other_language: string | null;
   share_on_website: boolean;
+  trainer_courses?: { course_id: string }[] | null;
 };
 
 function mapTrainer(row: TrainerRow, index: number): Trainer {
@@ -155,8 +157,11 @@ function mapTrainer(row: TrainerRow, index: number): Trainer {
     location: row.country || "—",
     languages: langs,
     photo,
+    region: row.region ?? null,
+    courseIds: (row.trainer_courses ?? []).map((c) => c.course_id),
   };
 }
+
 
 // Public subset of the Hub's trainings table — application_token, created_by,
 // ref and other internal columns are never selected.
