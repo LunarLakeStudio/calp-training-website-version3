@@ -152,7 +152,7 @@ function TrainingsPage() {
 
 
         <p className="mb-6 text-xs font-bold text-calp-ink">
-          {results.length} training{results.length === 1 ? "" : "s"} match
+          Showing {Math.min(visible, results.length)} of {results.length}
         </p>
 
         {isLoading ? (
@@ -162,18 +162,32 @@ function TrainingsPage() {
             No trainings match those filters. Try broadening your topic or country.
           </p>
         ) : (
-          <AnimatedGrid
-            key={filterKey}
-            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-          >
-            {results.map((t) => (
-              <TrainingCard
-                key={t.id}
-                training={t}
-                course={getCourseForTraining(courses, t)}
-              />
-            ))}
-          </AnimatedGrid>
+          <>
+            <AnimatedGrid
+              key={filterKey}
+              className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+            >
+              {results.slice(0, visible).map((t) => (
+                <TrainingCard
+                  key={t.id}
+                  training={t}
+                  course={getCourseForTraining(courses, t)}
+                />
+              ))}
+            </AnimatedGrid>
+
+            {visible < results.length && (
+              <div className="mt-10">
+                <button
+                  type="button"
+                  onClick={() => setVisible((v) => v + PAGE_SIZE)}
+                  className="inline-flex items-center gap-2 rounded-lg bg-calp-red px-5 py-3 text-sm font-bold text-white transition-colors hover:opacity-90"
+                >
+                  Load More Trainings
+                </button>
+              </div>
+            )}
+          </>
         )}
       </section>
     </>
