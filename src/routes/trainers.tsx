@@ -153,7 +153,7 @@ function TrainersPage() {
               value={q}
               onChange={(e) => setParam("q", e.target.value)}
               placeholder="Search by name or location…"
-              className="w-full rounded-lg border border-calp-blue/10 bg-calp-canvas px-4 py-3 text-sm outline-none placeholder:text-calp-ink focus:border-calp-blue"
+              className="w-full rounded-lg border border-calp-blue/10 bg-calp-canvas px-4 py-3 text-base outline-none placeholder:text-calp-blue-75 focus:border-calp-blue"
             />
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <FilterSelect
@@ -199,7 +199,7 @@ function TrainersPage() {
                 <button
                   type="button"
                   onClick={resetFilters}
-                  className="inline-flex items-center gap-2 rounded-lg border border-calp-red/30 px-3 py-2 text-xs font-bold text-calp-red transition-colors hover:bg-calp-red/5"
+                  className="inline-flex items-center gap-2 rounded-lg border border-calp-red/30 px-3 py-2 text-sm font-bold text-calp-red transition-colors hover:bg-calp-red/5"
                 >
                   <RotateCcw className="h-3.5 w-3.5" />
                   Reset filters
@@ -209,12 +209,12 @@ function TrainersPage() {
           </div>
         </ScrollReveal>
 
-        <p className="mb-6 text-xs font-bold text-calp-ink">
+        <p className="mb-6 text-sm font-bold text-calp-ink">
           Showing {trainers.length} of {total}
         </p>
 
         {isLoading ? (
-          <p className="flex items-center gap-2 py-16 text-sm text-calp-ink">
+          <p className="flex items-center gap-2 py-16 text-base text-calp-ink">
             <Loader2 className="h-4 w-4 animate-spin" /> Loading trainers…
           </p>
         ) : trainers.length === 0 ? (
@@ -237,7 +237,7 @@ function TrainersPage() {
                   type="button"
                   onClick={() => fetchNextPage()}
                   disabled={isFetchingNextPage}
-                  className="inline-flex items-center gap-2 rounded-lg bg-calp-red px-5 py-3 text-sm font-bold text-white transition-colors hover:opacity-90 disabled:opacity-70"
+                  className="inline-flex items-center gap-2 rounded-lg bg-calp-red px-5 py-3 text-base font-bold text-white transition-colors hover:opacity-90 disabled:opacity-70"
                 >
                   {isFetchingNextPage && <Loader2 className="h-4 w-4 animate-spin" />}
                   {isFetchingNextPage ? "Loading trainers…" : "Load More Trainers"}

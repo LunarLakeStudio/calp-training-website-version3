@@ -80,7 +80,7 @@ function CoursesPage() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search courses…"
-              className="w-full rounded-lg border border-calp-blue/10 bg-calp-canvas px-4 py-3 text-sm outline-none placeholder:text-calp-ink focus:border-calp-blue"
+              className="w-full rounded-lg border border-calp-blue/10 bg-calp-canvas px-4 py-3 text-base outline-none placeholder:text-calp-blue-75 focus:border-calp-blue"
             />
             <div className="grid gap-4 sm:grid-cols-2">
               <FilterSelect
@@ -103,7 +103,7 @@ function CoursesPage() {
                 <button
                   type="button"
                   onClick={resetFilters}
-                  className="inline-flex items-center gap-2 rounded-lg border border-calp-blue/15 px-3 py-2 text-xs font-bold text-calp-blue transition-colors hover:border-calp-blue"
+                  className="inline-flex items-center gap-2 rounded-lg border border-calp-blue/15 px-3 py-2 text-sm font-bold text-calp-blue transition-colors hover:border-calp-blue"
                 >
                   <RotateCcw className="h-3.5 w-3.5" />
                   Reset filters

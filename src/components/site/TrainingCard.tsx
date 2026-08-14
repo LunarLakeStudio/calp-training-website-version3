@@ -16,16 +16,16 @@ export function TrainingCard({
   return (
     <article className="group flex h-full flex-col rounded-2xl border border-calp-blue/10 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-calp-blue/40 hover:shadow-lg">
       <div className="mb-3 flex flex-wrap gap-2">
-        <span className="rounded bg-calp-blue px-2 py-1 text-xs font-bold text-white">
+        <span className="rounded bg-calp-blue px-2 py-1 text-sm font-bold text-white">
           {t.format}
         </span>
-        <span className="rounded bg-calp-pale-teal px-2 py-1 text-xs font-bold">
+        <span className="rounded bg-calp-pale-teal px-2 py-1 text-sm font-bold">
           {t.language}
         </span>
         {course?.topics.slice(0, 1).map((tp) => (
           <span
             key={tp}
-            className="rounded bg-calp-pale-red px-2 py-1 text-xs font-bold text-calp-blue"
+            className="rounded bg-calp-pale-red px-2 py-1 text-sm font-bold text-calp-blue"
           >
             {tp}
           </span>
@@ -34,7 +34,7 @@ export function TrainingCard({
       <h3 className="mb-3 font-display text-lg font-bold leading-snug text-calp-blue">
         {course?.title ?? "Training"}
       </h3>
-      <ul className="mb-6 space-y-2 text-sm text-calp-ink">
+      <ul className="mb-6 space-y-2 text-base text-calp-ink">
         <li className="flex items-start gap-2">
           <CalendarDays className="mt-0.5 h-4 w-4 shrink-0 text-calp-blue" />
           <span>
@@ -64,14 +64,14 @@ export function TrainingCard({
         <Link
           to="/trainings/$trainingId"
           params={{ trainingId: t.id }}
-          className="flex-1 rounded-lg border border-calp-blue/15 px-4 py-2 text-center text-xs font-bold text-calp-blue transition-colors hover:border-calp-blue"
+          className="flex-1 rounded-lg border border-calp-blue/15 px-4 py-2 text-center text-sm font-bold text-calp-blue transition-colors hover:border-calp-blue"
         >
           Details
         </Link>
         <Link
           to="/apply"
           search={{ training: t.id }}
-          className="flex-1 rounded-lg bg-calp-red px-4 py-2 text-center text-xs font-bold text-white transition-opacity hover:opacity-90"
+          className="flex-1 rounded-lg bg-calp-red px-4 py-2 text-center text-sm font-bold text-white transition-opacity hover:opacity-90"
         >
           {applyLabel}
         </Link>

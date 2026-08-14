@@ -37,14 +37,14 @@ export function HowToApply() {
         <ol className="grid gap-8 md:grid-cols-3">
           {STEPS.map((s, i) => (
             <li key={s.title} className="relative flex min-w-0 gap-3">
-              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-calp-blue text-sm font-bold text-white">
+              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-calp-blue text-base font-bold text-white">
                 {i + 1}
               </span>
               <div className="min-w-0">
-                <h3 className="font-display text-sm font-bold text-calp-blue">
+                <h3 className="font-display text-xl font-bold text-calp-blue">
                   {s.title}
                 </h3>
-                <p className="mt-1 text-sm leading-relaxed text-calp-ink">
+                <p className="mt-1 text-base leading-relaxed text-calp-ink">
                   {s.body}
                 </p>
               </div>
@@ -60,7 +60,7 @@ export function HowToApply() {
 
         <Link
           to="/apply"
-          className="justify-self-start rounded-md bg-calp-red px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
+          className="justify-self-start rounded-md bg-calp-red px-6 py-3 text-base font-medium text-white transition-opacity hover:opacity-90"
         >
           See application guidance
         </Link>

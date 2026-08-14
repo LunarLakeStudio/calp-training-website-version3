@@ -37,7 +37,7 @@ export function CourseAccordionList({ courses }: { courses: Course[] }) {
               onFocus={() => setOpenId(course.id)}
               className="grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-calp-blue"
             >
-              <span className="min-w-0 font-display text-sm font-medium leading-snug text-calp-blue">
+              <span className="min-w-0 font-display text-base font-bold leading-snug text-calp-blue">
                 {course.title}
               </span>
               <span
@@ -56,12 +56,12 @@ export function CourseAccordionList({ courses }: { courses: Course[] }) {
             >
               <div className="overflow-hidden">
                 <div className="px-4 pb-4">
-                  <p className="mb-2 text-sm leading-relaxed text-calp-ink">{course.summary}</p>
+                  <p className="mb-2 text-base leading-relaxed text-calp-ink">{course.summary}</p>
                   <Link
                     to="/courses/$courseId"
                     params={{ courseId: course.slug }}
                     tabIndex={open ? 0 : -1}
-                    className="text-sm font-medium text-calp-blue underline-offset-4 hover:underline"
+                    className="text-base font-medium text-calp-blue underline-offset-4 hover:underline"
                   >
                     Learn more →
                   </Link>

@@ -141,7 +141,7 @@ function TrainingsPage() {
               <button
                 type="button"
                 onClick={resetFilters}
-                className="inline-flex items-center gap-2 rounded-lg border border-calp-blue/15 px-3 py-2 text-xs font-bold text-calp-blue transition-colors hover:border-calp-blue"
+                className="inline-flex items-center gap-2 rounded-lg border border-calp-blue/15 px-3 py-2 text-sm font-bold text-calp-blue transition-colors hover:border-calp-blue"
               >
                 <RotateCcw className="h-3.5 w-3.5" />
                 Reset filters
@@ -151,7 +151,7 @@ function TrainingsPage() {
         </div>
 
 
-        <p className="mb-6 text-xs font-bold text-calp-ink">
+        <p className="mb-6 text-sm font-bold text-calp-ink">
           Showing {Math.min(visible, results.length)} of {results.length}
         </p>
 
@@ -181,7 +181,7 @@ function TrainingsPage() {
                 <button
                   type="button"
                   onClick={() => setVisible((v) => v + PAGE_SIZE)}
-                  className="inline-flex items-center gap-2 rounded-lg bg-calp-red px-5 py-3 text-sm font-bold text-white transition-colors hover:opacity-90"
+                  className="inline-flex items-center gap-2 rounded-lg bg-calp-red px-5 py-3 text-base font-bold text-white transition-colors hover:opacity-90"
                 >
                   Load More Trainings
                 </button>
