@@ -53,7 +53,7 @@ const STEPS = [
 function HowToApplyPage() {
   return (
     <div>
-      <section className="relative overflow-hidden bg-calp-pale-red-soft-soft">
+      <section className="relative overflow-hidden bg-calp-pale-red-soft">
         <ShapeClusterCool className="-right-24 -top-24 h-[150%] w-[26rem] opacity-70" />
         <header className="relative mx-auto max-w-7xl px-6 pt-16 pb-14">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-sm font-bold text-calp-blue">
