@@ -90,7 +90,7 @@ function HowToApplyPage() {
                 <span
                   aria-hidden
                   className={`absolute -bottom-4 left-10 hidden h-4 w-0.5 md:block ${
-                    i % 2 === 0 ? "bg-calp-pale-teal" : "bg-calp-pale-red"
+                    i % 2 === 0 ? "bg-calp-pale-teal" : "bg-calp-pale-red-soft"
                   }`}
                 />
               ) : null}
@@ -99,7 +99,7 @@ function HowToApplyPage() {
         </ol>
       </div>
 
-      <section className="relative mt-16 overflow-hidden bg-calp-pale-red py-14">
+      <section className="relative mt-16 overflow-hidden bg-calp-pale-red-soft py-14">
         <ShapeClusterWarm className="-right-28 -top-16 h-[150%] w-[22rem] opacity-60" />
         <div className="relative mx-auto flex max-w-5xl flex-col gap-6 px-6 md:flex-row md:items-center md:justify-between">
           <div className="min-w-0">
