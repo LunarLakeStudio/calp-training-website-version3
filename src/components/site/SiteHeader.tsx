@@ -22,7 +22,7 @@ export function SiteHeader() {
     { to: "/trainings", label: t("nav.trainings") },
     { to: "/trainers", label: t("nav.trainers") },
     { to: "/calendar", label: t("nav.calendar") },
-    { to: "/apply", label: t("nav.apply") },
+    { to: "/how-to-apply", label: t("nav.apply") },
   ];
 
   return (

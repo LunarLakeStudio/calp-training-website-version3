@@ -13,6 +13,7 @@ import { Route as TrainingsRouteImport } from './routes/trainings'
 import { Route as TrainersRouteImport } from './routes/trainers'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as HowToApplyRouteImport } from './routes/how-to-apply'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CalendarRouteImport } from './routes/calendar'
@@ -39,6 +40,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowToApplyRoute = HowToApplyRouteImport.update({
+  id: '/how-to-apply',
+  path: '/how-to-apply',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CoursesRoute = CoursesRouteImport.update({
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/calendar': typeof CalendarRoute
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
+  '/how-to-apply': typeof HowToApplyRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trainers': typeof TrainersRoute
@@ -96,6 +103,7 @@ export interface FileRoutesByTo {
   '/calendar': typeof CalendarRoute
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
+  '/how-to-apply': typeof HowToApplyRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trainers': typeof TrainersRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   '/calendar': typeof CalendarRoute
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
+  '/how-to-apply': typeof HowToApplyRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trainers': typeof TrainersRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/contact'
     | '/courses'
+    | '/how-to-apply'
     | '/privacy'
     | '/sitemap.xml'
     | '/trainers'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/contact'
     | '/courses'
+    | '/how-to-apply'
     | '/privacy'
     | '/sitemap.xml'
     | '/trainers'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/contact'
     | '/courses'
+    | '/how-to-apply'
     | '/privacy'
     | '/sitemap.xml'
     | '/trainers'
@@ -165,6 +177,7 @@ export interface RootRouteChildren {
   CalendarRoute: typeof CalendarRoute
   ContactRoute: typeof ContactRoute
   CoursesRoute: typeof CoursesRouteWithChildren
+  HowToApplyRoute: typeof HowToApplyRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TrainersRoute: typeof TrainersRoute
@@ -199,6 +212,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-to-apply': {
+      id: '/how-to-apply'
+      path: '/how-to-apply'
+      fullPath: '/how-to-apply'
+      preLoaderRoute: typeof HowToApplyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/courses': {
@@ -282,6 +302,7 @@ const rootRouteChildren: RootRouteChildren = {
   CalendarRoute: CalendarRoute,
   ContactRoute: ContactRoute,
   CoursesRoute: CoursesRouteWithChildren,
+  HowToApplyRoute: HowToApplyRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TrainersRoute: TrainersRoute,
