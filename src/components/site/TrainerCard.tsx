@@ -13,11 +13,11 @@ export function TrainerCard({ trainer }: { trainer: Trainer }) {
           className="h-full w-full object-cover"
         />
       </div>
-      <h3 className="mt-3 font-display text-sm font-bold text-calp-blue">
+      <h3 className="mt-3 font-display text-base font-bold text-calp-blue">
         {trainer.name}
       </h3>
-      <p className="mt-1 text-sm text-calp-ink">{trainer.languages.join(", ")}</p>
-      <p className="text-sm text-calp-ink">{trainer.location}</p>
+      <p className="mt-1 text-base text-calp-ink">{trainer.languages.join(", ")}</p>
+      <p className="text-base text-calp-ink">{trainer.location}</p>
     </div>
   );
 }

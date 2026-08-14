@@ -36,7 +36,7 @@ export function TrainingRow({
         <span className="font-display text-2xl font-bold leading-snug text-calp-blue">
           {String(date.getUTCDate()).padStart(2, "0")}
         </span>
-        <span className="mt-1 text-xs font-medium text-calp-blue">
+        <span className="mt-1 text-sm font-medium text-calp-blue">
           {MONTHS[date.getUTCMonth()]}
         </span>
       </div>
@@ -45,11 +45,11 @@ export function TrainingRow({
         <Link
           to="/trainings/$trainingId"
           params={{ trainingId: training.id }}
-          className="block truncate font-display text-sm font-bold text-calp-blue underline-offset-4 hover:underline"
+          className="block truncate font-display text-base font-bold text-calp-blue underline-offset-4 hover:underline"
         >
           {course?.title ?? `${training.city}, ${training.country}`}
         </Link>
-        <p className="mt-1 truncate text-sm text-calp-ink">
+        <p className="mt-1 truncate text-base text-calp-ink">
           {isOnline ? "Online" : `${training.city}, ${training.country}`}
           {" • "}
           {isOnline ? "Virtual" : "In-person"}
@@ -61,7 +61,7 @@ export function TrainingRow({
       <Link
         to="/apply"
         search={{ training: training.id }}
-        className="col-span-2 justify-self-start rounded-md bg-calp-red px-5 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:col-span-1 sm:justify-self-auto"
+        className="col-span-2 justify-self-start rounded-md bg-calp-red px-5 py-2 text-base font-medium text-white transition-opacity hover:opacity-90 sm:col-span-1 sm:justify-self-auto"
       >
         {t("cta.apply")}
       </Link>

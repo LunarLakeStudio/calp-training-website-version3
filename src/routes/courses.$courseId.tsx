@@ -60,21 +60,21 @@ function CourseDetail() {
           <div>
             <Link
               to="/courses"
-              className="mb-6 inline-block text-xs font-bold text-calp-blue"
+              className="mb-6 inline-block text-sm font-bold text-calp-blue"
             >
               ← Catalogue
             </Link>
             <div className="mb-6 flex flex-wrap gap-2">
-              <span className="rounded bg-calp-pale-teal px-2 py-1 text-xs font-bold">
+              <span className="rounded bg-calp-pale-teal px-2 py-1 text-sm font-bold">
                 {course.level} Level
               </span>
-              <span className="rounded bg-calp-pale-teal px-2 py-1 text-xs font-bold">
+              <span className="rounded bg-calp-pale-teal px-2 py-1 text-sm font-bold">
                 {course.duration}
               </span>
               {course.languages.map((l) => (
                 <span
                   key={l}
-                  className="rounded bg-calp-blue px-2 py-1 text-xs font-bold text-white"
+                  className="rounded bg-calp-blue px-2 py-1 text-sm font-bold text-white"
                 >
                   {l}
                 </span>
@@ -101,24 +101,24 @@ function CourseDetail() {
 
       <section className="mx-auto grid max-w-7xl gap-16 px-6 py-20 lg:grid-cols-[1.4fr_1fr]">
         <div>
-          <h2 className="mb-6 font-display text-sm font-bold text-calp-blue">
+          <h2 className="mb-6 font-display text-base font-bold text-calp-blue">
             About this course
           </h2>
-          <p className="text-lg leading-relaxed text-calp-blue/90">
+          <p className="text-lg leading-relaxed text-calp-blue">
             {course.description || course.summary}
           </p>
 
-          <h2 className="mt-16 mb-6 font-display text-sm font-bold text-calp-blue">
+          <h2 className="mt-16 mb-6 font-display text-base font-bold text-calp-blue">
             Topics covered
           </h2>
           {course.topics.length === 0 ? (
-            <p className="text-sm text-calp-ink">Topics to be announced.</p>
+            <p className="text-base text-calp-ink">Topics to be announced.</p>
           ) : (
             <ul className="flex flex-wrap gap-2">
               {course.topics.map((tp) => (
                 <li
                   key={tp}
-                  className="rounded-full border border-calp-blue/15 px-3 py-1.5 text-xs font-medium text-calp-blue"
+                  className="rounded-full border border-calp-blue/15 px-3 py-1.5 text-sm font-medium text-calp-blue"
                 >
                   {tp}
                 </li>
@@ -128,7 +128,7 @@ function CourseDetail() {
         </div>
 
         <aside>
-          <h2 className="mb-6 font-display text-sm font-bold text-calp-blue">
+          <h2 className="mb-6 font-display text-base font-bold text-calp-blue">
             Free materials
           </h2>
           <ul className="space-y-3">
@@ -141,10 +141,10 @@ function CourseDetail() {
                 >
                   <Icon className="h-5 w-5 shrink-0 text-calp-blue" />
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-medium text-calp-blue">
+                    <p className="truncate text-base font-medium text-calp-blue">
                       {d.label}
                     </p>
-                    <p className="text-xs text-calp-ink">
+                    <p className="text-sm text-calp-ink">
                       {d.kind}
                       {d.size ? ` · ${d.size}` : ""}
                     </p>
@@ -170,7 +170,7 @@ function CourseDetail() {
             </div>
             <Link
               to="/calendar"
-              className="whitespace-nowrap text-xs font-bold text-white/80 hover:text-white"
+              className="whitespace-nowrap text-sm font-bold text-white/80 hover:text-white"
             >
               Full calendar →
             </Link>

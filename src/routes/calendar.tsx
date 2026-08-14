@@ -147,7 +147,7 @@ function CalendarPage() {
               <button
                 type="button"
                 onClick={resetFilters}
-                className="inline-flex items-center gap-2 rounded-lg border border-calp-blue/15 px-3 py-2 text-xs font-bold text-calp-blue transition-colors hover:border-calp-blue"
+                className="inline-flex items-center gap-2 rounded-lg border border-calp-blue/15 px-3 py-2 text-sm font-bold text-calp-blue transition-colors hover:border-calp-blue"
               >
                 <RotateCcw className="h-3.5 w-3.5" />
                 Reset filters
@@ -172,7 +172,7 @@ function CalendarPage() {
                   <h2 className="mb-6 flex items-baseline gap-3 font-display text-2xl font-bold">
                     <span>{MONTH_LABELS[parseInt(mm, 10) - 1]}</span>
                     <span className="text-calp-ink">{y}</span>
-                    <span className="ml-auto text-xs font-medium text-calp-ink">
+                    <span className="ml-auto text-sm font-medium text-calp-ink">
                       {items.length} training{items.length > 1 ? "s" : ""}
                     </span>
                   </h2>

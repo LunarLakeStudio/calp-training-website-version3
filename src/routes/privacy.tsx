@@ -32,7 +32,7 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
       <h2 className="mb-3 font-display text-2xl font-bold leading-snug text-calp-blue">
         {title}
       </h2>
-      <div className="space-y-4 text-sm leading-relaxed text-calp-ink">{children}</div>
+      <div className="space-y-4 text-base leading-relaxed text-calp-ink">{children}</div>
     </section>
   );
 }
@@ -70,7 +70,7 @@ function PrivacyPolicy() {
       />
 
       <div className="mx-auto max-w-3xl px-6">
-        <p className="text-sm leading-relaxed text-calp-ink">
+        <p className="text-base leading-relaxed text-calp-ink">
           According to data protection regulations, we updated our privacy policy about how
           we collect and use personal information about our users and members. We commit to
           using your personal information in accordance with our responsibilities.
@@ -216,7 +216,7 @@ function PrivacyPolicy() {
           </p>
           <div className="rounded-2xl border border-calp-blue/10 bg-white p-6">
             <p className="font-bold text-calp-blue">Digital Platforms Manager</p>
-            <address className="mt-2 not-italic text-sm leading-relaxed text-calp-ink">
+            <address className="mt-2 not-italic text-base leading-relaxed text-calp-ink">
               The CALP Network
               <br />
               Oxfam GB
@@ -231,7 +231,7 @@ function PrivacyPolicy() {
               <br />
               OX4 2JY
             </address>
-            <p className="mt-3 text-sm text-calp-ink">
+            <p className="mt-3 text-base text-calp-ink">
               Email: <MailLink />
             </p>
           </div>

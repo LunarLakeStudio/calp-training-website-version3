@@ -135,15 +135,15 @@ function TrainingDetail() {
         <div className="mx-auto max-w-7xl px-6 py-16">
           <Link
             to="/calendar"
-            className="mb-6 inline-block text-xs font-bold text-calp-blue"
+            className="mb-6 inline-block text-sm font-bold text-calp-blue"
           >
             ← Calendar
           </Link>
           <div className="mb-4 flex flex-wrap gap-2">
-            <span className="rounded bg-calp-blue px-2 py-1 text-xs font-bold text-white">
+            <span className="rounded bg-calp-blue px-2 py-1 text-sm font-bold text-white">
               {training.format}
             </span>
-            <span className="rounded bg-calp-pale-teal px-2 py-1 text-xs font-bold">
+            <span className="rounded bg-calp-pale-teal px-2 py-1 text-sm font-bold">
               {training.language}
             </span>
           </div>
@@ -158,7 +158,7 @@ function TrainingDetail() {
 
       <section className="mx-auto grid max-w-7xl gap-16 px-6 py-20 lg:grid-cols-[1fr_1.2fr]">
         <aside className="space-y-6">
-          <h2 className="font-display text-sm font-bold text-calp-blue">
+          <h2 className="font-display text-base font-bold text-calp-blue">
             Training details
           </h2>
           <ul className="space-y-4 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
@@ -182,11 +182,11 @@ function TrainingDetail() {
               params={{ courseId: course.slug }}
               className="block rounded-xl border border-calp-blue/10 bg-white p-6 transition-colors hover:border-calp-blue/40"
             >
-              <p className="mb-1 text-xs font-bold text-calp-ink">
+              <p className="mb-1 text-sm font-bold text-calp-ink">
                 About the course
               </p>
-              <p className="text-sm font-medium text-calp-blue">{course.title}</p>
-              <p className="mt-2 line-clamp-3 text-sm text-calp-ink">
+              <p className="text-base font-medium text-calp-blue">{course.title}</p>
+              <p className="mt-2 line-clamp-3 text-base text-calp-ink">
                 {course.summary}
               </p>
             </Link>
@@ -216,13 +216,13 @@ function TrainingDetail() {
               <Field label="Country" name="country" error={errors.country} />
             </div>
             <div>
-              <label className="mb-2 block text-xs font-bold text-calp-ink">
+              <label className="mb-2 block text-sm font-bold text-calp-ink">
                 Language of application
               </label>
               <select
                 name="applicationLanguage"
                 defaultValue="en"
-                className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-blue"
+                className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-base outline-none focus:border-calp-blue"
               >
                 {LANGS.map((l) => (
                   <option key={l.code} value={l.code}>
@@ -231,11 +231,11 @@ function TrainingDetail() {
                 ))}
               </select>
               {errors.applicationLanguage ? (
-                <p className="mt-1 text-xs text-calp-blue">{errors.applicationLanguage}</p>
+                <p className="mt-1 text-sm text-calp-blue">{errors.applicationLanguage}</p>
               ) : null}
             </div>
             <div>
-              <label className="mb-2 block text-xs font-bold text-calp-ink">
+              <label className="mb-2 block text-sm font-bold text-calp-ink">
                 Motivation
               </label>
               <textarea
@@ -243,10 +243,10 @@ function TrainingDetail() {
                 rows={5}
                 maxLength={1500}
                 placeholder="Tell us about your current role and what you hope to gain from this training…"
-                className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-blue"
+                className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-base outline-none focus:border-calp-blue"
               />
               {errors.motivation ? (
-                <p className="mt-1 text-xs text-calp-blue">{errors.motivation}</p>
+                <p className="mt-1 text-sm text-calp-blue">{errors.motivation}</p>
               ) : null}
             </div>
             <button
@@ -276,10 +276,10 @@ function DetailItem({
     <li className="flex items-start gap-3">
       <Icon className="mt-0.5 h-4 w-4 shrink-0 text-calp-blue" />
       <div>
-        <p className="text-xs font-bold text-calp-ink">
+        <p className="text-sm font-bold text-calp-ink">
           {label}
         </p>
-        <p className="text-sm font-medium text-calp-blue">{value}</p>
+        <p className="text-base font-medium text-calp-blue">{value}</p>
       </div>
     </li>
   );
@@ -298,15 +298,15 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-xs font-bold text-calp-ink">
+      <label className="mb-2 block text-sm font-bold text-calp-ink">
         {label}
       </label>
       <input
         name={name}
         type={type}
-        className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-blue"
+        className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-base outline-none focus:border-calp-blue"
       />
-      {error ? <p className="mt-1 text-xs text-calp-blue">{error}</p> : null}
+      {error ? <p className="mt-1 text-sm text-calp-blue">{error}</p> : null}
     </div>
   );
 }

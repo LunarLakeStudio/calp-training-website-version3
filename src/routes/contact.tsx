@@ -83,7 +83,7 @@ function Contact() {
       <section className="mx-auto grid max-w-6xl gap-16 px-6 pb-24 md:grid-cols-[1fr_1.4fr]">
         <aside className="space-y-8">
           <div>
-            <p className="mb-1 text-xs font-bold text-calp-ink">
+            <p className="mb-1 text-sm font-bold text-calp-ink">
               Training team
             </p>
             <a
@@ -94,7 +94,7 @@ function Contact() {
             </a>
           </div>
           <div>
-            <p className="mb-1 text-xs font-bold text-calp-ink">
+            <p className="mb-1 text-sm font-bold text-calp-ink">
               Partnerships
             </p>
             <a
@@ -105,7 +105,7 @@ function Contact() {
             </a>
           </div>
           <div>
-            <p className="mb-1 text-xs font-bold text-calp-ink">
+            <p className="mb-1 text-sm font-bold text-calp-ink">
               Main network
             </p>
             <a
@@ -125,17 +125,17 @@ function Contact() {
           </div>
           <Field label="Subject" name="subject" error={errors.subject} />
           <div>
-            <label className="mb-2 block text-xs font-bold text-calp-ink">
+            <label className="mb-2 block text-sm font-bold text-calp-ink">
               Message
             </label>
             <textarea
               name="message"
               rows={6}
               maxLength={2000}
-              className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-blue"
+              className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-base outline-none focus:border-calp-blue"
             />
             {errors.message ? (
-              <p className="mt-1 text-xs text-calp-blue">{errors.message}</p>
+              <p className="mt-1 text-sm text-calp-blue">{errors.message}</p>
             ) : null}
           </div>
           <button
@@ -164,15 +164,15 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-xs font-bold text-calp-ink">
+      <label className="mb-2 block text-sm font-bold text-calp-ink">
         {label}
       </label>
       <input
         name={name}
         type={type}
-        className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-sm outline-none focus:border-calp-blue"
+        className="w-full rounded-lg border border-calp-blue/10 bg-white px-4 py-3 text-base outline-none focus:border-calp-blue"
       />
-      {error ? <p className="mt-1 text-xs text-calp-blue">{error}</p> : null}
+      {error ? <p className="mt-1 text-sm text-calp-blue">{error}</p> : null}
     </div>
   );
 }

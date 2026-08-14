@@ -30,10 +30,10 @@ export function SiteHeader() {
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 lg:flex lg:justify-between">
         <BrandWordmark variant="onDark" />
 
-        <div className="hidden items-center gap-6 text-sm font-medium text-white lg:flex">
+        <div className="hidden items-center gap-6 text-base font-medium text-white lg:flex">
           <Link
             to="/"
-            className="inline-flex items-center rounded-md bg-calp-pale-red-soft px-4 py-2 text-sm font-medium text-calp-blue transition-opacity hover:opacity-90"
+            className="inline-flex items-center rounded-md bg-calp-pale-red-soft px-4 py-2 text-base font-medium text-calp-blue transition-opacity hover:opacity-90"
             activeOptions={{ exact: true }}
           >
             {t("nav.home")}
@@ -47,7 +47,7 @@ export function SiteHeader() {
 
         <div className="flex shrink-0 items-center gap-4">
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1.5 text-sm font-medium text-white outline-none focus-visible:ring-2 focus-visible:ring-white">
+            <DropdownMenuTrigger className="flex items-center gap-1.5 text-base font-medium text-white outline-none focus-visible:ring-2 focus-visible:ring-white">
               <Globe className="h-4 w-4" aria-hidden />
               <span>{current.label}</span>
               <ChevronDown className="h-3.5 w-3.5" aria-hidden />
@@ -58,7 +58,7 @@ export function SiteHeader() {
                   key={l.code}
                   onSelect={() => setLang(l.code)}
                   className={cn(
-                    "text-sm",
+                    "text-base",
                     lang === l.code ? "font-bold text-calp-blue" : "text-calp-blue",
                   )}
                 >
@@ -70,7 +70,7 @@ export function SiteHeader() {
 
           <Link
             to="/calendar"
-            className="hidden rounded-md bg-white px-5 py-2.5 text-sm font-medium text-calp-blue transition-opacity hover:opacity-90 sm:inline-flex"
+            className="hidden rounded-md bg-white px-5 py-2.5 text-base font-medium text-calp-blue transition-opacity hover:opacity-90 sm:inline-flex"
           >
             Find a training
           </Link>
@@ -90,16 +90,16 @@ export function SiteHeader() {
                 <TrainingHubButton className="w-full" />
               </div>
               <DropdownMenuSeparator />
-              <DropdownMenuItem asChild className="text-sm text-calp-blue">
+              <DropdownMenuItem asChild className="text-base text-calp-blue">
                 <Link to="/">{t("nav.home")}</Link>
               </DropdownMenuItem>
               {navItems.map((item) => (
-                <DropdownMenuItem key={item.to} asChild className="text-sm text-calp-blue">
+                <DropdownMenuItem key={item.to} asChild className="text-base text-calp-blue">
                   <Link to={item.to}>{item.label}</Link>
                 </DropdownMenuItem>
               ))}
               <DropdownMenuSeparator />
-              <DropdownMenuItem asChild className="text-sm font-medium text-calp-blue">
+              <DropdownMenuItem asChild className="text-base font-medium text-calp-blue">
                 <Link to="/calendar">Find a training</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>

@@ -23,11 +23,11 @@ export function CourseCard({ course }: { course: Course }) {
         <h3 className="mb-3 font-display text-base font-bold leading-snug text-calp-blue transition-colors group-hover:opacity-80">
           {course.title}
         </h3>
-        <p className="mb-4 line-clamp-3 flex-1 text-sm leading-relaxed text-calp-ink">
+        <p className="mb-4 line-clamp-3 flex-1 text-base leading-relaxed text-calp-ink">
           {course.summary}
         </p>
         <div className="flex items-end justify-between gap-3">
-          <span className="min-w-0 text-sm text-calp-ink">
+          <span className="min-w-0 text-base text-calp-ink">
             {course.duration}
             <br />
             {course.languages.join(", ")}

@@ -14,7 +14,7 @@ export function PageHero({
   return (
     <header className="mx-auto max-w-7xl px-6 pt-16 pb-12">
       {eyebrow ? (
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-calp-pale-red px-3 py-1 text-xs font-bold text-calp-blue">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-calp-pale-red px-3 py-1 text-sm font-bold text-calp-blue">
           {eyebrow}
         </div>
       ) : null}

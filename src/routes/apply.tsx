@@ -353,7 +353,7 @@ function ApplyPage() {
           {activeTraining ? ` in ${trainingLocation}` : null}
         </h1>
 
-        <div className="mt-6 rounded-md bg-calp-pale-red px-5 py-4 text-sm text-calp-blue">
+        <div className="mt-6 rounded-md bg-calp-pale-red px-5 py-4 text-base text-calp-blue">
           Please note that this is a {activeCourse?.duration ?? "5 day"} course, which will be delivered in{" "}
           <strong>{trainingLocation}</strong>
           {activeTraining ? " from " : ""}
@@ -361,7 +361,7 @@ function ApplyPage() {
           will be conducted in <strong>{trainingLanguage}</strong>.
         </div>
 
-        <p className="mt-4 text-sm font-medium text-calp-ink">Donor acknowledgement</p>
+        <p className="mt-4 text-base font-medium text-calp-ink">Donor acknowledgement</p>
 
         <IntroSection title="About the Course">
           <p>
@@ -410,17 +410,17 @@ function ApplyPage() {
           </p>
         </IntroSection>
 
-        <p className="mb-6 mt-8 text-sm font-medium text-calp-blue">* Required</p>
+        <p className="mb-6 mt-8 text-base font-medium text-calp-blue">* Required</p>
 
         {preselectedTraining ? (
           <div className="mb-8 rounded-md border-l-4 border-calp-blue bg-calp-pale-red p-5">
-            <p className="text-xs font-bold text-calp-blue">
+            <p className="text-sm font-bold text-calp-blue">
               Applying for
             </p>
             <p className="mt-1 font-display text-lg font-bold text-calp-blue">
               {sortedCourses.find((c) => c.id === preselectedTraining.courseId)?.title ?? "Training"}
             </p>
-            <p className="text-sm text-calp-ink">
+            <p className="text-base text-calp-ink">
               {preselectedTraining.city}, {preselectedTraining.country} ·{" "}
               {formatDate(preselectedTraining.startDate)} →{" "}
               {formatDate(preselectedTraining.endDate)} ·{" "}
@@ -690,7 +690,7 @@ function ApplyPage() {
             </button>
           </div>
 
-          <p className="text-sm text-calp-ink">
+          <p className="text-base text-calp-ink">
             Thank you very much for your interest and for completing this
             application form. We will let you know about the outcome of your
             application and next steps as soon as possible after the deadline.
@@ -720,7 +720,7 @@ function IntroSection({
       <h2 className="mb-2 font-display text-xl font-bold text-calp-blue">
         {title}
       </h2>
-      <div className="text-sm leading-relaxed text-calp-blue">{children}</div>
+      <div className="text-base leading-relaxed text-calp-blue">{children}</div>
     </section>
   );
 }
@@ -758,7 +758,7 @@ function Label({
   required?: boolean;
 }) {
   return (
-    <label className="mb-2 block text-sm font-medium text-calp-blue">
+    <label className="mb-2 block text-base font-medium text-calp-blue">
       {children}
       {required ? <span className="text-calp-blue"> *</span> : null}
     </label>
@@ -766,7 +766,7 @@ function Label({
 }
 
 const inputCls =
-  "w-full rounded-md border border-calp-blue/30 bg-white px-4 py-3 text-sm text-calp-blue outline-none transition-colors focus:border-calp-blue focus:ring-2 focus:ring-calp-blue/20 disabled:cursor-not-allowed disabled:bg-calp-canvas disabled:text-calp-ink";
+  "w-full rounded-md border border-calp-blue/30 bg-white px-4 py-3 text-base text-calp-blue outline-none transition-colors focus:border-calp-blue focus:ring-2 focus:ring-calp-blue/20 disabled:cursor-not-allowed disabled:bg-calp-canvas disabled:text-calp-ink";
 
 function Field({
   label,
@@ -787,8 +787,8 @@ function Field({
     <div>
       <Label required={required}>{label}</Label>
       <input name={name} type={type} className={inputCls} />
-      {help ? <p className="mt-1 text-xs text-calp-ink">{help}</p> : null}
-      {error ? <p className="mt-1 text-xs text-calp-blue">{error}</p> : null}
+      {help ? <p className="mt-1 text-sm text-calp-ink">{help}</p> : null}
+      {error ? <p className="mt-1 text-sm text-calp-blue">{error}</p> : null}
     </div>
   );
 }
@@ -808,7 +808,7 @@ function TextArea({
     <div>
       <Label required={required}>{label}</Label>
       <textarea name={name} rows={6} maxLength={1500} className={inputCls} />
-      {error ? <p className="mt-1 text-xs text-calp-blue">{error}</p> : null}
+      {error ? <p className="mt-1 text-sm text-calp-blue">{error}</p> : null}
     </div>
   );
 }
@@ -846,8 +846,8 @@ function SelectField({
       >
         {children}
       </select>
-      {help ? <p className="mt-1 text-xs text-calp-ink">{help}</p> : null}
-      {error ? <p className="mt-1 text-xs text-calp-blue">{error}</p> : null}
+      {help ? <p className="mt-1 text-sm text-calp-ink">{help}</p> : null}
+      {error ? <p className="mt-1 text-sm text-calp-blue">{error}</p> : null}
     </div>
   );
 }
@@ -875,14 +875,14 @@ function RadioGroup({
   return (
     <div role="radiogroup" aria-label={label}>
       {label ? <Label required={required}>{label}</Label> : null}
-      {help ? <p className="mb-2 text-xs text-calp-ink">{help}</p> : null}
+      {help ? <p className="mb-2 text-sm text-calp-ink">{help}</p> : null}
       <div className="grid gap-x-8 gap-y-2 md:grid-cols-2">
         {options.map((opt) => {
           const checked = controlled ? value === opt : undefined;
           return (
             <label
               key={opt}
-              className="group flex cursor-pointer items-center gap-3 py-1 text-sm text-calp-blue"
+              className="group flex cursor-pointer items-center gap-3 py-1 text-base text-calp-blue"
             >
               <span
                 className={`relative flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-colors ${
@@ -911,7 +911,7 @@ function RadioGroup({
           );
         })}
       </div>
-      {error ? <p className="mt-1 text-xs text-calp-blue">{error}</p> : null}
+      {error ? <p className="mt-1 text-sm text-calp-blue">{error}</p> : null}
     </div>
   );
 }
