@@ -9,7 +9,7 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const staticPaths = ["/", "/courses", "/trainers", "/trainings", "/calendar", "/apply", "/contact"];
+        const staticPaths = ["/", "/courses", "/trainers", "/trainings", "/calendar", "/how-to-apply", "/apply", "/contact"];
         const { fetchCourses, fetchTrainings } = await import("@/lib/content.server");
         const [courseList, trainingList] = await Promise.all([
           fetchCourses().catch(() => []),
