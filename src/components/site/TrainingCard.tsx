@@ -25,7 +25,7 @@ export function TrainingCard({
         {course?.topics.slice(0, 1).map((tp) => (
           <span
             key={tp}
-            className="rounded bg-calp-pale-red px-2 py-1 text-sm font-bold text-calp-blue"
+            className="rounded bg-calp-pale-red-soft px-2 py-1 text-sm font-bold text-calp-blue"
           >
             {tp}
           </span>
