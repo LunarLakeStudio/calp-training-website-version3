@@ -37,7 +37,7 @@ export function CourseAccordionList({ courses }: { courses: Course[] }) {
               onFocus={() => setOpenId(course.id)}
               className="grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-calp-blue"
             >
-              <span className="min-w-0 font-display text-base font-medium leading-snug text-calp-blue">
+              <span className="min-w-0 font-display text-base font-bold leading-snug text-calp-blue">
                 {course.title}
               </span>
               <span

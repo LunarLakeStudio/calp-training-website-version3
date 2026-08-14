@@ -158,7 +158,7 @@ function TrainingDetail() {
 
       <section className="mx-auto grid max-w-7xl gap-16 px-6 py-20 lg:grid-cols-[1fr_1.2fr]">
         <aside className="space-y-6">
-          <h2 className="font-display text-base font-bold text-calp-blue">
+          <h2 className="font-display text-xl font-bold text-calp-blue">
             Training details
           </h2>
           <ul className="space-y-4 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">

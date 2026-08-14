@@ -12,7 +12,7 @@ export function TrainerRow({ trainer }: { trainer: Trainer }) {
         className="h-10 w-10 shrink-0 rounded-full object-cover"
       />
       <div className="min-w-0">
-        <p className="truncate font-display text-base font-medium text-calp-blue">
+        <p className="truncate font-display text-base font-bold text-calp-blue">
           {trainer.name}
         </p>
         <p className="truncate text-base text-calp-ink">

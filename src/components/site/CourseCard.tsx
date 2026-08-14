@@ -20,7 +20,7 @@ export function CourseCard({ course }: { course: Course }) {
         />
       </div>
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="mb-3 font-display text-base font-bold leading-snug text-calp-blue transition-colors group-hover:opacity-80">
+        <h3 className="mb-3 font-display text-xl font-bold leading-snug text-calp-blue transition-colors group-hover:opacity-80">
           {course.title}
         </h3>
         <p className="mb-4 line-clamp-3 flex-1 text-base leading-relaxed text-calp-ink">

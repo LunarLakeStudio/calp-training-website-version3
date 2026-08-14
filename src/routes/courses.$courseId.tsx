@@ -101,14 +101,14 @@ function CourseDetail() {
 
       <section className="mx-auto grid max-w-7xl gap-16 px-6 py-20 lg:grid-cols-[1.4fr_1fr]">
         <div>
-          <h2 className="mb-6 font-display text-base font-bold text-calp-blue">
+          <h2 className="mb-6 font-display text-xl font-bold text-calp-blue">
             About this course
           </h2>
           <p className="text-lg leading-relaxed text-calp-blue">
             {course.description || course.summary}
           </p>
 
-          <h2 className="mt-16 mb-6 font-display text-base font-bold text-calp-blue">
+          <h2 className="mt-16 mb-6 font-display text-xl font-bold text-calp-blue">
             Topics covered
           </h2>
           {course.topics.length === 0 ? (
@@ -128,7 +128,7 @@ function CourseDetail() {
         </div>
 
         <aside>
-          <h2 className="mb-6 font-display text-base font-bold text-calp-blue">
+          <h2 className="mb-6 font-display text-xl font-bold text-calp-blue">
             Free materials
           </h2>
           <ul className="space-y-3">

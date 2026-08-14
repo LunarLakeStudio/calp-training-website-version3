@@ -41,7 +41,7 @@ export function HowToApply() {
                 {i + 1}
               </span>
               <div className="min-w-0">
-                <h3 className="font-display text-base font-bold text-calp-blue">
+                <h3 className="font-display text-xl font-bold text-calp-blue">
                   {s.title}
                 </h3>
                 <p className="mt-1 text-base leading-relaxed text-calp-ink">
