@@ -52,7 +52,7 @@ const STEPS = [
 
 function HowToApplyPage() {
   return (
-    <div className="pb-20">
+    <div>
       <section className="relative overflow-hidden bg-calp-pale-red-soft">
         <ShapeClusterCool className="-right-24 -top-24 h-[150%] w-[26rem] opacity-70" />
         <header className="relative mx-auto max-w-7xl px-6 pt-16 pb-14">
@@ -86,7 +86,7 @@ function HowToApplyPage() {
               <p className="mt-2 text-base leading-relaxed text-calp-ink">
                 {step.body}
               </p>
-              {i < STEPS.length - 1 ? (
+              {i < 2 ? (
                 <span
                   aria-hidden
                   className={`absolute -bottom-4 left-10 hidden h-4 w-0.5 md:block ${
