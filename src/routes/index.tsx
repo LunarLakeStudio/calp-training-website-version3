@@ -155,7 +155,7 @@ function SectionHead({
       </h2>
       <Link
         to={to}
-        className="shrink-0 text-base font-medium text-calp-blue underline-offset-4 hover:underline"
+        className="shrink-0 text-base font-bold text-calp-blue underline-offset-4 hover:underline"
       >
         {linkLabel} →
       </Link>
