@@ -3,7 +3,7 @@ import heroAsset from "@/assets/calp-hero.png.asset.json";
 import { useCourses, useTrainings, useTrainers } from "@/hooks/useData";
 import { CourseAccordionList } from "@/components/site/CourseAccordionList";
 import { TrainingRow } from "@/components/site/TrainingRow";
-import { TrainerRow } from "@/components/site/TrainerRow";
+import { TrainerCard } from "@/components/site/TrainerCard";
 import { HowToApply } from "@/components/site/HowToApply";
 import {
   ShapeClusterCool,
@@ -41,8 +41,8 @@ function Index() {
 
   const allCourses = coursesQuery.data ?? fallbackCourses;
   
-  const upcoming = trainingsQuery.data?.slice(0, 6) ?? fallbackUpcoming(6);
-  const trainers = (trainersQuery.data ?? fallbackTrainers).slice(0, 8);
+  const upcoming = trainingsQuery.data?.slice(0, 3) ?? fallbackUpcoming(3);
+  const trainers = (trainersQuery.data ?? fallbackTrainers).slice(0, 3);
   const courseById = new Map(allCourses.map((c) => [c.id, c]));
 
   return (
@@ -93,7 +93,7 @@ function Index() {
       </section>
 
       {/* Courses / trainings / trainers */}
-      <section className="mx-auto grid max-w-7xl gap-10 px-6 pb-16 lg:grid-cols-[1.7fr_1.1fr_1fr]">
+      <section className="mx-auto grid max-w-7xl items-start gap-10 px-6 pb-16 lg:grid-cols-[1.7fr_1.1fr_1fr]">
         <div className="min-w-0">
           <SectionHead
             title="Explore our courses"
@@ -126,9 +126,9 @@ function Index() {
             linkLabel="View all trainers"
             to="/trainers"
           />
-          <div className="flex flex-col gap-2">
+          <div className="grid grid-cols-3 gap-4">
             {trainers.map((tr) => (
-              <TrainerRow key={tr.id} trainer={tr} />
+              <TrainerCard key={tr.id} trainer={tr} />
             ))}
           </div>
         </div>
