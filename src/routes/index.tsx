@@ -41,8 +41,8 @@ function Index() {
 
   const allCourses = coursesQuery.data ?? fallbackCourses;
   
-  const upcoming = trainingsQuery.data?.slice(0, 3) ?? fallbackUpcoming(3);
-  const trainers = (trainersQuery.data ?? fallbackTrainers).slice(0, 3);
+  const upcoming = trainingsQuery.data?.slice(0, 6) ?? fallbackUpcoming(6);
+  const trainers = (trainersQuery.data ?? fallbackTrainers).slice(0, 6);
   const courseById = new Map(allCourses.map((c) => [c.id, c]));
 
   return (
