@@ -20,23 +20,24 @@ export function CourseCard({
       }`}
     >
 
-      <div className="aspect-[16/10] w-full overflow-hidden rounded-t-xl">
+      <div className="h-[120px] w-full overflow-hidden rounded-t-xl sm:h-28 lg:h-32">
         <img
           src={course.cover}
           alt=""
           loading="lazy"
           width={1200}
           height={750}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
         />
       </div>
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="mb-3 font-display text-xl font-bold leading-snug text-calp-blue transition-colors group-hover:opacity-80">
+        <h3 className="mb-2 line-clamp-2 min-h-[3.5rem] font-display text-xl font-bold leading-snug text-calp-blue transition-colors group-hover:opacity-80">
           {course.title}
         </h3>
-        <p className="mb-4 line-clamp-3 flex-1 text-base leading-relaxed text-calp-ink">
+        <p className="mb-4 line-clamp-3 min-h-[4.5rem] flex-1 text-base leading-relaxed text-calp-ink">
           {course.summary}
         </p>
+
         <div className="flex items-end justify-between gap-3">
           <span className="min-w-0 text-base text-calp-ink">
             {course.duration}

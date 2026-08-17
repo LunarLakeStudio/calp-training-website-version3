@@ -147,10 +147,11 @@ function CoursesPage() {
         ) : (
           <AnimatedGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {filtered.map((c) => (
-              <AnimatedGridItem key={c.id} id={c.id}>
-                <div id={c.slug} className="scroll-mt-28">
+              <AnimatedGridItem key={c.id} id={c.id} className="h-full">
+                <div id={c.slug} className="h-full scroll-mt-28">
                   <CourseCard course={c} highlighted={highlightedSlug === c.slug} />
                 </div>
+
               </AnimatedGridItem>
             ))}
 
