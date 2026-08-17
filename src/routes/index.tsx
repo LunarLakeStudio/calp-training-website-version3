@@ -68,14 +68,6 @@ function Index() {
               >
                 Explore courses
               </Link>
-              <a
-                href="https://www.calpnetwork.org"
-                target="_blank"
-                rel="noreferrer"
-                className="w-full rounded-md bg-calp-red px-7 py-3 text-center font-medium text-white transition-opacity hover:opacity-90 sm:w-auto"
-              >
-                Visit the CALP Network website
-              </a>
               <Link
                 to="/calendar"
                 className="w-full rounded-md border border-calp-red bg-transparent px-7 py-3 text-center font-medium text-calp-red transition-colors hover:bg-calp-red hover:text-white sm:w-auto"

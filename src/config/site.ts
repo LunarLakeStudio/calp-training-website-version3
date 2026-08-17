@@ -10,3 +10,6 @@
  * made-up address.
  */
 export const TRAINING_HUB_LOGIN_URL = "";
+
+/** Public CALP Network website — used by the header link and the footer link. */
+export const CALP_NETWORK_URL = "https://www.calpnetwork.org";
