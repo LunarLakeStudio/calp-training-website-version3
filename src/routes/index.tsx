@@ -74,6 +74,14 @@ function Index() {
               >
                 Find a training
               </Link>
+              <a
+                href="https://www.calpnetwork.org"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-md bg-calp-red px-7 py-3 font-medium text-white transition-opacity hover:opacity-90"
+              >
+                Visit the CALP Network website
+              </a>
             </div>
           </div>
 
