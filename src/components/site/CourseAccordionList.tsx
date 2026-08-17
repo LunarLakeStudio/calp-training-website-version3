@@ -7,6 +7,8 @@ import type { Course } from "@/data/courses";
 export function CourseAccordionList({ courses }: { courses: Course[] }) {
   const [openId, setOpenId] = useState<string | null>(null);
   const [canHover, setCanHover] = useState(false);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
