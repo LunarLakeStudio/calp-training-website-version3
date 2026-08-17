@@ -1,8 +1,35 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 
-import { Plus } from "lucide-react";
+import {
+  BarChart3,
+  BookOpen,
+  ClipboardList,
+  Coins,
+  Globe,
+  Plus,
+  ShieldCheck,
+  Users,
+  Workflow,
+} from "lucide-react";
 import type { Course } from "@/data/courses";
+
+const ICONS = [
+  BookOpen,
+  Coins,
+  Users,
+  ShieldCheck,
+  BarChart3,
+  Globe,
+  ClipboardList,
+  Workflow,
+];
+
+function iconFor(slug: string) {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) hash = (hash * 31 + slug.charCodeAt(i)) % 100000;
+  return ICONS[hash % ICONS.length];
+}
 
 export function CourseAccordionList({ courses }: { courses: Course[] }) {
   const [openId, setOpenId] = useState<string | null>(null);
@@ -22,6 +49,7 @@ export function CourseAccordionList({ courses }: { courses: Course[] }) {
     <ul className="flex flex-col gap-2">
       {courses.map((course) => {
         const open = openId === course.id;
+        const CourseIcon = iconFor(course.slug);
         return (
           <li
             key={course.id}
@@ -39,7 +67,15 @@ export function CourseAccordionList({ courses }: { courses: Course[] }) {
                 : "border-calp-blue/10 bg-white hover:border-calp-blue/30"
             }`}
           >
-            <div className="grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3">
+            <div className="grid w-full grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 py-3">
+              <span
+                aria-hidden
+                className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-calp-blue/30 text-calp-blue transition-colors sm:h-9 sm:w-9 ${
+                  open ? "bg-white" : "bg-calp-pale-red-soft"
+                }`}
+              >
+                <CourseIcon className="h-4 w-4" />
+              </span>
               <Link
                 to="/courses"
                 hash={course.slug}
