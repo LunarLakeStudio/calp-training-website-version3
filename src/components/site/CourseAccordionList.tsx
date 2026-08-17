@@ -70,7 +70,7 @@ export function CourseAccordionList({ courses }: { courses: Course[] }) {
             <div className="grid w-full grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 py-3">
               <span
                 aria-hidden
-                className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-calp-blue/30 text-calp-blue transition-colors sm:h-9 sm:w-9 ${
+                className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-calp-red/30 text-calp-red transition-colors sm:h-9 sm:w-9 ${
                   open ? "bg-white" : "bg-calp-pale-red-soft"
                 }`}
               >
