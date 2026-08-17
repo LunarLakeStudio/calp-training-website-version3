@@ -5,6 +5,7 @@ import { LANGS } from "@/i18n/dict";
 import { cn } from "@/lib/utils";
 import { BrandWordmark } from "@/components/site/BrandWordmark";
 import { TrainingHubButton } from "@/components/site/TrainingHubButton";
+import { CALP_NETWORK_URL } from "@/config/site";
 import {
   DropdownMenu,
   DropdownMenuContent,
