@@ -1,8 +1,35 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 
-import { Plus } from "lucide-react";
+import {
+  BarChart3,
+  BookOpen,
+  ClipboardList,
+  Coins,
+  Globe,
+  Plus,
+  ShieldCheck,
+  Users,
+  Workflow,
+} from "lucide-react";
 import type { Course } from "@/data/courses";
+
+const ICONS = [
+  BookOpen,
+  Coins,
+  Users,
+  ShieldCheck,
+  BarChart3,
+  Globe,
+  ClipboardList,
+  Workflow,
+];
+
+function iconFor(slug: string) {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) hash = (hash * 31 + slug.charCodeAt(i)) % 100000;
+  return ICONS[hash % ICONS.length];
+}
 
 export function CourseAccordionList({ courses }: { courses: Course[] }) {
   const [openId, setOpenId] = useState<string | null>(null);
