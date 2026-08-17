@@ -5,7 +5,11 @@
 import { getSharedDb, isSharedDbConfigured } from "@/integrations/supabase/shared.server";
 import type { Database } from "@/integrations/supabase/db-types";
 import { courses as localCourses, type Course } from "@/data/courses";
-import { trainers as localTrainers, type Trainer } from "@/data/trainers";
+import {
+  trainers as localTrainers,
+  featuredTrainers,
+  type Trainer,
+} from "@/data/trainers";
 import { trainings as localTrainings, type Training } from "@/data/trainings";
 
 import shape1 from "@/assets/course-shape-1.png.asset.json";
@@ -265,8 +269,12 @@ export async function fetchTrainers(): Promise<Trainer[]> {
     .eq("share_on_website", true)
     .order("first_name");
   if (error) throw error;
-  return ((data ?? []) as unknown as TrainerRow[]).map((r, i) => mapTrainer(r, i));
+  return [
+    ...featuredTrainers,
+    ...((data ?? []) as unknown as TrainerRow[]).map((r, i) => mapTrainer(r, i)),
+  ];
 }
+
 
 export type TrainerQuery = {
   country?: string | null;
@@ -303,6 +311,12 @@ export async function fetchTrainersPage(f: TrainerQuery): Promise<TrainerPage> {
 
   const db = getSharedDb();
 
+  // Featured trainers are curated in code and always lead the results.
+  const featuredMatched = featuredTrainers.filter((t) => matchesLocal(t, f));
+  const featuredSlice = featuredMatched.slice(f.offset, f.offset + f.limit);
+  const dbOffset = Math.max(0, f.offset - featuredMatched.length);
+  const dbLimit = f.limit - featuredSlice.length;
+
   let allowedIds: string[] | null = null;
   if (f.courseId) {
     const { data, error } = await db
@@ -312,7 +326,12 @@ export async function fetchTrainersPage(f: TrainerQuery): Promise<TrainerPage> {
       .returns<{ trainer_id: string }[]>();
     if (error) throw error;
     allowedIds = (data ?? []).map((r) => r.trainer_id);
-    if (!allowedIds.length) return { trainers: [], total: 0 };
+    if (!allowedIds.length)
+      return { trainers: featuredSlice, total: featuredMatched.length };
+  }
+
+  if (dbLimit <= 0) {
+    return { trainers: featuredSlice, total: featuredMatched.length + 1 };
   }
 
   let q = db
@@ -338,16 +357,20 @@ export async function fetchTrainersPage(f: TrainerQuery): Promise<TrainerPage> {
   const { data, error, count } = await q
     .order("first_name")
     .order("id")
-    .range(f.offset, f.offset + f.limit - 1);
+    .range(dbOffset, dbOffset + dbLimit - 1);
   if (error) throw error;
 
   return {
-    trainers: ((data ?? []) as unknown as TrainerRow[]).map((r, i) =>
-      mapTrainer(r, f.offset + i),
-    ),
-    total: count ?? 0,
+    trainers: [
+      ...featuredSlice,
+      ...((data ?? []) as unknown as TrainerRow[]).map((r, i) =>
+        mapTrainer(r, dbOffset + i),
+      ),
+    ],
+    total: (count ?? 0) + featuredMatched.length,
   };
 }
+
 
 export type TrainerFacets = {
   countries: string[];
