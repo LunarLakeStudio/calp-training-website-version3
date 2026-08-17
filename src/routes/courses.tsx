@@ -33,9 +33,33 @@ export const Route = createFileRoute("/courses")({
 
 function CoursesPage() {
   const { data: courses = [], isLoading } = useCourses();
+  const { hash } = useLocation();
   const [topic, setTopic] = useState<string | null>(null);
   const [lang, setLangFilter] = useState<string | null>(null);
   const [query, setQuery] = useState("");
+  const [highlightedSlug, setHighlightedSlug] = useState<string | null>(null);
+
+  const targetSlug = (hash ?? "").replace(/^#/, "");
+
+  useEffect(() => {
+    if (!targetSlug || isLoading) return;
+    if (!courses.some((c) => c.slug === targetSlug)) return;
+    setTopic(null);
+    setLangFilter(null);
+    setQuery("");
+    setHighlightedSlug(targetSlug);
+    const raf = requestAnimationFrame(() => {
+      document
+        .getElementById(targetSlug)
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    const timer = window.setTimeout(() => setHighlightedSlug(null), 4000);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.clearTimeout(timer);
+    };
+  }, [targetSlug, isLoading, courses]);
+
 
   const topics = useMemo(() => allTopics(courses), [courses]);
   const languages = useMemo(() => allCourseLanguages(courses), [courses]);
