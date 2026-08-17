@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { createFileRoute, useLocation } from "@tanstack/react-router";
+import { useEffect, useMemo, useState } from "react";
 import { useCourses } from "@/hooks/useData";
 import { allTopics, allCourseLanguages } from "@/lib/derive";
 import { CourseCard } from "@/components/site/CourseCard";
@@ -9,6 +9,7 @@ import { AnimatedPageHero } from "@/components/site/AnimatedPageHero";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 import { AnimatedGrid, AnimatedGridItem } from "@/components/site/AnimatedGrid";
+
 
 export const Route = createFileRoute("/courses")({
   head: () => ({
