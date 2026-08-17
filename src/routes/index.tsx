@@ -64,24 +64,24 @@ function Index() {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/courses"
-                className="rounded-md bg-calp-red px-7 py-3 font-medium text-white transition-opacity hover:opacity-90"
+                className="w-full rounded-md bg-calp-red px-7 py-3 text-center font-medium text-white transition-opacity hover:opacity-90 sm:w-auto"
               >
                 Explore courses
-              </Link>
-              <Link
-                to="/calendar"
-                className="rounded-md border border-calp-red px-7 py-3 font-medium text-calp-red transition-colors hover:bg-calp-red hover:text-white"
-              >
-                Find a training
               </Link>
               <a
                 href="https://www.calpnetwork.org"
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-md bg-calp-red px-7 py-3 font-medium text-white transition-opacity hover:opacity-90"
+                className="w-full rounded-md bg-calp-red px-7 py-3 text-center font-medium text-white transition-opacity hover:opacity-90 sm:w-auto"
               >
                 Visit the CALP Network website
               </a>
+              <Link
+                to="/calendar"
+                className="w-full rounded-md border border-calp-red bg-transparent px-7 py-3 text-center font-medium text-calp-red transition-colors hover:bg-calp-red hover:text-white sm:w-auto"
+              >
+                Find a training
+              </Link>
             </div>
           </div>
 
