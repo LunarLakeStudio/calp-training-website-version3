@@ -5,6 +5,7 @@ import { LANGS } from "@/i18n/dict";
 import { cn } from "@/lib/utils";
 import { BrandWordmark } from "@/components/site/BrandWordmark";
 import { TrainingHubButton } from "@/components/site/TrainingHubButton";
+import { CALP_NETWORK_URL } from "@/config/site";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -46,6 +47,16 @@ export function SiteHeader() {
         </div>
 
         <div className="flex shrink-0 items-center gap-4">
+          <a
+            href={CALP_NETWORK_URL}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="CALP Network website (opens in a new tab)"
+            className="hidden shrink-0 whitespace-nowrap text-base font-medium text-white transition-colors hover:text-calp-pale-red-soft lg:inline"
+          >
+            CALP Network <span aria-hidden>↗</span>
+          </a>
+
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1.5 text-base font-medium text-white outline-none focus-visible:ring-2 focus-visible:ring-white">
               <Globe className="h-4 w-4" aria-hidden />
@@ -101,6 +112,16 @@ export function SiteHeader() {
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild className="text-base font-medium text-calp-blue">
                 <Link to="/calendar">Find a training</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild className="text-base text-calp-blue">
+                <a
+                  href={CALP_NETWORK_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="CALP Network website (opens in a new tab)"
+                >
+                  CALP Network <span aria-hidden>↗</span>
+                </a>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

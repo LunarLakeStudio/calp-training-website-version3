@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { BrandWordmark } from "@/components/site/BrandWordmark";
 import { TrainingHubButton } from "@/components/site/TrainingHubButton";
+import { CALP_NETWORK_URL } from "@/config/site";
 
 
 
@@ -11,7 +12,7 @@ export function SiteFooter() {
         <BrandWordmark showSubBrand={false} />
         <div className="flex flex-wrap items-center gap-4 text-base font-medium md:justify-center">
           <a
-            href="https://www.calpnetwork.org"
+            href={CALP_NETWORK_URL}
             target="_blank"
             rel="noreferrer"
             className="text-calp-blue underline-offset-4 hover:underline"
