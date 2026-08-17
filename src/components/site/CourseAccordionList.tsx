@@ -49,6 +49,7 @@ export function CourseAccordionList({ courses }: { courses: Course[] }) {
     <ul className="flex flex-col gap-2">
       {courses.map((course) => {
         const open = openId === course.id;
+        const CourseIcon = iconFor(course.slug);
         return (
           <li
             key={course.id}
