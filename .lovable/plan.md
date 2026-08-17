@@ -1,6 +1,8 @@
 # Make "How to apply" match the Courses / Trainings page style
 
-The page currently opens with a full-width tinted band and a bleeding shape cluster, which no other inner page does. Courses and Trainings both open on plain canvas with the shared animated hero, then a content section on the subtle background pattern with white rounded cards. Bring "How to apply" in line.
+The page currently opens with a full-width pale red band and a bleeding shape cluster, which no other inner page does. Courses and Trainings both open on plain canvas with the shared animated hero, then a content section on the subtle background pattern with white rounded cards. Bring "How to apply" in line.
+
+**Pale red backgrounds behind the shapes go away entirely.** Both `bg-calp-pale-red-soft` bands (hero, line 56, and the closing CTA, line 102) and the two `ShapeClusterCool` / `ShapeClusterWarm` bleeds sitting on them are removed, so the page sits on the same plain canvas / subtle pattern as Courses and Trainings. The pale-soft-red eyebrow chip stays, since that is the shared hero treatment on every other page.
 
 ## Changes (only `src/routes/how-to-apply.tsx`)
 
