@@ -36,7 +36,14 @@ export type Trainer = {
   photo: string;
   region?: string | null;
   courseIds?: string[];
+  featured?: boolean;
+  organisation?: string;
+  certifiedCourses?: string[];
+  bio?: string;
+  email?: string;
+  linkedin?: string;
 };
+
 
 export const TRAINER_REGIONS = [
   "WCAF",
