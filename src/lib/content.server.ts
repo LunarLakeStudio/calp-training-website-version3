@@ -5,7 +5,11 @@
 import { getSharedDb, isSharedDbConfigured } from "@/integrations/supabase/shared.server";
 import type { Database } from "@/integrations/supabase/db-types";
 import { courses as localCourses, type Course } from "@/data/courses";
-import { trainers as localTrainers, type Trainer } from "@/data/trainers";
+import {
+  trainers as localTrainers,
+  featuredTrainers,
+  type Trainer,
+} from "@/data/trainers";
 import { trainings as localTrainings, type Training } from "@/data/trainings";
 
 import shape1 from "@/assets/course-shape-1.png.asset.json";
