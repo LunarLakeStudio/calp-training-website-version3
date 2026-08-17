@@ -265,8 +265,12 @@ export async function fetchTrainers(): Promise<Trainer[]> {
     .eq("share_on_website", true)
     .order("first_name");
   if (error) throw error;
-  return ((data ?? []) as unknown as TrainerRow[]).map((r, i) => mapTrainer(r, i));
+  return [
+    ...featuredTrainers,
+    ...((data ?? []) as unknown as TrainerRow[]).map((r, i) => mapTrainer(r, i)),
+  ];
 }
+
 
 export type TrainerQuery = {
   country?: string | null;
