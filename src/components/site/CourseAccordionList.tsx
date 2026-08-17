@@ -27,7 +27,13 @@ export function CourseAccordionList({ courses }: { courses: Course[] }) {
             key={course.id}
             onMouseEnter={canHover ? () => setOpenId(course.id) : undefined}
             onMouseLeave={canHover ? () => setOpenId((id) => (id === course.id ? null : id)) : undefined}
-            className={`overflow-hidden rounded-xl border transition-colors ${
+            onClick={(e) => {
+              const target = e.target as HTMLElement;
+              if (target.closest("a,button")) return;
+              navigate({ to: "/courses", hash: course.slug });
+            }}
+            className={`cursor-pointer overflow-hidden rounded-xl border transition-colors ${
+
               open
                 ? "border-calp-blue/40 bg-calp-pale-red-soft"
                 : "border-calp-blue/10 bg-white hover:border-calp-blue/30"
