@@ -2,13 +2,24 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import type { Course } from "@/data/courses";
 
-export function CourseCard({ course }: { course: Course }) {
+export function CourseCard({
+  course,
+  highlighted = false,
+}: {
+  course: Course;
+  highlighted?: boolean;
+}) {
   return (
     <Link
       to="/courses/$courseId"
       params={{ courseId: course.slug }}
-      className="group flex flex-col overflow-hidden rounded-xl border border-calp-blue/10 bg-white transition-shadow hover:shadow-lg hover:shadow-calp-blue/10"
+      className={`group flex h-full flex-col overflow-hidden rounded-xl border bg-white transition-all hover:shadow-lg hover:shadow-calp-blue/10 ${
+        highlighted
+          ? "border-calp-blue ring-2 ring-calp-blue bg-calp-pale-red-soft"
+          : "border-calp-blue/10"
+      }`}
     >
+
       <div className="aspect-[16/10] w-full overflow-hidden rounded-t-xl">
         <img
           src={course.cover}

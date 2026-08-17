@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { createFileRoute, useLocation } from "@tanstack/react-router";
+import { useEffect, useMemo, useState } from "react";
 import { useCourses } from "@/hooks/useData";
 import { allTopics, allCourseLanguages } from "@/lib/derive";
 import { CourseCard } from "@/components/site/CourseCard";
@@ -9,6 +9,7 @@ import { AnimatedPageHero } from "@/components/site/AnimatedPageHero";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 import { AnimatedGrid, AnimatedGridItem } from "@/components/site/AnimatedGrid";
+
 
 export const Route = createFileRoute("/courses")({
   head: () => ({
@@ -32,9 +33,33 @@ export const Route = createFileRoute("/courses")({
 
 function CoursesPage() {
   const { data: courses = [], isLoading } = useCourses();
+  const { hash } = useLocation();
   const [topic, setTopic] = useState<string | null>(null);
   const [lang, setLangFilter] = useState<string | null>(null);
   const [query, setQuery] = useState("");
+  const [highlightedSlug, setHighlightedSlug] = useState<string | null>(null);
+
+  const targetSlug = (hash ?? "").replace(/^#/, "");
+
+  useEffect(() => {
+    if (!targetSlug || isLoading) return;
+    if (!courses.some((c) => c.slug === targetSlug)) return;
+    setTopic(null);
+    setLangFilter(null);
+    setQuery("");
+    setHighlightedSlug(targetSlug);
+    const raf = requestAnimationFrame(() => {
+      document
+        .getElementById(targetSlug)
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    const timer = window.setTimeout(() => setHighlightedSlug(null), 4000);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.clearTimeout(timer);
+    };
+  }, [targetSlug, isLoading, courses]);
+
 
   const topics = useMemo(() => allTopics(courses), [courses]);
   const languages = useMemo(() => allCourseLanguages(courses), [courses]);
@@ -123,9 +148,12 @@ function CoursesPage() {
           <AnimatedGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {filtered.map((c) => (
               <AnimatedGridItem key={c.id} id={c.id}>
-                <CourseCard course={c} />
+                <div id={c.slug} className="scroll-mt-28">
+                  <CourseCard course={c} highlighted={highlightedSlug === c.slug} />
+                </div>
               </AnimatedGridItem>
             ))}
+
           </AnimatedGrid>
         )}
       </section>
