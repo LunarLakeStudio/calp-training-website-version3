@@ -22,9 +22,9 @@ import p21 from "@/assets/trainers/portrait-21.jpg";
 import p22 from "@/assets/trainers/portrait-22.jpg";
 import p23 from "@/assets/trainers/portrait-23.jpg";
 import p24 from "@/assets/trainers/portrait-24.jpg";
-import aslamAsset from "@/assets/trainers/featured-aslam-khatti.jpg.asset.json";
-import ebtihalAsset from "@/assets/trainers/featured-ebtihal-ghanem.jpg.asset.json";
-import daudAsset from "@/assets/trainers/featured-daud-abdi-ismail.jpg.asset.json";
+import aslamAsset from "@/assets/trainers/featured-aslam-khatti.png.asset.json";
+import ebtihalAsset from "@/assets/trainers/featured-ebtihal-ghanem.png.asset.json";
+import daudAsset from "@/assets/trainers/featured-daud-abdi-ismail.png.asset.json";
 
 const portraits = [
   p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12,
