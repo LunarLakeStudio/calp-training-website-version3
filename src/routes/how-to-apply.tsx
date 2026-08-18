@@ -29,28 +29,8 @@ export const Route = createFileRoute("/how-to-apply")({
   component: HowToApplyPage,
 });
 
-const STEPS = [
-  {
-    title: "Choose a training",
-    body: "Browse the available trainings and select the one you are interested in. Review the training details, including the course, dates, location, language and eligibility requirements.",
-    circle: "bg-calp-teal",
-  },
-  {
-    title: "Complete the form",
-    body: "Click the Apply button to open the online application form. Complete all required fields, check that the information you have provided is correct and submit your application before the stated deadline.",
-    circle: "bg-calp-blue",
-  },
-  {
-    title: "Review and decision",
-    body: "Your application will then be reviewed by the CALP Network training team. Once a decision has been made, you will receive an email confirming whether your application has been accepted or declined.",
-    circle: "bg-calp-red",
-  },
-  {
-    title: "Good to know",
-    body: "Submitting an application does not guarantee a place. Please check your email regularly, including your spam or junk folder, so you do not miss any updates about your application.",
-    circle: "bg-calp-blue-50",
-  },
-];
+const STEPS = APPLY_STEPS;
+
 
 function HowToApplyPage() {
   return (
