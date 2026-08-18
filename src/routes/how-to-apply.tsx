@@ -86,9 +86,9 @@ function HowToApplyPage() {
 
         <ScrollReveal>
           <div className="relative mt-8">
-            <ShapeClusterCool className="-bottom-14 -left-20 -z-10 h-56 w-56 opacity-60" />
-            <ShapeClusterWarm className="-bottom-16 -right-24 -z-10 h-64 w-64 opacity-70" />
-            <div className="relative rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
+            <ShapeClusterCool className="-bottom-12 -left-20 h-56 w-56 opacity-60" />
+            <ShapeClusterWarm className="-bottom-14 -right-24 h-60 w-60 opacity-70" />
+            <div className="relative z-10 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
             <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div className="min-w-0">
               <h2 className="font-display text-2xl font-bold text-calp-blue">
