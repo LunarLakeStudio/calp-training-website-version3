@@ -69,14 +69,16 @@ export function SiteHeader() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Link
-            to="/calendar"
-            className="hidden rounded-md bg-white px-5 py-2.5 text-base font-medium text-calp-blue transition-opacity hover:opacity-90 sm:inline-flex"
+          <a
+            href={CALP_NETWORK_URL}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit CALP Network (opens in a new tab)"
+            className="hidden shrink-0 items-center gap-2 whitespace-nowrap rounded-md bg-calp-red px-6 py-2.5 text-base font-medium text-white transition-opacity hover:opacity-90 sm:inline-flex"
           >
-            Find a training
-          </Link>
-
-          <TrainingHubButton className="hidden lg:inline-flex" />
+            <span>Visit CALP Network</span>
+            <ArrowUpRight className="h-4 w-4 text-white" aria-hidden />
+          </a>
 
           {/* Mobile / tablet menu */}
           <DropdownMenu>
@@ -88,7 +90,16 @@ export function SiteHeader() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">
               <div className="p-2">
-                <TrainingHubButton className="w-full" />
+                <a
+                  href={CALP_NETWORK_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Visit CALP Network (opens in a new tab)"
+                  className="flex w-full items-center justify-center gap-2 rounded-md bg-calp-red px-4 py-2.5 text-base font-medium text-white transition-opacity hover:opacity-90"
+                >
+                  <span>Visit CALP Network</span>
+                  <ArrowUpRight className="h-4 w-4 text-white" aria-hidden />
+                </a>
               </div>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild className="text-base text-calp-blue">
@@ -100,18 +111,10 @@ export function SiteHeader() {
                 </DropdownMenuItem>
               ))}
               <DropdownMenuSeparator />
-              <DropdownMenuItem asChild className="text-base font-medium text-calp-blue">
-                <Link to="/calendar">Find a training</Link>
-              </DropdownMenuItem>
               <DropdownMenuItem asChild className="text-base text-calp-blue">
-                <a
-                  href={CALP_NETWORK_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="CALP Network website (opens in a new tab)"
-                >
-                  CALP Network <span aria-hidden>↗</span>
-                </a>
+                <div>
+                  <TrainingHubButton variant="link" label="Training Hub Login" />
+                </div>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
