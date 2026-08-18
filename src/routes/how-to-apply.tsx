@@ -1,6 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AnimatedPageHero } from "@/components/site/AnimatedPageHero";
 import {
+  ShapeClusterCool,
+  ShapeClusterWarm,
+} from "@/components/site/BrandShapes";
+import {
   ScrollReveal,
   ScrollRevealGrid,
   ScrollRevealGridItem,
