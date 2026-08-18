@@ -17,7 +17,7 @@ export function SiteFooter() {
             target="_blank"
             rel="noreferrer"
             aria-label="Visit CALP Network (opens in a new tab)"
-            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md bg-calp-red px-6 py-2.5 text-base font-medium text-white transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-calp-red focus-visible:ring-offset-2"
+            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md bg-calp-red px-5 py-2.5 text-base font-medium text-white transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-calp-red focus-visible:ring-offset-2"
           >
             <span>Visit CALP Network</span>
             <ArrowUpRight className="h-4 w-4 text-white" aria-hidden />
