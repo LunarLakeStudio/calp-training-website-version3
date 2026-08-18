@@ -1,6 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AnimatedPageHero } from "@/components/site/AnimatedPageHero";
 import {
+  ShapeClusterCool,
+  ShapeClusterWarm,
+} from "@/components/site/BrandShapes";
+import {
   ScrollReveal,
   ScrollRevealGrid,
   ScrollRevealGridItem,
@@ -36,11 +40,16 @@ const STEPS = APPLY_STEPS;
 function HowToApplyPage() {
   return (
     <>
-      <AnimatedPageHero
-        eyebrow="Applications"
-        title="How to apply for a CALP Network CVA training"
-        intro="Everything you need to know before submitting an application."
-      />
+      <section className="relative overflow-hidden">
+        <ShapeClusterCool className="-left-52 -top-24 h-[135%] w-[24rem] opacity-60" />
+        <ShapeClusterWarm className="-right-44 -bottom-20 h-[130%] w-[24rem] opacity-70" />
+        <AnimatedPageHero
+          className="relative z-10"
+          eyebrow="Applications"
+          title="How to apply for a CALP Network CVA training"
+          intro="Everything you need to know before submitting an application."
+        />
+      </section>
 
       <section className="relative mx-auto max-w-7xl px-6 pb-24">
         <div className="bg-subtle-pattern pointer-events-none absolute inset-x-0 top-0 -z-10 h-full" />
@@ -76,7 +85,11 @@ function HowToApplyPage() {
 
 
         <ScrollReveal>
-          <div className="mt-8 flex flex-col gap-6 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
+          <div className="relative mt-8">
+            <ShapeClusterCool className="-bottom-12 -left-20 h-56 w-56 opacity-60" />
+            <ShapeClusterWarm className="-bottom-14 -right-24 h-60 w-60 opacity-70" />
+            <div className="relative z-10 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div className="min-w-0">
               <h2 className="font-display text-2xl font-bold text-calp-blue">
                 Ready to apply?
@@ -99,6 +112,8 @@ function HowToApplyPage() {
               >
                 Browse courses
               </Link>
+            </div>
+            </div>
             </div>
           </div>
         </ScrollReveal>
