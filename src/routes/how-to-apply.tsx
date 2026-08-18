@@ -5,6 +5,7 @@ import {
   ScrollRevealGrid,
   ScrollRevealGridItem,
 } from "@/components/site/ScrollReveal";
+import { APPLY_NOTE, APPLY_STEPS } from "@/data/apply-steps";
 
 export const Route = createFileRoute("/how-to-apply")({
   head: () => ({
