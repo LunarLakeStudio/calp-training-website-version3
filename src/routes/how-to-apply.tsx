@@ -110,6 +110,7 @@ function HowToApplyPage() {
                 Browse courses
               </Link>
             </div>
+            </div>
           </div>
         </ScrollReveal>
       </section>
