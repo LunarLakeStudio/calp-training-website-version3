@@ -91,31 +91,29 @@ function HowToApplyPage() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <ScrollReveal>
-            <div className="rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm">
-              <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-                <div className="min-w-0">
-                  <h2 className="font-display text-2xl font-bold text-calp-blue">
-                    Ready to apply?
-                  </h2>
-                  <p className="mt-2 max-w-xl text-base leading-relaxed text-calp-ink">
-                    Find an upcoming training that fits your needs, or explore the
-                    full course catalogue first.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  <Link
-                    to="/trainings"
-                    className="rounded-md bg-calp-red px-6 py-3 text-base font-bold text-white transition-opacity hover:opacity-90"
-                  >
-                    Find a Training
-                  </Link>
-                  <Link
-                    to="/courses"
-                    className="rounded-md border border-calp-blue px-6 py-3 text-base font-bold text-calp-blue transition-colors hover:bg-calp-canvas"
-                  >
-                    Browse courses
-                  </Link>
-                </div>
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div className="min-w-0">
+                <h2 className="font-display text-2xl font-bold text-calp-blue">
+                  Ready to apply?
+                </h2>
+                <p className="mt-2 max-w-xl text-base leading-relaxed text-calp-ink">
+                  Find an upcoming training that fits your needs, or explore the
+                  full course catalogue first.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  to="/trainings"
+                  className="rounded-md bg-calp-red px-6 py-3 text-base font-medium text-white transition-opacity hover:opacity-90"
+                >
+                  Find a Training
+                </Link>
+                <Link
+                  to="/courses"
+                  className="rounded-md border border-calp-blue px-6 py-3 text-base font-medium text-calp-blue transition-colors hover:bg-calp-canvas"
+                >
+                  Browse courses
+                </Link>
               </div>
             </div>
           </ScrollReveal>
