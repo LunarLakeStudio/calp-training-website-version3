@@ -36,11 +36,15 @@ const STEPS = APPLY_STEPS;
 function HowToApplyPage() {
   return (
     <>
-      <AnimatedPageHero
-        eyebrow="Applications"
-        title="How to apply for a CALP Network CVA training"
-        intro="Everything you need to know before submitting an application."
-      />
+      <section className="relative overflow-hidden">
+        <ShapeClusterCool className="-left-40 -top-16 h-[130%] w-[22rem] opacity-60" />
+        <ShapeClusterWarm className="-right-32 -bottom-16 h-[120%] w-[20rem] opacity-70" />
+        <AnimatedPageHero
+          eyebrow="Applications"
+          title="How to apply for a CALP Network CVA training"
+          intro="Everything you need to know before submitting an application."
+        />
+      </section>
 
       <section className="relative mx-auto max-w-7xl px-6 pb-24">
         <div className="bg-subtle-pattern pointer-events-none absolute inset-x-0 top-0 -z-10 h-full" />
