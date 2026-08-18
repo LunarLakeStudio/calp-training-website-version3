@@ -45,25 +45,35 @@ function HowToApplyPage() {
       <section className="relative mx-auto max-w-7xl px-6 pb-24">
         <div className="bg-subtle-pattern pointer-events-none absolute inset-x-0 top-0 -z-10 h-full" />
 
-        <ScrollRevealGrid className="grid gap-8 md:grid-cols-2">
+        <ScrollRevealGrid className="grid gap-8 md:grid-cols-3">
           {STEPS.map((step, i) => (
             <ScrollRevealGridItem key={step.title} className="h-full">
               <div className="h-full min-w-0 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm transition-shadow hover:shadow-[0_10px_30px_-14px_rgba(6,91,130,0.45)]">
-                <span
-                  className={`grid h-11 w-11 place-items-center rounded-full text-lg font-bold text-white ${step.circle}`}
-                >
+                <span className="grid h-11 w-11 place-items-center rounded-full bg-calp-blue text-lg font-bold text-white">
                   {i + 1}
                 </span>
                 <h2 className="mt-4 font-display text-xl font-bold text-calp-blue">
                   {step.title}
                 </h2>
                 <p className="mt-2 text-base leading-relaxed text-calp-ink">
-                  {step.body}
+                  {step.full}
                 </p>
               </div>
             </ScrollRevealGridItem>
           ))}
         </ScrollRevealGrid>
+
+        <ScrollReveal>
+          <div className="mt-8 min-w-0 rounded-2xl border border-calp-blue/10 bg-muted p-6">
+            <h2 className="font-display text-xl font-bold text-calp-blue">
+              {APPLY_NOTE.title}
+            </h2>
+            <p className="mt-2 max-w-3xl text-base leading-relaxed text-calp-ink">
+              {APPLY_NOTE.body}
+            </p>
+          </div>
+        </ScrollReveal>
+
 
         <ScrollReveal>
           <div className="mt-8 flex flex-col gap-6 rounded-2xl border border-calp-blue/5 bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
