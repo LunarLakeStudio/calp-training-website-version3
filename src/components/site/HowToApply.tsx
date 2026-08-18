@@ -4,22 +4,10 @@ import {
   ShapeClusterCool,
   ShapeClusterWarm,
 } from "@/components/site/BrandShapes";
+import { APPLY_STEPS } from "@/data/apply-steps";
 
+const STEPS = APPLY_STEPS.map((s) => ({ title: s.title, body: s.short }));
 
-const STEPS = [
-  {
-    title: "Find a training",
-    body: "Browse our calendar and find a course that fits your needs.",
-  },
-  {
-    title: "Complete the application",
-    body: "Fill out the online application and submit the required information.",
-  },
-  {
-    title: "Receive confirmation",
-    body: "We'll review your application and get back to you soon.",
-  },
-];
 
 export function HowToApply() {
   return (
