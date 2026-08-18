@@ -113,6 +113,7 @@ function HowToApplyPage() {
               </Link>
             </div>
             </div>
+            </div>
           </div>
         </ScrollReveal>
       </section>
