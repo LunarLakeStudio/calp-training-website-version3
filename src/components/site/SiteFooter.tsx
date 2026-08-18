@@ -9,7 +9,7 @@ import { CALP_NETWORK_URL } from "@/config/site";
 export function SiteFooter() {
   return (
     <footer className="border-t border-calp-blue/10 bg-white">
-      <div className="mx-auto grid max-w-7xl items-center gap-8 px-6 py-10 md:grid-cols-3">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 px-6 py-10 md:grid-cols-[1fr_auto_1fr]">
         <BrandWordmark showSubBrand={false} />
         <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center md:justify-center">
           <a
