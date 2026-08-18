@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Globe, ChevronDown, Menu } from "lucide-react";
+import { Globe, ChevronDown, Menu, ArrowUpRight } from "lucide-react";
 import { useLang } from "@/i18n/LanguageContext";
 import { LANGS } from "@/i18n/dict";
 import { cn } from "@/lib/utils";
