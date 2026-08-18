@@ -41,8 +41,8 @@ function HowToApplyPage() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <ShapeClusterCool className="-left-48 -top-20 -z-10 h-[130%] w-[22rem] opacity-60" />
-        <ShapeClusterWarm className="-right-40 -bottom-16 -z-10 h-[120%] w-[22rem] opacity-70" />
+        <ShapeClusterCool className="-left-60 -top-24 -z-10 h-[135%] w-[24rem] opacity-60" />
+        <ShapeClusterWarm className="-right-52 -bottom-20 -z-10 h-[130%] w-[24rem] opacity-70" />
         <AnimatedPageHero
           eyebrow="Applications"
           title="How to apply for a CALP Network CVA training"
