@@ -47,16 +47,6 @@ export function SiteHeader() {
         </div>
 
         <div className="flex shrink-0 items-center gap-4">
-          <a
-            href={CALP_NETWORK_URL}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="CALP Network website (opens in a new tab)"
-            className="hidden shrink-0 whitespace-nowrap text-base font-medium text-white transition-colors hover:text-calp-pale-red-soft lg:inline"
-          >
-            CALP Network <span aria-hidden>↗</span>
-          </a>
-
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1.5 text-base font-medium text-white outline-none focus-visible:ring-2 focus-visible:ring-white">
               <Globe className="h-4 w-4" aria-hidden />
