@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { ArrowUpRight } from "lucide-react";
 import { BrandWordmark } from "@/components/site/BrandWordmark";
 import { TrainingHubButton } from "@/components/site/TrainingHubButton";
 import { CALP_NETWORK_URL } from "@/config/site";
@@ -15,9 +16,11 @@ export function SiteFooter() {
             href={CALP_NETWORK_URL}
             target="_blank"
             rel="noreferrer"
-            className="text-calp-blue underline-offset-4 hover:underline"
+            aria-label="Visit CALP Network (opens in a new tab)"
+            className="inline-flex items-center gap-2 whitespace-nowrap rounded-md bg-calp-red px-6 py-2.5 text-base font-medium text-white transition-opacity hover:opacity-90"
           >
-            Visit the CALP Network website
+            <span>Visit CALP Network</span>
+            <ArrowUpRight className="h-4 w-4 text-white" aria-hidden />
           </a>
           <span className="h-4 w-px bg-calp-blue/20" aria-hidden />
           <TrainingHubButton variant="link" label="Training Hub Login" />
