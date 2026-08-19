@@ -85,7 +85,7 @@ function HowToApplyPage() {
       </section>
 
       {/* Three steps */}
-      <section className="relative mx-auto max-w-7xl px-6 pb-20">
+      <section className="relative mx-auto max-w-7xl overflow-hidden px-6 pb-20">
         <div className="bg-subtle-pattern pointer-events-none absolute inset-x-0 top-0 -z-10 h-full" />
         <ShapeClusterWarm className="-right-40 top-4 -z-10 h-[60%] w-[18rem] opacity-55" />
         <ShapeClusterCool className="-left-44 bottom-0 -z-10 h-[55%] w-[18rem] opacity-50" />
