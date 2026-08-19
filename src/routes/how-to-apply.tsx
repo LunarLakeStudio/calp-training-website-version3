@@ -42,6 +42,7 @@ function HowToApplyPage() {
     <>
       {/* Split hero */}
       <section className="relative overflow-hidden">
+        <ShapeClusterCool className="-left-44 top-[42%] h-[85%] w-[38%] opacity-60" />
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pt-14 pb-20 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="relative z-10">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-calp-pale-red-soft px-3 py-1 text-sm font-bold text-calp-blue">
