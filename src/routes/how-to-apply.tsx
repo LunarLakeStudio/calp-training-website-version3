@@ -71,8 +71,8 @@ function HowToApplyPage() {
           </div>
 
           <div className="relative">
-            <ShapeClusterCool className="-left-16 -top-20 -z-10 h-[120%] w-[55%]" />
-            <ShapeClusterWarm className="-bottom-20 -right-20 -z-10 h-[85%] w-[55%]" />
+            <ShapeClusterCool className="-left-24 -top-24 -z-10 h-[125%] w-[55%] opacity-70" />
+            <ShapeClusterWarm className="-bottom-24 -right-24 -z-10 h-[90%] w-[55%] opacity-70" />
             <img
               src={heroAsset.url}
               alt="A training participant completing an online application form on a laptop"
