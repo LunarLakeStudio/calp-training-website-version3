@@ -87,8 +87,8 @@ function HowToApplyPage() {
       {/* Three steps */}
       <section className="relative mx-auto max-w-7xl overflow-hidden px-6 pb-20">
         <div className="bg-subtle-pattern pointer-events-none absolute inset-x-0 top-0 -z-10 h-full" />
-        <ShapeClusterWarm className="-right-20 -top-6 -z-10 h-[55%] w-[16rem] opacity-55" />
-        <ShapeClusterCool className="-left-24 bottom-0 -z-10 h-[50%] w-[16rem] opacity-50" />
+        <ShapeClusterWarm className="right-2 -top-4 -z-10 h-[9rem] w-[15rem] opacity-60" />
+        <ShapeClusterCool className="-left-10 bottom-0 -z-10 h-[8rem] w-[14rem] opacity-55" />
 
         <ScrollReveal>
           <h2 className="mb-10 font-display text-3xl font-bold text-calp-blue">
