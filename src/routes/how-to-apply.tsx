@@ -131,8 +131,9 @@ function HowToApplyPage() {
 
         {/* Information panel */}
         <ScrollReveal>
-          <div className="mt-12 grid gap-10 rounded-2xl bg-calp-pale-blue-soft p-8 md:grid-cols-2 md:p-10">
-            <div className="min-w-0">
+          <div className="relative mt-12 grid gap-10 overflow-hidden rounded-2xl bg-calp-pale-blue-soft p-8 md:grid-cols-2 md:p-10">
+            <ShapeClusterCool className="-right-16 -bottom-16 h-[85%] w-[14rem] opacity-50" />
+            <div className="relative z-10 min-w-0">
               <h2 className="font-display text-xl font-bold text-calp-blue">
                 Before you apply
               </h2>
