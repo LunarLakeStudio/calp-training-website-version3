@@ -152,7 +152,7 @@ function HowToApplyPage() {
                 ))}
               </ul>
             </div>
-            <div className="min-w-0">
+            <div className="relative z-10 min-w-0">
               <h2 className="flex items-center gap-2 font-display text-xl font-bold text-calp-blue">
                 <Info className="h-5 w-5 text-calp-blue" aria-hidden />
                 {APPLY_NOTE.title}
