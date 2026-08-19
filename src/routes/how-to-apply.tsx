@@ -42,6 +42,7 @@ function HowToApplyPage() {
     <>
       {/* Split hero */}
       <section className="relative overflow-hidden">
+        <ShapeClusterCool className="-left-44 top-[42%] h-[85%] w-[38%] opacity-60" />
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pt-14 pb-20 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="relative z-10">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-calp-pale-red-soft px-3 py-1 text-sm font-bold text-calp-blue">
@@ -84,8 +85,10 @@ function HowToApplyPage() {
       </section>
 
       {/* Three steps */}
-      <section className="relative mx-auto max-w-7xl px-6 pb-20">
+      <section className="relative mx-auto max-w-7xl overflow-hidden px-6 pb-20">
         <div className="bg-subtle-pattern pointer-events-none absolute inset-x-0 top-0 -z-10 h-full" />
+        <ShapeClusterWarm className="right-2 -top-6 h-[10rem] w-[16rem] opacity-60" />
+        <ShapeClusterCool className="-left-10 bottom-2 h-[9rem] w-[15rem] opacity-55" />
 
         <ScrollReveal>
           <h2 className="mb-10 font-display text-3xl font-bold text-calp-blue">
@@ -128,8 +131,9 @@ function HowToApplyPage() {
 
         {/* Information panel */}
         <ScrollReveal>
-          <div className="mt-12 grid gap-10 rounded-2xl bg-calp-pale-blue-soft p-8 md:grid-cols-2 md:p-10">
-            <div className="min-w-0">
+          <div className="relative mt-12 grid gap-10 overflow-hidden rounded-2xl bg-calp-pale-blue-soft p-8 md:grid-cols-2 md:p-10">
+            <ShapeClusterCool className="-right-16 -bottom-16 h-[85%] w-[14rem] opacity-50" />
+            <div className="relative z-10 min-w-0">
               <h2 className="font-display text-xl font-bold text-calp-blue">
                 Before you apply
               </h2>
@@ -148,7 +152,7 @@ function HowToApplyPage() {
                 ))}
               </ul>
             </div>
-            <div className="min-w-0">
+            <div className="relative z-10 min-w-0">
               <h2 className="flex items-center gap-2 font-display text-xl font-bold text-calp-blue">
                 <Info className="h-5 w-5 text-calp-blue" aria-hidden />
                 {APPLY_NOTE.title}
